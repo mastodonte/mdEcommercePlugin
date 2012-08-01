@@ -1,0 +1,1 @@
+<img alt="" src="<?php echo mdWebImage::getUrl($ec_manufacturer->getSrc(), array(mdWebOptions::WIDTH => 200, mdWebOptions::HEIGHT => 70, mdWebOptions::CODE => mdWebCodes::RESIZECROP)); ?>" height="70" />

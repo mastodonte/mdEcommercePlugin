@@ -1,0 +1,55 @@
+######### BACKEND ##########
+
+ec_manufacturer:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ecManufacturer
+    module:               marcasBackend
+    prefix_path:          /marcas
+    column:               id
+    with_wildcard_routes: true
+
+ec_product:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ecProduct
+    module:               productosBackend
+    prefix_path:          /productos
+    column:               id
+    with_wildcard_routes: true
+
+ec_category:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ecCategory
+    module:               categoriasBackend
+    prefix_path:          /categorias
+    column:               id
+    with_wildcard_routes: true
+
+ec_category_associate:
+  url: category/associate
+  param: { module: categorias, action: associate }
+
+
+###########################
+
+
+######### FRONTEND ##########
+mdCart-init:
+  url:   /mdcart/init
+  param: { module: mdCart, action: initCart }
+  
+mdCart-add:
+  url:   /mdcart/add
+  param: { module: mdCart, action: addCart }
+  
+mdCart-remove:
+  url:   /mdcart/remove
+  param: { module: mdCart, action: removeCart }
+
+mdCart-clear:
+  url:   /mdcart/clear
+  param: { module: mdCart, action: clearCart }
+  
+###########################

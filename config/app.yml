@@ -1,0 +1,4 @@
+all:
+  configuration:
+    
+    MD_CURRENCY_DEFAULT: 1

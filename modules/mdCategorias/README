@@ -1,0 +1,42 @@
+MODO DE USO e INSTALACION
+
+1- Habilitar el modulo mdCategorias en el settings de la aplicacion donde quieras mostrar el menu
+
+2- Incluir el componente de la siguiente manera:
+
+<?php include_component('mdCategorias', 'menu', array('maxdepth' => 2, 'sf_cache_key' => ecCategory::PREFIX_SYMFONY_CACHE_KEY . '_menu_' . $sf_user->getCulture() . '_2')); ?>
+
+NOTAS: 
+  maxdepth: Es el nivel maximo de anidacion que se quiere
+  sf_cache_key: Debe comenzar siempre con ecCategory::PREFIX_SYMFONY_CACHE_KEY para poder hacer uso de cache automatico
+                el resto de los parametros dependen de la instalacion y queda a criterio del instalador.
+
+3- Sobreescribir el template _menu.php
+
+<?php
+/* ************** */
+/* EJEMPLO DE USO PARA UN MENU DE 2 niveles */
+
+/* Obtenemos cantidad y quitamos el sfOutputEscaperArrayDecorator */
+$count = $categorias->count();
+$records = $categorias->getRawValue();
+/* ************** */
+?>
+
+<?php foreach($categorias as $categoria): ?>
+
+  <?php $children = $categoria['children']; ?>
+  
+  <ul>
+    <li><?php echo $categoria['name']; ?>
+      <?php if(count($children) > 0): ?>
+        <ul>
+          <?php foreach($children as $child): ?>
+            <li><a href="#"><?php echo $child['name']; ?></a></li>
+          <?php endforeach; ?>
+        </ul>
+      <?php endif; ?>
+    </li>
+  </ul>
+  
+<?php endforeach; ?>

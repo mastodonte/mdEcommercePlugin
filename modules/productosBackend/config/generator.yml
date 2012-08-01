@@ -1,0 +1,39 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ecProduct
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          ec_product
+    with_doctrine_route:   true
+    actions_base_class:    sfActions
+
+    config:
+      actions: ~
+      fields:
+        name: { label: Nombre }
+        number: { label: Numero de producto }
+        copete: { label: Copete }
+        description: { label: Descripcion }
+        quantity: { label: Cantidad }
+        model: { label: Modelo }
+        price: { label: Precio }
+        display_price: { label: Precio }
+        price_offer: { label: Precio de Oferta }
+        active: { label: Activo }
+        status: { label: 'Cuando no hay stock' }
+        out_of_stock: { label: 'Stock' }
+        in_offer: { label: 'En Oferta' }
+        ec_manufacturer_id: { label: Marcas }
+        ec_providers_list: { label: Proveedores }
+        ec_categories_list: { label: Categorias }        
+      list:
+        display: [=id, =name, display_price, quantity, _active, _out_of_stock, _in_offer]
+        table_method: addTranslation
+      filter:  ~
+      form:    ~
+      edit:    ~
+      new:     ~

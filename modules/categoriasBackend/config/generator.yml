@@ -1,0 +1,36 @@
+generator:
+  class: sfDoctrineGenerator
+  param:
+    model_class:           ecCategory
+    theme:                 admin
+    non_verbose_templates: true
+    with_show:             false
+    singular:              ~
+    plural:                ~
+    route_prefix:          ec_category
+    with_doctrine_route:   true
+
+    config:
+      actions: ~
+      fields:  ~
+      list:
+        max_per_page: 999999
+        batch_actions:
+          order:
+            label: Actualizar orden
+          _delete: ~
+        object_actions:
+          new:
+            label: Agregar sub-categoria
+          _edit:    ~
+          _delete:  ~
+        actions:
+          _new:
+            label: Agregar categoria padre
+        display: [id, name]
+        table_method: addTranslation
+      filter:
+        class: false
+      form:    ~
+      edit:    ~
+      new:     ~
