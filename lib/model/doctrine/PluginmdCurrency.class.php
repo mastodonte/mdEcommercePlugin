@@ -14,6 +14,8 @@ abstract class PluginmdCurrency extends BasemdCurrency
 {
   const COOKIE_CURRENCY_NAME = '__MD_CUR';
   
+  public static $currency = NULL;
+  
   public static function storageCurrency($currency_id) {
     
     if (is_numeric($currency_id)) {
@@ -27,12 +29,16 @@ abstract class PluginmdCurrency extends BasemdCurrency
   
   public static function loadCurrency(){
     
+    if(!is_null(self::$currency))
+      return self::$currency;
+    
     $cookie_currency_id = sfContext::getInstance()->getRequest()->getCookie(mdCurrency::COOKIE_CURRENCY_NAME);
     
     if ((int) $cookie_currency_id) {
       $currency = Doctrine::getTable('mdCurrency')->find($cookie_currency_id);
       if ($currency && $currency->getActive()){
-        return $currency->getId();
+        self::$currency = $currency;
+        return $currency;
       }
     }
 
@@ -42,7 +48,9 @@ abstract class PluginmdCurrency extends BasemdCurrency
     
     if ($currency && $currency->getActive()){
       
-      return $currency->getId();
+      self::$currency = $currency;
+      self::storageCurrency($currency->getId());
+      return $currency;
       
     }else{
       

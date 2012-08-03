@@ -10,7 +10,9 @@
  */
 abstract class PluginecCategoryTranslationForm extends BaseecCategoryTranslationForm {
 
-  public function configure() {
+  public function setup() {
+    parent::setup();
+    
     $this->widgetSchema['name'] = new sfWidgetFormInputText(array('label' => 'Nombre'));
   }
 

@@ -12,5 +12,23 @@
  */
 abstract class PluginmdOrderDetail extends BasemdOrderDetail
 {
+  public function getDisplayPrice() {
+    return Tools::displayPrice((float) $this->getItemPrice());
+  }
 
+  public function getTotal($qty) {
+    return (float) $this->getItemPrice() * (int) ($qty);
+  }
+
+  public function getDisplayTotal($qty) {
+    return Tools::displayPrice((float) $this->getTotal($qty));
+  }
+  
+  public function getSlug() {
+    return mdBasicFunction::slugify($this->getItemName());
+  }
+  
+  public function getEcProduct(){
+    return Doctrine::getTable('ecProduct')->find($this->getItemId());
+  }
 }

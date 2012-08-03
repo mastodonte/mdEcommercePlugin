@@ -31,7 +31,8 @@ generator:
         ec_providers_list: { label: Proveedores }
         ec_categories_list: { label: Categorias }        
       list:
-        display: [=id, =name, display_price, quantity, _active, _out_of_stock, _in_offer]
+        #display: [=id, =name, display_price, quantity, _active, _out_of_stock, _in_offer]
+        display: [=id, =name, display_price]
         table_method: addTranslation
       filter:  ~
       form:    ~

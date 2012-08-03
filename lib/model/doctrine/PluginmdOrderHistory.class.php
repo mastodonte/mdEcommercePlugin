@@ -12,5 +12,9 @@
  */
 abstract class PluginmdOrderHistory extends BasemdOrderHistory
 {
-
+  public function postSave($event) {
+    $mdOrder = $this->getMdOrder();
+    $mdOrder->setMdOrderStateId($this->getMdOrderStateId());
+    $mdOrder->save();
+  }
 }

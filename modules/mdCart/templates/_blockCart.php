@@ -1,6 +1,6 @@
 <?php use_helper('Text'); ?>
 
-<?php $colapseExpandStatus = 'expanded'; ?>
+<?php $colapseExpandStatus = $sf_user->getAttribute('display', 'expanded', 'mdCart'); ?>
 
 <?php if(is_null($cart)): ?>
 
@@ -8,10 +8,10 @@
 <div id="cart_block" class="block exclusive">
   
   <h4>
-    <a href="order_process.php">Carrito</a>
+    <a href="<?php echo url_for('@mdCart-order'); ?>"><?php echo ucfirst(__('mdCart_Carrito')); ?></a>
     
-    <span id="block_cart_expand" <?php if (isset($colapseExpandStatus) && $colapseExpandStatus == 'expanded' || !isset($colapseExpandStatus)): ?>class="hidden"<?php endif; ?>>&nbsp;</span>
-    <span id="block_cart_collapse" <?php if (isset($colapseExpandStatus) && $colapseExpandStatus == 'collapsed'): ?>class="hidden"<?php endif; ?>>&nbsp;</span>
+    <span id="block_cart_expand" <?php echo (isset($colapseExpandStatus) && $colapseExpandStatus == 'expanded' || !isset($colapseExpandStatus) ? '' : 'class="hidden"'); ?>>&nbsp;</span>
+    <span id="block_cart_collapse" <?php echo (isset($colapseExpandStatus) && $colapseExpandStatus == 'collapsed' ? '' : 'class="hidden"'); ?>>&nbsp;</span>
   </h4>
   
   <div class="block_content">
@@ -19,17 +19,17 @@
     <div class="collapsed" id="cart_block_summary">
       <span style="display: none;" class="ajax_cart_quantity">0</span>
       <span style="display:none" class="ajax_cart_product_txt"></span>
-      <span style="display: none;" class="ajax_cart_total">0,00 €</span>
+      <span style="display: none;" class="ajax_cart_total">0,00</span>
       <span class="ajax_cart_no_product" style="display: inline-block;">(<?php echo __('mdCart_vacio'); ?>)</span>
     </div>
     
     <!-- block list of products -->
     <div class="expanded" id="cart_block_list">
-      <p id="cart_block_no_products" style="opacity: 1; display: block;">Sin producto</p>
+      <p id="cart_block_no_products" style="opacity: 1; display: block;"><?php echo __('mdCart_sin productos'); ?></p>
 
       <p id="cart-prices">
-        <span>Total</span>
-        <span class="price ajax_block_cart_total" id="cart_block_total">0,00 €</span>
+        <span><?php echo __('mdCart_Total'); ?></span>
+        <span class="price ajax_block_cart_total" id="cart_block_total">0,00</span>
       </p>
     </div>
   </div>
@@ -42,7 +42,7 @@
 <div id="cart_block" class="block exclusive">
   
   <h4>
-    <a href="order_process.php">Carrito</a>
+    <a href="<?php echo url_for('@mdCart-order'); ?>"><?php echo ucfirst(__('mdCart_Carrito')); ?></a>
     
     <span id="block_cart_expand" <?php echo (isset($colapseExpandStatus) && $colapseExpandStatus == 'expanded' || !isset($colapseExpandStatus) ? 'class="hidden"' : ''); ?>>&nbsp;</span>
     <span id="block_cart_collapse" <?php echo ((isset($colapseExpandStatus) && $colapseExpandStatus == 'collapsed') ? 'class="hidden"' : '' ); ?>>&nbsp;</span>
@@ -53,16 +53,16 @@
     <!-- block summary -->
     <div id="cart_block_summary" class="<?php echo (isset($colapseExpandStatus) && $colapseExpandStatus == 'expanded' || !isset($colapseExpandStatus) ? 'collapsed' : 'expanded') ?>">
       
-      <span class="ajax_cart_quantity" style="display:<?php echo (($cart->getQuantity() <= 0) ? 'none' : 'block'); ?>">
+      <span class="ajax_cart_quantity" style="display:<?php echo (($cart->getQuantity() <= 0) ? 'none' : 'inline'); ?>">
         <?php echo $cart->getQuantity(); ?>
       </span>
-      <span class="ajax_cart_product_txt" style="display:<?php echo (($cart->getQuantity() <= 0) ? 'none' : 'block'); ?>">
-        <?php echo format_number_choice('(-Inf,0]' . __('mdCart_producto') . '|(1,+Inf]' . __('mdCart_productos'), array(), $cart->getQuantity() ); ?>
+      <span class="ajax_cart_product_txt" style="display:<?php echo (($cart->getQuantity() <= 0) ? 'none' : 'inline'); ?>">
+        <?php echo format_number_choice('(-Inf,1]' . __('mdCart_producto') . '|(1,+Inf]' . __('mdCart_productos'), array(), $cart->getQuantity() ); ?>
       </span>
-      <span class="ajax_cart_total" style="display:<?php echo (($cart->getQuantity() <= 0) ? 'none' : 'block'); ?>">
-          <?php echo $cart->getTotal(); ?>
+      <span class="ajax_cart_total" style="display:<?php echo (($cart->getQuantity() <= 0) ? 'none' : 'inline'); ?>">
+        <?php echo $cart->getDisplayTotal(); ?>
       </span>
-      <span class="ajax_cart_no_product" style="display:<?php echo (($cart->getQuantity() > 0) ? 'none' : 'block'); ?>">
+      <span class="ajax_cart_no_product" style="display:<?php echo (($cart->getQuantity() > 0) ? 'none' : 'inline'); ?>">
         <?php echo __('mdCart_vacio'); ?>
       </span>
       
@@ -87,12 +87,14 @@
                   echo 'item';
                 } ?>">
                 
-                <span class="quantity-formated"><span class="quantity"><?php echo $product->getQuantity(); ?></span>x</span>
+                <span class="quantity-formated">
+                  <span class="quantity"><?php echo $cartItem->getQuantity(); ?></span> x
+                </span>                
                 <a class="cart_block_product_name" href="<?php echo url_for('@homepage'); ?>" title="<?php echo $product->getName(); ?>">
-                  <?php echo truncate_text($product->getName(), 13); ?>
+                  &nbsp;<?php echo truncate_text($product->getName(), 16); ?>
                 </a>                
-                <span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="<?php echo url_for('@homepage'); ?>" title="<?php echo __('mdCart_eliminar producto de mi carrito'); ?>">&nbsp;</a></span>
-                <span class="price"><?php echo $product->getDisplayPrice(); ?></span>                
+                <span class="remove_link"><a rel="nofollow" class="ajax_cart_block_remove_link" href="<?php echo url_for('@mdCart-remove') . '?product_id=' . $product->getId(); ?>" title="<?php echo __('mdCart_eliminar producto de mi carrito'); ?>">&nbsp;</a></span>
+                <span class="price"><?php echo $product->getDisplayTotal($cartItem->getQuantity()); ?></span>                
               </dt>
 
           <?php endforeach; ?>
@@ -105,13 +107,13 @@
         <!--<span><?php //echo __('mdCart_shipping'); ?></span>
         <span id="cart_block_shipping_cost" class="price ajax_cart_shipping_cost"><?php //echo $shipping_cost; ?></span>
         <br/>-->
-        <span><?php echo __('mdCart_total'); ?></span>
-        <span id="cart_block_total" class="price ajax_block_cart_total"><?php echo $cart->getTotal(); ?></span>
+        <span><?php echo __('mdCart_Total'); ?></span>
+        <span id="cart_block_total" class="price ajax_block_cart_total"><?php echo $cart->getDisplaySubTotal(); ?></span>
       </p>
       
       <p id="cart-buttons">
-	<a href="<?php echo url_for('@homepage'); ?>" class="button_small" title=""><?php echo __('mdCart_carrito'); ?></a>
-        <a href="<?php echo url_for('@homepage'); ?>" id="button_order_cart" class="exclusive" title=""><?php echo __('mdCart_Check out'); ?></a>
+	<a href="<?php echo url_for('@mdCart-order'); ?>" class="button_small" title=""><?php echo __('mdCart_Carrito'); ?></a>
+        <a href="<?php echo url_for('@mdCart-checkout'); ?>" id="button_order_cart" class="exclusive" title=""><?php echo __('mdCart_Check out'); ?></a>
       </p>
       
     </div>

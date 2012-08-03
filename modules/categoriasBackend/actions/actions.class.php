@@ -168,6 +168,26 @@ class categoriasBackendActions extends autoCategoriasBackendActions
     }
     
     return $this->renderText(mdBasicFunction::basic_json_response(true, array('message' => 'Se han asociado las categorias correctamente.')));
-  }  
+  }
+  
+  public function executeTree(sfWebRequest $request)
+  {
+    $object= Doctrine::getTable('ecProduct')->find($request->getParameter('object_id'));
+    $result = array();
+    
+    if($request->getParameter('root') == "source"){
+      $roots = ecCategory::getRoots();
+      foreach($roots as $root){
+        $result[] = ecCategory::getTreeForAssociate($object, $root->getId(), 1);
+      }      
+    }else{
+      $data = ecCategory::getTreeForAssociate($object, $request->getParameter('root'), 2);
+
+      if(is_array($data) && array_key_exists('children', $data))
+        $result = $data['children'];
+    }
+    
+    return $this->renderText(json_encode($result));
+  }
 }
 

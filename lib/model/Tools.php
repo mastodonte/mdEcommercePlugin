@@ -6,8 +6,6 @@ class Tools {
 
   const MD_ROUND_DOWN = 'down';
   
-  const COOKIE_KEY = 'Etn0d0ts4m3dy3k31k00c4l4r4p3v41c41s34ts3';
-  
   public static function md_round($value, $precision = 0) {
     $method = self::MD_ROUND_UP; // TODO: hacerlo configurable
     if ($method == self::MD_ROUND_UP)
@@ -50,26 +48,22 @@ class Tools {
    * @param object $currency Current currency (object, id_currency, NULL => getCurrent())
    * @return string Price correctly formated (sign, decimal separator...)
    */
-  public static function displayPrice($price, $currency = NULL) {
-    if ($currency === NULL)
-      $currency = mdCurrency::loadCurrency();
-    /* if you modified this function, don't forget to modify the Javascript function formatCurrency (in tools.js) */
-    if (is_int($currency))
-      $currency = Currency::getCurrencyInstance((int) $currency);
-
-    if (is_array($currency)) {
-      $c_char = $currency['sign'];
-      $c_format = $currency['format'];
-      $c_decimals = (int) $currency['decimals'] * _PS_PRICE_DISPLAY_PRECISION_;
-      $c_blank = $currency['blank'];
-    } elseif (is_object($currency)) {
-      $c_char = $currency->sign;
-      $c_format = $currency->format;
-      $c_decimals = (int) $currency->decimals * _PS_PRICE_DISPLAY_PRECISION_;
-      $c_blank = $currency->blank;
-    }
+  public static function displayPrice($price, $currency_id = NULL) {
+    if ($currency_id === NULL)
+      $currency_id = mdCurrency::loadCurrency();
+    
+    /* if you modified this function, don't forget to modify the Javascript function formatCurrency (in tools.js) TODO: ver */
+    if (is_int($currency_id))
+      $currency = Doctrine::getTable('mdCurrency')->find($currency_id);
     else
-      return false;
+      $currency = $currency_id;
+    
+    $_PS_PRICE_DISPLAY_PRECISION_ = 2; // TODO do configurable
+
+    $c_char = $currency->getSign();
+    $c_format = $currency->getFormat();
+    $c_decimals = (int) $currency->getDecimals() * $_PS_PRICE_DISPLAY_PRECISION_;
+    $c_blank = $currency->getBlank();
 
     $blank = ($c_blank ? ' ' : '');
     $ret = 0;
@@ -136,10 +130,42 @@ class Tools {
    *
    * @param object $object Object to display
    */
-  public static function encrypt($passwd) {
-    return md5(self::COOKIE_KEY . $passwd);
+  public static function encrypt($string) {
+    return md5(sfConfig::get('app_configuration_MD_SECURITY_KEY') . $string);
   }
 
+  public static function generateKey($len = 6) {
+    $pass = '';
+    for ($i = 0; $i < $len; $i++) {
+      $pass.= chr(rand(0, 25) + ord('a'));
+    }
+    return $pass;
+  }
+  
+  /**
+   * Envia un mail al usuario con los datos del metodo de pago
+   * 
+   * @param type $module_label
+   * @param type $to
+   * @param type $cart 
+   */
+  public static function sendCustomerMail($module_label, $to, $order, $link = NULL)
+  {
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N', 'Partial'));
+    
+    $from = sfConfig::get('app_configuration_MD_SALE_FROM');
+
+    $partial = get_partial($module_label . '/resume_mail', array('order' => $order, 'link' => $link));
+
+    $options = array();
+    $options['sender']    = array('name' => __('Mail_Name of Company'), 'email' => $from);
+    $options['body']      = $partial;
+    $options['subject']   = __("Mail_subject " . $module_label);
+    $options['recipients'] = $to;
+    
+    mdMailHandler::sendMail($options);
+  }  
+  
 }
 
 ?>

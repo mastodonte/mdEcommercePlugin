@@ -10,20 +10,11 @@
  */
 abstract class PluginecProductForm extends BaseecProductForm {
 
-  public function configure() {
+  public function setup() {
+    parent::setup();
+    
     unset($this['created_at'], $this['updated_at'], $this['ec_categories_list'], $this['viewed']);
 
-    $this->widgetSchema['warranty'] = new sfWidgetFormTextareaTinyMCE(
-        array(
-          'showTiny' => true,
-          'width' => 500,
-          'height' => 300,
-          'config' => '
-                  theme_advanced_buttons1 : "bold,italic,separator,bullist,separator,link, sub,sup,separator,charmap,image",
-                  theme_advanced_buttons2 : "",
-                  theme_advanced_buttons3 : "",
-                  theme_advanced_path : false
-                  '));
     /* array(
       'width'  => 550,
       'height' => 150,

@@ -1,7 +1,12 @@
-<?php
+<div id="md_order_list">
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+  <?php include_component('mdCart', 'list'); ?>
+
+</div>
+
+<?php // Si el sitio maneja descuentos mostramos ?>
+<div id="md_order_discounts">
+  
+  <?php include_partial('mdCart/discount'); ?>  
+  
+</div>

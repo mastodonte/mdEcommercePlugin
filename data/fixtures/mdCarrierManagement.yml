@@ -1,0 +1,25 @@
+mdCarrier:
+
+  free:
+    label: free
+    is_free: true
+    active: 1
+    checked: 0
+    Translation:
+      es:
+        name: "Free"
+        
+  mycarrier:
+    label: mycarrier
+    is_free: false
+    active: 1
+    checked: 1
+    Translation:
+      es:
+        name: "SuperVentas"
+
+mdDelivery:
+
+  default:
+    price: 4.5
+    mdCarrier: mycarrier

@@ -1,0 +1,33 @@
+mdPaymentModule:
+  
+  abitab:
+    label: abitab
+    active: 1
+    checked: 1
+    Translation:
+      es:
+        name: "Abitab"
+
+  redpagos:
+    label: redpagos
+    active: 1
+    checked: 0
+    Translation:
+      es:
+        name: "Red Pagos"
+        
+  cashondelivery:
+    label: cashondelivery
+    active: 1
+    checked: 0
+    Translation:
+      es:
+        name: "Contra Entrega"
+        
+  brou:
+    label: brou
+    active: 1
+    checked: 0
+    Translation:
+      es:
+        name: "Brou"        

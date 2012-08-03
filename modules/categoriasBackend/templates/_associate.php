@@ -1,4 +1,6 @@
 <?php use_javascript('../mdEcommercePlugin/js/categoriasBackend/associate/jquery.treeview.js', 'last'); ?>
+<?php use_javascript('../mdEcommercePlugin/js/categoriasBackend/associate/jquery.treeview.edit.js', 'last'); ?>
+<?php use_javascript('../mdEcommercePlugin/js/categoriasBackend/associate/jquery.treeview.async.js', 'last'); ?>
 <?php use_stylesheet('../mdEcommercePlugin/css/categoriasBackend/associate/jquery.treeview.css', 'last'); ?>
 
 <h1>Categorias</h1>
@@ -12,46 +14,26 @@
 <div id="ec_drawer" class="notice" style="display: none;"></div>
 
 <form id="ec_categorias_form" action="<?php echo url_for('@ec_category_associate'); ?>" method="POST" name="ec_category">
-  
+
   <input name="object_id" type="hidden" value="<?php echo $object->getId(); ?>" />
   
-  <ul id="navigation">
-    <?php $prevLevel = 0; ?>
-
-    <?php foreach ($categorias as $record): ?>
-
-      <?php if ($prevLevel > 0 && $record->getLevel() == $prevLevel)
-        echo '</li>'; ?>    
-      <?php
-      if ($record->getLevel() > $prevLevel)
-        echo '<ul>';
-      elseif ($record->getLevel() < $prevLevel)
-        echo str_repeat('</ul></li>', $prevLevel - $record->getLevel());
-      ?>
-
-      <li id ="node<?php echo $record->getId(); ?>">
-        <span><input type="checkbox" name="categorias[]" value="<?php echo $record->getId(); ?>" <?php echo (($object->hasCategory($record->getId())) ? 'checked=""' : ''); ?> style="position: relative; top: 3px;"> <?php echo $record->getName(); ?></span>
-
-        <?php $prevLevel = $record->getLevel();
-
-      endforeach; ?>
-    </li>
-  </ul>
+  <ul id="black"></ul>
+  
   <input type="submit" value="Agregar" />
-</form>
+  
+</form>  
 
 <script type="text/javascript">
-  $(document).ready(function(){
+  /*$(document).ready(function(){
 
     // second example
     $("#navigation").treeview({
-      //control: "#treecontrol",
       persist: "location",
       collapsed: true,
       unique: true
     });
 
-  });
+  });*/
 
   function addCategories(form){
     mdShowLoading();
@@ -79,3 +61,32 @@
     });
   });
 </script>
+
+
+  
+<script type="text/javascript">
+function initTrees() {
+  $("#black").treeview({
+    url: "<?php echo url_for('@ec_category_subtree') . '?object_id=' . $object->getId(); ?>"
+  });
+}
+$(document).ready(function(){
+  initTrees();
+  $("#refresh").click(function() {
+    $("#black").empty();
+    initTrees();
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+

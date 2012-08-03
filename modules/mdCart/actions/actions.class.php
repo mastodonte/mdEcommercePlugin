@@ -20,6 +20,15 @@ class mdCartActions extends sfActions
     return $this->renderText(mdCartController::getInstance()->run('add', array($product_id, $quantity)));
   }
   
+  public function executeUpdateCart(sfWebRequest $request) 
+  {
+    // Obtenemos parametros
+    $product_id = $request->getParameter('product_id');
+    $quantity = $request->getParameter('quantity');
+
+    return $this->renderText(mdCartController::getInstance()->run('update', array($product_id, $quantity)));
+  }
+  
   public function executeRemoveCart(sfWebRequest $request) 
   {
     // Obtenemos parametros
@@ -33,10 +42,72 @@ class mdCartActions extends sfActions
     return $this->renderText(mdCartController::getInstance()->run('clear', array()));
   }
   
-  public function executeInitCart(sfWebRequest $request) 
-  {
-    return $this->renderText('OK');
+  // Si se quiere mejorar performance adaptar esta funcionalidad en el onload ejecutar un ajax aqui
+  //public function executeInitCart(sfWebRequest $request) 
+  //{
+    //return $this->renderText('OK');
     //mdCartController::getInstance()->run('init', array());
+  //}
+
+  public function executeDisplayCart(sfWebRequest $request)
+  {
+    $this->getUser()->setAttribute('display', $request->getParameter('display'), mdCart::MD_CART_NAMESPACE);
+    return $this->renderText('OK');
+  }
+  
+  public function executeOrderCart(sfWebRequest $request)
+  {
+    $this->redirectUnless($this->cart = mdCartController::getInstance()->init(), '@homepage');
+   
+    $this->setTemplate('order');
+  }
+  
+  public function executeCheckoutCart(sfWebRequest $request)
+  {
+    if($this->getUser()->isAuthenticated())
+    {
+      // TODO
+      $this->cart = mdCartController::getInstance()->init();
+      $this->setTemplate('confirm');
+    }
+    else
+    {
+      $this->redirect('@mdCart-authentication');
+    }
   }
 
+  public function executePaymentCart(sfWebRequest $request)
+  {
+    if($this->getUser()->isAuthenticated())
+    {
+      try{
+
+        // Creamos la orden
+        $md_order = mdCartController::getInstance()->validate($request->getParameter('payment'), sfConfig::get('app_configuration_MD_NOTPAY'));
+
+        //REDIRIJO AL MODULO PARTICULAR
+        $this->redirect($request->getParameter('payment') . '/index?id=' . $md_order->getId());
+
+      }catch(Exception $e){
+
+        $this->getUser()->setFlash('error', $e->getMessage());
+        $this->redirect('@homepage');
+
+      }
+    }
+    else
+    {
+      $this->redirect('@mdCart-authentication');
+    }    
+  }
+  
+  public function executeAuthCart(sfWebRequest $request)
+  {
+    $this->setTemplate('auth');
+  }
+  
+  public function executePaymentFinish(sfWebRequest $request)
+  {
+    $this->setTemplate('finish');
+  }  
 }

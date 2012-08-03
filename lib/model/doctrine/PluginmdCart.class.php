@@ -14,16 +14,73 @@ abstract class PluginmdCart extends BasemdCart
 {
   const COOKIE_CART_NAME = '__MD_CAR';
   
-  public function orderExists(){
-    return false;
-  }
+  const MD_CART_NAMESPACE = 'mdCart';
   
-  public function getTotal() {
-    return '120.00 USD';
-    //return ($this->total * (1 + $this->tax_percentage / 100)) + $this->selectedQuoteAmount - $this->coupondiscount;
+  public function orderExists(){
+    return Doctrine::getTable('mdOrder')->findOneBy('md_cart_id', $this->getId());
   }
   
   public function getQuantity(){
-    return 10;
+    $cartItems = $this->getMdCartProducts();
+    
+    if(!$cartItems) return 0;
+
+    $qty = 0;
+    foreach($cartItems as $cartItem){
+      $qty+= $cartItem->getQuantity();
+    }
+    
+    return $qty;
+  }
+  
+  public function getSubTotal(){
+    // Calculamos total de los productos
+    $cartItems = $this->getMdCartProducts();
+    
+    if(!$cartItems) return 0;
+
+    $total = 0;
+    foreach($cartItems as $cartItem){
+      $ecProduct = $cartItem->getEcProduct();
+      $total+= $ecProduct->getTotal($cartItem->getQuantity());
+    }
+    
+    return $total;
+  }
+  
+  public function getDisplaySubTotal(){
+    return Tools::displayPrice((float)$this->getSubTotal());
+  }
+  
+  public function getTotal(){
+    // costo productos + costo envio
+    $total = $this->getSubTotal() + $this->getTotalShipping();  
+    
+    return $total;
+  }
+  
+  public function getDisplayTotal(){
+    return Tools::displayPrice((float)$this->getTotal());
+  }
+  
+  public function getTotalShipping(){
+    $total = 0;
+    
+    // Calculamos total del costo de envio
+    if($this->getCarrierId() != NULL){
+      $mdCarrier = Doctrine::getTable('mdCarrier')->find($this->getCarrierId());
+      $total+= $mdCarrier->getTotal();
+    }
+    
+    return $total;
+  }
+  
+  public function getDisplayTotalShipping(){
+    return Tools::displayPrice((float)$this->getTotalShipping());
+  }  
+  
+  // Tuve que hacer este getter porque en el schema no lo defini como clave foranea
+  public function getShippingData(){
+    return Doctrine::getTable('mdAddress')->find($this->getAddressDeliveryId());
   }
 }

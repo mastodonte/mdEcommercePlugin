@@ -12,7 +12,9 @@ abstract class PluginecCategoryForm extends BaseecCategoryForm {
 
   protected $parentId = null;
 
-  public function configure() {
+  public function setup() {
+    parent::setup();
+    
     unset($this['root_id'], $this['lft'], $this['rgt'], $this['level'], $this['ec_product_list']);
     $this->widgetSchema['parent_id'] = new sfWidgetFormDoctrineChoice(array(
         'model' => 'ecCategory',

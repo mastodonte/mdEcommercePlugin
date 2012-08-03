@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="es" datatype="plaintext" original="messages" date="2012-04-25T16:42:27Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>mdCart_Carrito</source>
+        <target>carrito</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>mdCart_sin productos</source>
+        <target>sin productos</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>mdCart_Total</source>
+        <target>Total</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>mdCart_vacio</source>
+        <target>vacio</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>mdCart_producto</source>
+        <target>producto</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>mdCart_productos</source>
+        <target>productos</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source>mdCart_Check out</source>
+        <target>Check out</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Brou_Su pedido está completo.</source>
+        <target>Su pedido está completo.</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Brou_Por favor, hága su deposito por brou con la siguiente informacion:</source>
+        <target>Por favor, hága su deposito por brou con la siguiente informacion:</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>Brou_la suma de:</source>
+        <target>la suma de:</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>Brou_a la cuenta: XXXX-YYYY</source>
+        <target>a la cuenta: XXXX-YYYY</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>Brou_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
+        <target>Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</target>
+      </trans-unit>       
+      <trans-unit id="13">
+        <source>Abitab_Su pedido está completo.</source>
+        <target>Su pedido está completo.</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>Abitab_Por favor, hága su deposito por abitab con la siguiente informacion:</source>
+        <target>Por favor, hága su deposito por brou con la siguiente informacion:</target>
+      </trans-unit>
+      <trans-unit id="15">
+        <source>Abitab_la suma de:</source>
+        <target>la suma de:</target>
+      </trans-unit>
+      <trans-unit id="16">
+        <source>Abitab_a la cuenta: XXXX-YYYY</source>
+        <target>a la cuenta: XXXX-YYYY</target>
+      </trans-unit>
+      <trans-unit id="17">
+        <source>Abitab_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
+        <target>Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</target>
+      </trans-unit>
+      <trans-unit id="18">
+        <source>Redpagos_Su pedido está completo.</source>
+        <target>Su pedido está completo.</target>
+      </trans-unit>
+      <trans-unit id="19">
+        <source>Redpagos_Por favor, hága su deposito por Redpagos con la siguiente informacion:</source>
+        <target>Por favor, hága su deposito por brou con la siguiente informacion:</target>
+      </trans-unit>
+      <trans-unit id="20">
+        <source>Redpagos_la suma de:</source>
+        <target>la suma de:</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Redpagos_a la cuenta: XXXX-YYYY</source>
+        <target>a la cuenta: XXXX-YYYY</target>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>Redpagos_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
+        <target>Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</target>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>ContraEntrega_Su pedido está completo.</source>
+        <target>Su pedido está completo.</target>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>ContraEntrega_Ha elegido pagar en el momento de la entrega.</source>
+        <target>Ha elegido pagar en el momento de la entrega.</target>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>ContraEntrega_Le enviaremos su pedido en breve plazo.</source>
+        <target>Le enviaremos su pedido en breve plazo.</target>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>ContraEntrega_la suma es de:</source>
+        <target>la suma es de:</target>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>ContraEntrega_Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente 0900 1111</source>
+        <target>Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente 0900 1111</target>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Mensajes_The item was updated successfully.</source>
+        <target>Se han realizado los cambios exitosamente.</target>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Mensajes_The item was created successfully.</source>
+        <target>Se han creado los datos exitosamente.</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>Mensajes_You must be logged in</source>
+        <target>Debes estar logueado</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Mensajes_The item has not been saved due to some errors.</source>
+        <target>Los cambios no se han podido realizar porque hay errores.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
+
+
+
+
+
+
+

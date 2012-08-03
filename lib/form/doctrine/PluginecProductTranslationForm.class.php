@@ -10,7 +10,9 @@
  */
 abstract class PluginecProductTranslationForm extends BaseecProductTranslationForm {
 
-  public function configure() {
+  public function setup() {
+    parent::setup();
+    
     $this->widgetSchema['name'] = new sfWidgetFormInputText(array('label' => 'Nombre'));
     $this->widgetSchema['description'] = new sfWidgetFormTextareaTinyMCE(
         array(

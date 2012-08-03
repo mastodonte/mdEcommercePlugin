@@ -1,0 +1,48 @@
+mdOrderState:
+  canceled:
+    label: canceled
+    Translation:
+      es:
+        name: "Cancelado"
+
+  notpay:
+    label: notpay
+    Translation:
+      es:
+        name: "No Pago"
+
+  payed:
+    label: payed
+    Translation:
+      es:
+        name: "Pagado"
+
+  shipped:
+    label: shipped
+    Translation:
+      es:
+        name: "Enviado"
+
+  delivered:
+    label: delivered
+    Translation:
+      es:
+        name: "Entregado"
+        
+  finished:
+    label: finished
+    Translation:
+      es:
+        name: "Terminado"        
+
+#  outofstock:
+#    template: outofstock
+#    Translation:
+#      es:
+#        name: "Productos fuera de línea"
+
+#  refund:
+#    label: refund
+#    Translation:
+#      es:
+#        name: "Reembolsado"

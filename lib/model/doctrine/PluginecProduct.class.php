@@ -12,7 +12,13 @@
  */
 abstract class PluginecProduct extends BaseecProduct {
 
+  const SF_CACHE_KEY = 'ecproduct';
+  
   private $categorias_ids = NULL;
+
+  public function retrieveDefault() {
+    return '/mdEcommercePlugin/images/no_image.jpg';
+  }
 
   public function getObjectClass() {
     return get_class($this);
@@ -31,12 +37,56 @@ abstract class PluginecProduct extends BaseecProduct {
     return in_array($id, $this->categorias_ids);
   }
 
-  public function getDisplayPrice($precision = 2) {
-    return Tools::md_round((float)$this->getPrice(), $precision);
+  /**
+   * Calcula el monto total del producto para una cantidad de $qty.
+   * Si el producto esta en oferta usa el precio de oferta sino usa el precio comun
+   * 
+   * @param int $qty
+   * @return float 
+   */
+  public function getTotal($qty) {
+    $price = $this->retrievePrice();
+    return (float) $price * (int) ($qty);
   }
   
-  public function isInStock($qty){
-    return (int)$this->getQuantity() > (int)$qty;
+  public function retrievePrice() {
+    if ($this->getInOffer()) {
+      return $this->getPriceOffer();
+    } else {
+      return $this->getPrice();
+    }
+  }  
+
+  public function getDisplayPrice() {
+    return Tools::displayPrice((float) $this->getPrice());
   }
+
+  public function getDisplayPriceOffer() {
+    return Tools::displayPrice((float) $this->getPriceOffer());
+  }
+
+  public function getDisplayTotal($qty) {
+    return Tools::displayPrice((float) $this->getTotal($qty));
+  }
+  
+  public function retrieveDisplayPrice() {
+    return Tools::displayPrice((float) $this->retrievePrice());
+  }
+
+  public function isInStock($qty = 0) {
+    if($qty == 0)
+      return (int) $this->getQuantity() > (int) $qty;
+    return (int) $this->getQuantity() >= (int) $qty;
+  }
+
+  public function getSlug() {
+    return mdBasicFunction::slugify($this->getName());
+  }
+  
+  public function postSave($event){
+    // Limpiamos cache
+    $command = 'find ' . sfConfig::get('sf_cache_dir') . ' -name "' . self::SF_CACHE_KEY . '_' . '"* -exec rm -rf {} \;';
+    exec($command);
+  }  
 
 }

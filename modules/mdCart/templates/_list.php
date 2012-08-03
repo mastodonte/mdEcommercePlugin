@@ -1,7 +1,18 @@
-<?php
+<?php // Mostramos el listado de productos que tiene el carrito  ?>
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<?php $cartItems = $cart->getMdCartProducts(); ?>
+
+<?php if ($cartItems): ?>
+
+  <?php foreach ($cartItems as $cartItem): ?>
+
+    <?php $product = $cartItem->getEcProduct(); ?>
+    <?php echo $product->getName(); ?>
+
+  <?php endforeach; ?>
+
+<?php else: ?>
+
+<p>El carrito no tiene productos ingresados</p>
+
+<?php endif; ?>

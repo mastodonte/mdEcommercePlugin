@@ -1,7 +1,17 @@
-<?php
+<div id="md_send_block">
+  
+  DATOS ENVIO
+  
+</div>
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<div id="md_payment_block">
+  
+  PAGO
+  
+</div>
+
+<div id="md_shipping_block">
+
+  SHIPPING
+  
+</div>

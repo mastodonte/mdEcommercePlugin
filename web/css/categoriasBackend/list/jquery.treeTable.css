@@ -20,11 +20,11 @@
 }
 
 .treeTable tr.collapsed td .expander {
-  background-image: url(/images/categorias/toggle-expand-dark.png);
+  background-image: url(/mdEcommercePlugin/images/categorias/toggle-expand-dark.png);
 }
 
 .treeTable tr.expanded td .expander {
-  background-image: url(/images/categorias/toggle-collapse-dark.png);
+  background-image: url(/mdEcommercePlugin/images/categorias/toggle-collapse-dark.png);
 }
 
 /* jquery.treeTable.sortable
@@ -38,11 +38,11 @@
 }
 
 .treeTable tr.collapsed.selected td .expander, .treeTable tr.collapsed.accept td .expander {
-  background-image: url(/images/categorias/toggle-expand-light.png);
+  background-image: url(/mdEcommercePlugin/images/categorias/toggle-expand-light.png);
 }
 
 .treeTable tr.expanded.selected td .expander, .treeTable tr.expanded.accept td .expander {
-  background-image: url(/images/categorias/toggle-collapse-light.png);
+  background-image: url(/mdEcommercePlugin/images/categorias/toggle-collapse-light.png);
 }
 
 .treeTable .ui-draggable-dragging {
@@ -63,10 +63,10 @@ table span {
 }
 
 table span.file {
-  background-image: url(/images/categorias/page_white_text.png);
+  background-image: url(/mdEcommercePlugin/images/categorias/page_white_text.png);
 }
 
 table span.folder {
-  background-image: url(/images/categorias/folder.png);
+  background-image: url(/mdEcommercePlugin/images/categorias/folder.png);
 }
 /*******************************************/

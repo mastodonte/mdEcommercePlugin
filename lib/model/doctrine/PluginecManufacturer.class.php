@@ -31,4 +31,10 @@ abstract class PluginecManufacturer extends BaseecManufacturer {
     return '/' . self::FOLDER_NAME . '/' . $this->getImage();
   }
 
+  public function getSlug() {
+    return mdBasicFunction::slugify($this->getName());
+  }
+
+
+
 }

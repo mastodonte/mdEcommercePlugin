@@ -10,4 +10,8 @@
  */
 abstract class PluginmdAddressForm extends BasemdAddressForm
 {
+  public function configure()
+  {
+    $this->widgetSchema['customer_id'] = new sfWidgetFormInputHidden();
+  }
 }

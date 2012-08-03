@@ -28,10 +28,21 @@ ec_category:
     with_wildcard_routes: true
 
 ec_category_associate:
-  url: category/associate
-  param: { module: categorias, action: associate }
+  url: /category/associate
+  param: { module: categoriasBackend, action: associate }
 
-
+ec_category_subtree:
+  url:   /category/tree
+  param: { module: categoriasBackend, action: tree }
+  
+md_order:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                mdOrder
+    module:               pedidosBackend
+    prefix_path:          /pedidosBackend
+    column:               id
+    with_wildcard_routes: true  
 ###########################
 
 
@@ -44,6 +55,10 @@ mdCart-add:
   url:   /mdcart/add
   param: { module: mdCart, action: addCart }
   
+mdCart-update:
+  url:   /mdcart/update
+  param: { module: mdCart, action: updateCart }
+  
 mdCart-remove:
   url:   /mdcart/remove
   param: { module: mdCart, action: removeCart }
@@ -52,4 +67,75 @@ mdCart-clear:
   url:   /mdcart/clear
   param: { module: mdCart, action: clearCart }
   
+mdCart-display:
+  url:   /mdcart/display
+  param: { module: mdCart, action: displayCart }
+  
+mdCart-checkout:
+  url:   /mdcart/checkout
+  param: { module: mdCart, action: checkoutCart }
+  
+mdCart-authentication:
+  url:   /mdcart/authentication
+  param: { module: mdCart, action: authCart }
+  
+mdCart-order:
+  url:   /mdcart/order
+  param: { module: mdCart, action: orderCart }
+
+mdCart-payment:
+  url:   /mdcart/payment
+  param: { module: mdCart, action: paymentCart }
+  
+mdCart-finish:
+  url:   /mdcart/finish
+  param: { module: mdCart, action: paymentFinish }
 ###########################
+
+########mdCartAddress######
+mdCartAddress-create:
+  url:   /mdcartaddress/create
+  param: { module: mdCartAddress, action: create }
+
+mdCartAddress-edit:
+  url:   /mdcartaddress/edit
+  param: { module: mdCartAddress, action: edit }
+###########################
+
+#########Routing para los metodos de pago#############
+payment-abitab:
+  url:   /abitab/validate/:c
+  param: { module: abitab, action: validate }
+  
+payment-redpagos:
+  url:   /redpagos/validate/:c
+  param: { module: redpagos, action: validate }
+
+payment-brou:
+  url:   /brou/validate/:c
+  param: { module: brou, action: validate }
+  
+process-abitab:
+  url:   /abitab/process
+  param: { module: abitab, action: process }
+  
+process-redpagos:
+  url:   /redpagos/process
+  param: { module: redpagos, action: process }
+
+process-brou:
+  url:   /brou/process
+  param: { module: brou, action: process }
+  
+process-cashondelivery:
+  url:   /cashondelivery/process
+  param: { module: cashondelivery, action: process }
+  
+mdPaypalReturnUrl:
+  url:   /paypal/validate
+  param: { module: paypal, action: validate }
+
+mdPaypalCancelUrl:
+  url:   /paypal/cancel
+  param: { module: paypal, action: cancel }
+######################################################

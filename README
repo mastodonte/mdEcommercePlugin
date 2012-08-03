@@ -1,0 +1,66 @@
+README:
+
+################################################################################
+
+1- Para Agregar Resumen de Carrito en el Frontend se deberan incluir los siguiente js:
+  'mdEcommercePlugin/js/mdCart/mdCartTools.js',
+  'mdEcommercePlugin/js/mdCart/mdCartAjax.js',
+
+y luego incluir el componente:
+
+  <?php include_component('mdCart', 'blockCart'); ?>
+
+CONSIDERACIONES:
+
+
+################################################################################
+
+2- Agregar los disparadores para Agregar Producto
+
+Para los productos se debe respetar al menos el siguiente esqueleto para el template con las siguientes consideraciones:
+  Los <a> para agregar productos al carrito deberan tener la clase: ajax_add_to_cart_button
+  A su vez los <a> que contienen las imagenes deberan tener la clase: product_image
+
+  Ejemplo:
+
+    <div>
+      <a href="<?php echo $url; ?>" class="product_image">
+        <img src="imagen.jpg" alt="" />
+      </a>
+
+      <div>
+        <a href="<?php echo url_for('@mdCart-add') . '?product_id=' . $producto->getId(); ?>" class="ajax_add_to_cart_button">
+          Comprar
+        </a>
+      </div>
+    </div>
+
+################################################################################
+
+3- Agregar los disparadores para los inputs de cantidades
+  El input de cantidades debe tener el id "quantity_wanted"
+  y el <a> que lanza el disparador debe tener la clase "add_to_cart_input"
+
+  A su vez, si se quiere tener la animacion de la imagen, esta debe tener el
+  id "cart_bigpic"
+
+  Ejemplo:
+
+    <img id="cart_bigpic" src="image.jpg" />
+
+    <div>
+      <span>Cantidad:</span>
+      <input type="text" id="quantity_wanted" value="1" size="2" name="quantity">
+      <a class="add_to_cart_input button" href="/frontend_dev.php/mdcart/add?product_id=1">Comprar</a>
+    </div>
+
+4- Agregar los disparadores para eliminar productos del carrito
+  El boton de eliminar de tener la clase "cart_quantity_delete"
+
+################################################################################
+
+Dependencias:
+  Algun tipo de usuario para hacer sfContext::getInstance()->getUser()->getMdUserId()
+  mastodontePlugin
+
+################################################################################

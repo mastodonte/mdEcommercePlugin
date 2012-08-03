@@ -1,4 +1,31 @@
 all:
   configuration:
+    MD_SECURITY_KEY: 51872529ab40d3433b4ea5cee1bfa508272ea3bc
     
     MD_CURRENCY_DEFAULT: 1
+
+    MD_SALE_FROM: chugas488@gmail.com
+      
+    #####
+    # Status de las ordenes, hay que tener sincronizado esto con los ids de la tabla mdOrderStatus
+    #####
+    MD_CANCELED: 1
+    
+    MD_NOTPAY: 2
+    
+    MD_PAYED: 3
+    
+    MD_SHIPPED: 4
+    
+    MD_DELIVERED: 5
+    
+  mdCart:
+    autodetectaddress: false
+
+  abitab:
+    username: Federico Larrosa
+    documento: 3.441.425-8
+    
+  redpagos:
+    username: Federico Larrosa
+    documento: 3.441.425-8    
