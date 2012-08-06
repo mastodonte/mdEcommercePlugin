@@ -2,7 +2,7 @@ var _timer_ejec = 0;
 var _lock = false;
 var _activate = false;
 var _MAX_WAIT_CALL = 2;
-  
+
 var mdAutoSearch = {
 
   observers: function(){
