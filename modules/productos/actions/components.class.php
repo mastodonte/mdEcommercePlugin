@@ -1,9 +1,6 @@
 <?php
 
-class productosComponents extends sfComponents {
+class productosComponents extends autoProductosComponents {
 
-  public function executeMenu($request) {
-
-  }
 
 }

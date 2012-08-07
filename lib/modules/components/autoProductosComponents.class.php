@@ -1,10 +1,6 @@
 <?php
 
 class autoProductosComponents extends sfComponents {
-
-  public function executeMenu($request) {
-
-  }
   
   public function executeDestacados($request) {
     $this->productos = Doctrine::getTable('ecProduct')->findDestacados(false, $this->limit);
