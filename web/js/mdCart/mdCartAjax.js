@@ -58,6 +58,11 @@ var mdCartAjax = {
       
       return false;
     });
+    
+    if(typeof extra_cart_observers == 'function'){
+      extra_cart_observers();
+    }
+    
   },
 
   // cart to fix display when using back and previous browsers buttons
