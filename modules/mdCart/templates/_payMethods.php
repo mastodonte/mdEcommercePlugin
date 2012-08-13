@@ -1,4 +1,8 @@
-<?php foreach($methods as $method): ?>
-  <input class="checkbox" type="radio" name="payment" value="<?php echo $method->getLabel(); ?>" <?php echo ($method->getChecked() ? 'checked="checked"' : ''); ?> /><?php echo $method->getName(); ?><br />
-  <div class="clear"></div>
-<?php endforeach; ?>
+<form action="<?php echo url_for('@mdCart-payment'); ?>" method="GET">
+
+  <?php //include_partial('mdCart/table_cart', array('cart' => $cart)); ?>
+
+  <?php //include_component('mdCart', 'payMethods'); ?>
+
+  <input id="md_resumen_pagar" class="float_right <?php echo (is_null($cart->getAddressDeliveryId()) ? 'boton-pagar' : 'boton-pagar-green'); ?>" type="submit" value="PAGAR" <?php echo (is_null($cart->getAddressDeliveryId()) ? 'disabled="disabled"' : ''); ?>>
+</form>

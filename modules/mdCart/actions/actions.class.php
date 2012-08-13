@@ -55,24 +55,21 @@ class mdCartActions extends sfActions
     return $this->renderText('OK');
   }
   
-  public function executeOrderCart(sfWebRequest $request)
+  public function executeCart(sfWebRequest $request)
   {
     $this->redirectUnless($this->cart = mdCartController::getInstance()->init(), '@homepage');
-   
-    $this->setTemplate('order');
   }
   
   public function executeCheckoutCart(sfWebRequest $request)
   {
     if($this->getUser()->isAuthenticated())
     {
-      // TODO
       $this->cart = mdCartController::getInstance()->init();
       $this->setTemplate('confirm');
     }
     else
     {
-      $this->redirect('@mdCart-authentication');
+      $this->setTemplate('checkout');
     }
   }
 
@@ -97,13 +94,13 @@ class mdCartActions extends sfActions
     }
     else
     {
-      $this->redirect('@mdCart-authentication');
+      $this->redirect('@mdCart-checkout');
     }    
   }
   
   public function executeAuthCart(sfWebRequest $request)
   {
-    $this->setTemplate('auth');
+    $this->setTemplate('checkout');
   }
   
   public function executePaymentFinish(sfWebRequest $request)

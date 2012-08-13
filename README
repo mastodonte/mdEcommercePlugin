@@ -18,18 +18,18 @@ CONSIDERACIONES:
 2- Agregar los disparadores para Agregar Producto
 
 Para los productos se debe respetar al menos el siguiente esqueleto para el template con las siguientes consideraciones:
-  Los <a> para agregar productos al carrito deberan tener la clase: ajax_add_to_cart_button
-  A su vez los <a> que contienen las imagenes deberan tener la clase: product_image
+  Los <a> para agregar productos al carrito deberan tener la clase: ecommerce-ajax_add_to_cart_button
+  A su vez los <a> que contienen las imagenes deberan tener la clase: ecommerce-product_image
 
   Ejemplo:
 
     <div>
-      <a href="<?php echo $url; ?>" class="product_image">
+      <a href="<?php echo $url; ?>" class="ecommerce-product_image">
         <img src="imagen.jpg" alt="" />
       </a>
 
       <div>
-        <a href="<?php echo url_for('@mdCart-add') . '?product_id=' . $producto->getId(); ?>" class="ajax_add_to_cart_button">
+        <a href="<?php echo url_for('@mdCart-add') . '?product_id=' . $producto->getId(); ?>" class="ecommerce-ajax_add_to_cart_button">
           Comprar
         </a>
       </div>
@@ -38,20 +38,20 @@ Para los productos se debe respetar al menos el siguiente esqueleto para el temp
 ################################################################################
 
 3- Agregar los disparadores para los inputs de cantidades
-  El input de cantidades debe tener el id "quantity_wanted"
-  y el <a> que lanza el disparador debe tener la clase "add_to_cart_input"
+  El input de cantidades debe tener el id "ecommerce-quantity_wanted"
+  y el <a> que lanza el disparador debe tener la clase "ecommerce-add_to_cart_input"
 
   A su vez, si se quiere tener la animacion de la imagen, esta debe tener el
-  id "cart_bigpic"
+  id "ecommerce-cart_bigpic"
 
   Ejemplo:
 
-    <img id="cart_bigpic" src="image.jpg" />
+    <img id="ecommerce-cart_bigpic" src="image.jpg" />
 
     <div>
       <span>Cantidad:</span>
-      <input type="text" id="quantity_wanted" value="1" size="2" name="quantity">
-      <a class="add_to_cart_input button" href="/frontend_dev.php/mdcart/add?product_id=1">Comprar</a>
+      <input type="text" id="ecommerce-quantity_wanted" value="1" size="2" name="quantity">
+      <a class="ecommerce-add_to_cart_input ecommerce-button" href="/frontend_dev.php/mdcart/add?product_id=1">Comprar</a>
     </div>
 
 4- Agregar los disparadores para eliminar productos del carrito

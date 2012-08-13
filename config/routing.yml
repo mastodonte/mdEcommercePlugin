@@ -75,13 +75,9 @@ mdCart-checkout:
   url:   /mdcart/checkout
   param: { module: mdCart, action: checkoutCart }
   
-mdCart-authentication:
-  url:   /mdcart/authentication
-  param: { module: mdCart, action: authCart }
-  
-mdCart-order:
-  url:   /mdcart/order
-  param: { module: mdCart, action: orderCart }
+mdCart-cart:
+  url:   /mdcart/cart
+  param: { module: mdCart, action: cart }
 
 mdCart-payment:
   url:   /mdcart/payment

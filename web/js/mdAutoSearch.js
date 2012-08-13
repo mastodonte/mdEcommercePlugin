@@ -6,32 +6,32 @@ var _MAX_WAIT_CALL = 2;
 var mdAutoSearch = {
 
   observers: function(){
-    $('.bloque_filtro input[type=checkbox]').bind('click', function(){
+    $('.ecommerce-bloque_filtro input[type=checkbox]').bind('click', function(){
       mdAutoSearch.reset();
     });
     
-    $('#search_sort_by').change(function(){
-      $('#input_sort_by').val($(this).val());
-      $('#input_page').val(1); // Reseteamos le numero de pagina
+    $('#ecommerce-search_sort_by').change(function(){
+      $('#ecommerce-input_sort_by').val($(this).val());
+      $('#ecommerce-input_page').val(1); // Reseteamos le numero de pagina
       mdAutoSearch.execute();
     });
     
-    $('#search_quantity').change(function(){
-      $('#input_quantity').val($(this).val());
-      $('#input_page').val(1); // Reseteamos le numero de pagina
+    $('#ecommerce-search_quantity').change(function(){
+      $('#ecommerce-input_quantity').val($(this).val());
+      $('#ecommerce-input_page').val(1); // Reseteamos le numero de pagina
       mdAutoSearch.execute();
     });
 
-    $('a.search_view').live('click', function(event){
+    $('a.ecommerce-search_view').live('click', function(event){
         event.preventDefault();
-        $('#input_filter').val($(this).attr('href'));
+        $('#ecommerce-input_filter').val($(this).attr('href'));
         mdAutoSearch.execute();
     });
 
-    $('.paginacion a').live('click', function(){
-      var page = ($(this).hasClass('pager_image') ? $(this).find(':first-child').attr('alt') : $(this).text());
+    $('.ecommerce-paginacion a').live('click', function(){
+      var page = ($(this).hasClass('ecommerce-pager_image') ? $(this).find(':first-child').attr('alt') : $(this).text());
       if(!$(this).hasClass('current')){
-        $('#input_page').val(page);
+        $('#ecommerce-input_page').val(page);
         mdAutoSearch.execute();
       }
     });
@@ -44,7 +44,7 @@ var mdAutoSearch = {
         _timer_ejec++;
 
         if(_timer_ejec == _MAX_WAIT_CALL){
-          $('#input_page').val(1); // Reseteamos le numero de pagina
+          $('#ecommerce-input_page').val(1); // Reseteamos le numero de pagina
           mdAutoSearch.execute();
         }
       }
@@ -61,7 +61,7 @@ var mdAutoSearch = {
   execute : function(){
     _activate = false;
     mdShowLoading();
-    var form = $('#md_auto_search_form');
+    var form = $('#ecommerce-md_auto_search_form');
     
     //send the ajax request to the server
     $.ajax({
@@ -74,8 +74,8 @@ var mdAutoSearch = {
       success: function(json)
       {
         if(json.response == "OK"){
-          $('#md_listado_productos').replaceWith(json.options.content);
-          $('.container_paginacion').html(json.options.pager);
+          $('#ecommerce-md_listado_productos').replaceWith(json.options.content);
+          $('.ecommerce-container_paginacion').html(json.options.pager);
           mdCartAjax.observers();
         }
         mdHideLoading();

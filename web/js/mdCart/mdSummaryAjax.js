@@ -26,12 +26,12 @@ var mdSummaryAjax = {
   },
   
   observers : function(){
-    $('.cart_quantity_delete' ).unbind('click').click(function(){
+    $('.ecommerce-cart_quantity_delete' ).unbind('click').click(function(){
       mdSummaryAjax.remove(this);
       return false;
     });
     
-    $('.cart_quantity_input').typeWatch({
+    $('.ecommerce-cart_quantity_input').typeWatch({
       highlight: true, 
       wait: 600, 
       captureLength: 0, 
@@ -105,13 +105,13 @@ var mdSummaryAjax = {
   },
   
   updateCartSummary: function(object, htmlObj){
-    $('#cart_order_total').html(object.productTotal);
+    $('#ecommerce-cart_order_total').html(object.productTotal);
 
     if(htmlObj != undefined){
       var qty = parseInt($(htmlObj).attr('value'));
       var price = parseFloat(object.product.price) * parseInt(qty);
       // Actualizo total del producto
-      $(htmlObj).parents('tr').find('.cart_product_total').html(formatCurrency(price, _currencyFormat, _currencySign, _currencyBlank));      
+      $(htmlObj).parents('tr').find('.ecommerce-cart_product_total').html(formatCurrency(price, _currencyFormat, _currencySign, _currencyBlank));      
     }
     
     if(typeof callAfterUpdateCart == 'function') {

@@ -24,15 +24,15 @@ var mdCartAjax = {
   observers : function(){
 
     // expand/collapse management
-    $('#block_cart_collapse').unbind('click').click(function(){
+    $('#ecommerce-block_cart_collapse').unbind('click').click(function(){
       mdCartAjax.collapse();
     });
-    $('#block_cart_expand').unbind('click').click(function(){
+    $('#ecommerce-block_cart_expand').unbind('click').click(function(){
       mdCartAjax.expand();
     });
   
     //for every 'add' buttons...
-    $('.ajax_add_to_cart_button').unbind('click').click(function(){
+    $('.ecommerce-ajax_add_to_cart_button').unbind('click').click(function(){
       
       var form = mdCartAjax.createForm(this, '1');
 
@@ -43,8 +43,8 @@ var mdCartAjax = {
     });
    
     //for product page 'add' button...
-    $('.add_to_cart_input').unbind('click').click(function(){      
-      var form = mdCartAjax.createForm(this, $('#quantity_wanted').val());
+    $('.ecommerce-add_to_cart_input').unbind('click').click(function(){      
+      var form = mdCartAjax.createForm(this, $('#ecommerce-quantity_wanted').val());
       
       mdCartAjax.add(form, this, true);
       
@@ -52,7 +52,7 @@ var mdCartAjax = {
     });
 
     //for 'delete' buttons in the cart block...
-    $('#cart_block_list .ajax_cart_block_remove_link').unbind('click').click(function(){
+    $('#ecommerce-cart_block_list .ecommerce-ajax_cart_block_remove_link').unbind('click').click(function(){
       // Removing product from the cart
       mdCartAjax.remove(this);
       
@@ -90,11 +90,11 @@ var mdCartAjax = {
   expand : function(){
     /*$(['left_column', 'right_column']).each(function(id, parentId)
     {*/
-      if ($('#cart_block #cart_block_list').hasClass('collapsed'))
+      if ($('#ecommerce-cart_block #ecommerce-cart_block_list').hasClass('collapsed'))
       {
-        $('#cart_block #cart_block_summary').slideUp(200, function(){
+        $('#ecommerce-cart_block #ecommerce-cart_block_summary').slideUp(200, function(){
           $(this).addClass('collapsed').removeClass('expanded');
-          $('#cart_block #cart_block_list').slideDown({
+          $('#ecommerce-cart_block #ecommerce-cart_block_list').slideDown({
             duration: 600,
             complete: function(){
               $(this).addClass('expanded').removeClass('collapsed');
@@ -102,8 +102,8 @@ var mdCartAjax = {
           });
         });
         // toogle the button expand/collapse button
-        $('#cart_block h4 span#block_cart_expand').fadeOut('slow', function(){
-          $('#cart_block h4 span#block_cart_collapse').fadeIn('fast');
+        $('#ecommerce-cart_block h4 span#ecommerce-block_cart_expand').fadeOut('slow', function(){
+          $('#ecommerce-cart_block h4 span#ecommerce-block_cart_collapse').fadeIn('fast');
         });
 
         // save the expand statut in the user cookie
@@ -120,16 +120,16 @@ var mdCartAjax = {
   // try to collapse the cart
   collapse : function(){
 
-    if ($('#cart_block #cart_block_list').hasClass('expanded'))
+    if ($('#ecommerce-cart_block #ecommerce-cart_block_list').hasClass('expanded'))
     {
-      $('#cart_block #cart_block_list').slideUp('slow', function(){
+      $('#ecommerce-cart_block #ecommerce-cart_block_list').slideUp('slow', function(){
         $(this).addClass('collapsed').removeClass('expanded');
-        $('#cart_block #cart_block_summary').slideDown(700, function(){
+        $('#ecommerce-cart_block #ecommerce-cart_block_summary').slideDown(700, function(){
           $(this).addClass('expanded').removeClass('collapsed');
         });
       });
-      $('#cart_block h4 span#block_cart_collapse').fadeOut('slow', function(){
-        $('#cart_block h4 span#block_cart_expand').fadeIn('fast');
+      $('#ecommerce-cart_block h4 span#ecommerce-block_cart_collapse').fadeOut('slow', function(){
+        $('#ecommerce-cart_block h4 span#ecommerce-block_cart_expand').fadeIn('fast');
       });
 
       // save the expand statut in the user cookie
@@ -149,7 +149,7 @@ var mdCartAjax = {
     //disabled the button when adding to do not double add if user double click
     if (addedFromProductPage)
     {
-      $('body#product p#add_to_cart input').attr('disabled', 'disabled').removeClass('exclusive').addClass('exclusive_disabled');
+      $('body#ecommerce-product p#ecommerce-add_to_cart input').attr('disabled', 'disabled').removeClass('exclusive').addClass('exclusive_disabled');
       $('.filled').removeClass('filled');
     }
     else    
@@ -173,10 +173,10 @@ var mdCartAjax = {
           
           // ANIMACION IMAGEN
           // add the picture to the cart
-          var $element = $(callerElement).parent().parent().find('a.product_image img,a.product_img_link img');
+          var $element = $(callerElement).parent().parent().find('a.ecommerce-product_image img,a.ecommerce-product_img_link img');
 
           if (!$element.length)
-            $element = $('#cart_bigpic');
+            $element = $('#ecommerce-cart_bigpic');
 
           var $picture = $element.clone();
           var pictureOffsetOriginal = $element.offset();
@@ -189,7 +189,7 @@ var mdCartAjax = {
               });
 
           //var pictureOffset = $picture.offset();
-          var cartBlockOffset = $('#cart_block').offset();
+          var cartBlockOffset = $('#ecommerce-cart_block').offset();
 
           // Check if the block cart is activated for the animation
           if (cartBlockOffset != undefined && $picture.size())
@@ -218,9 +218,9 @@ var mdCartAjax = {
           mdShowMessage(jsonData.options.message);
           //reactive the button when adding has finished
           if (addedFromProductPage)
-            $('body#product p#add_to_cart input').removeAttr('disabled').addClass('exclusive').removeClass('exclusive_disabled');
+            $('body#ecommerce-product p#ecommerce-add_to_cart input').removeAttr('disabled').addClass('exclusive').removeClass('exclusive_disabled');
           else
-            $('.ajax_add_to_cart_button').removeAttr('disabled');          
+            $('.ecommerce-ajax_add_to_cart_button').removeAttr('disabled');          
         }
         $(form).remove();
       },     
@@ -231,7 +231,7 @@ var mdCartAjax = {
         //alert("TECHNICAL ERROR: unable to add the product.\n\nDetails:\nError thrown: " + XMLHttpRequest + "\n" + 'Text status: ' + textStatus);
         //reactive the button when adding has finished
         if (addedFromProductPage)
-          $('body#product p#add_to_cart input').removeAttr('disabled').addClass('exclusive').removeClass('exclusive_disabled');
+          $('body#ecommerce-product p#ecommerce-add_to_cart input').removeAttr('disabled').addClass('exclusive').removeClass('exclusive_disabled');
         else
           $(callerElement).removeAttr('disabled');
       }
@@ -268,9 +268,9 @@ var mdCartAjax = {
 
     //reactive the button when adding has finished
     if (addedFromProductPage)
-      $('body#product p#add_to_cart input').removeAttr('disabled').addClass('exclusive').removeClass('exclusive_disabled');
+      $('body#ecommerce-product p#ecommerce-add_to_cart input').removeAttr('disabled').addClass('exclusive').removeClass('exclusive_disabled');
     else
-      $('.ajax_add_to_cart_button').removeAttr('disabled');
+      $('.ecommerce-ajax_add_to_cart_button').removeAttr('disabled');
   },
   
   //display the products witch are in json data but not already displayed
@@ -283,7 +283,7 @@ var mdCartAjax = {
     //mdCartAjax.updateCartEverywhere(jsonData);
     //mdCartAjax.displayNewProducts(jsonData);
     //mdCartAjax.refreshVouchers(jsonData);
-    $('#cart_block').replaceWith(jsonData.options.products);
+    $('#ecommerce-cart_block').replaceWith(jsonData.options.products);
     
     //update 'first' and 'last' item classes
     /*$('#cart_block dl.products dt').removeClass('first_item').removeClass('last_item').removeClass('item');

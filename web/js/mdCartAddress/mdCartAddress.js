@@ -36,7 +36,7 @@ var mdCartAddress = {
   },
   
   expandForm: function(){
-    $('#address_form').slideToggle();
+    $('#ecommerce-address_form').slideToggle();
   },
   
   updateAddressDisplay: function()
@@ -44,8 +44,8 @@ var mdCartAddress = {
     if (formatedAddressFieldsValuesList.length <= 0)
       return false;
 
-    var idAddress = $('select#id_address_delivery').val();
-    mdCartAddress.buildAddressBlock(idAddress, $('#address_delivery'));
+    var idAddress = $('select#ecommerce-id_address_delivery').val();
+    mdCartAddress.buildAddressBlock(idAddress, $('#ecommerce-address_delivery'));
 
     // change update link TODO
     /*var link = $('ul#address_' + addressType + ' li.address_update a').attr('href');

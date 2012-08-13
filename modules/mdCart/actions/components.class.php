@@ -7,12 +7,6 @@ class mdCartComponents extends sfComponents {
     // Inicializa el carrito
     $this->cart = mdCartController::getInstance()->init((isset($this->md_cart_id) ? $this->md_cart_id : NULL));
   }
-
-  public function executeList($request) 
-  {
-    // Inicializa el carrito
-    $this->cart = mdCartController::getInstance()->init();
-  }
   
   public function executePayMethods($request) 
   {
