@@ -1,0 +1,176 @@
+.ecommerce-checkout-heading 
+{
+  background: none repeat scroll 0 0 #F7F7F7;
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding: 14px;
+}
+
+.ecommerce-checkout-heading a 
+{
+  float: right;
+  margin-top: 1px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+.ecommerce-checkout-content 
+{
+  padding: 0px 0px 15px 0px;
+  display: none;
+  overflow: auto;
+}
+
+.ecommerce-checkout-content .ecommerce-left 
+{
+  float: left;
+  width: 48%;
+}
+
+.ecommerce-checkout-content .ecommerce-right 
+{
+  float: right;
+  width: 48%;
+}
+
+.ecommerce-checkout-content .ecommerce-buttons 
+{
+  clear: both;
+}
+
+.ecommerce-checkout-product table 
+{
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid #DDDDDD;
+  border-left: 1px solid #DDDDDD;
+  border-right: 1px solid #DDDDDD;
+  margin-bottom: 20px;
+}
+
+.ecommerce-checkout-product td 
+{
+  padding: 7px;
+}
+
+.ecommerce-checkout-product thead td 
+{
+  font-weight: bold;
+  background-color: #F7F7F7;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.ecommerce-checkout-product thead .ecommerce-name, .ecommerce-checkout-product thead .ecommerce-model 
+{
+  text-align: left;
+}
+
+.ecommerce-checkout-product thead .ecommerce-quantity, .ecommerce-checkout-product thead .ecommerce-price, .ecommerce-checkout-product thead .ecommerce-total 
+{
+  text-align: right;
+}
+
+.ecommerce-checkout-product tbody td 
+{
+  vertical-align: top;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+.ecommerce-checkout-product tbody .ecommerce-name, .ecommerce-checkout-product tbody .ecommerce-model 
+{
+  text-align: left;
+}
+
+.ecommerce-checkout-product tbody .ecommerce-quantity, .ecommerce-checkout-product tbody .ecommerce-price, .ecommerce-checkout-product tbody .ecommerce-total 
+{
+  text-align: right;
+}
+
+.ecommerce-checkout-product tfoot td 
+{
+  text-align: right;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+
+/*
+ * Shopping
+*/
+
+.ecommerce-cart-total table tr:last-child td {
+  font-size: 24px;
+}
+.ecommerce-cart-info table {
+  border-collapse: collapse;
+  border-left: 10px solid #F7F7F7;
+  border-right: 10px solid #F7F7F7;
+  border-top: 10px solid #F7F7F7;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 100%;
+}
+.ecommerce-cart-info td {
+  padding: 7px;
+}
+.ecommerce-cart-info thead td {
+  background-color: #F7F7F7;
+  border-bottom: 10px solid #F7F7F7;
+  font-size: 17px;
+}
+.ecommerce-cart-info thead .ecommerce-remove, .ecommerce-cart-info thead .ecommerce-image {
+  text-align: center;
+}
+.ecommerce-cart-info thead .ecommerce-name, .ecommerce-cart-info thead .ecommerce-model {
+  text-align: left;
+}
+.ecommerce-cart-info thead .ecommerce-quantity, .ecommerce-cart-info thead .ecommerce-price, .ecommerce-cart-info thead .ecommerce-total {
+  text-align: right;
+}
+.ecommerce-cart-info tbody td {
+  border-bottom: 10px solid #F7F7F7;
+  vertical-align: inherit;
+}
+.ecommerce-cart-info tbody .ecommerce-remove {
+  vertical-align: middle;
+}
+.ecommerce-cart-info tbody .ecommerce-remove, .ecommerce-cart-info tbody .ecommerce-image {
+  text-align: center;
+}
+.ecommerce-cart-info tbody .ecommerce-name, .ecommerce-cart-info tbody .ecommerce-model {
+  text-align: left;
+}
+.ecommerce-cart-info tbody .ecommerce-quantity, .ecommerce-cart-info tbody .ecommerce-price, .ecommerce-cart-info tbody .ecommerce-total {
+  text-align: right;
+}
+.ecommerce-cart-info tbody span.ecommerce-stock {
+  color: #FF0000;
+  font-weight: bold;
+}
+.ecommerce-cart-module .ecommerce-cart-heading {
+  background: url("/images/frontend/arrow-right.png") no-repeat scroll 10px 50% #F7F7F7;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  padding: 12px 8px 12px 22px;
+}
+.ecommerce-cart-module .ecommerce-active {
+  background: url("/images/frontend/arrow-down.png") no-repeat scroll 7px 50% #F8F8F8;
+}
+.ecommerce-cart-module .ecommerce-cart-content {
+  display: none;
+  overflow: auto;
+  padding: 0 0 15px;
+}
+.ecommerce-cart-total {
+  margin-bottom: 15px;
+  overflow: auto;
+  padding-top: 8px;
+}
+.ecommerce-cart-total table {
+  float: right;
+}
+.ecommerce-cart-total td {
+  padding: 5px 5px 10px 50px;
+  text-align: right;
+}
