@@ -55,7 +55,26 @@ Para los productos se debe respetar al menos el siguiente esqueleto para el temp
     </div>
 
 4- Agregar los disparadores para eliminar productos del carrito
-  El boton de eliminar de tener la clase "cart_quantity_delete"
+  El boton de eliminar de tener la clase "ecommerce-cart_quantity_delete"
+
+  Ejemplo:
+
+  <a class="ecommerce-cart_quantity_delete" href="<?php echo url_for('@mdCart-remove?product_id=' . $product->getId()); ?>">
+    <img src="/images/carrito-delete.gif"/>
+  </a>
+
+5- En el listado del carrito para modificar la cantidad de un producto agregar al input la clase ecommerce-cart_quantity_input
+
+  Ejemplo:
+
+  <input class="ecommerce-cart_quantity_input" name="<?php echo url_for('@mdCart-update') . '?product_id=' . $product->getId(); ?>" type="text" value="<?php echo $cartItem->getQuantity(); ?>"/>
+
+6- En el listado del carrito al mostrar subtotal mantenerlo actualizado, para ello agregar la clase
+   ecommerce-cart_order_total
+
+   Ejemplo:
+  
+   <div id="ecommerce-cart_order_total" class="red-texto"><?php echo $cart->getDisplaySubTotal(); ?></div>
 
 ################################################################################
 
