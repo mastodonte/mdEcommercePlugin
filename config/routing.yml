@@ -127,6 +127,10 @@ process-cashondelivery:
   url:   /cashondelivery/process
   param: { module: cashondelivery, action: process }
   
+process-cashinstore:
+  url:   /cashinstore/process
+  param: { module: cashinstore, action: process }  
+  
 mdPaypalReturnUrl:
   url:   /paypal/validate
   param: { module: paypal, action: validate }

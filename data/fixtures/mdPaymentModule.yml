@@ -31,3 +31,11 @@ mdPaymentModule:
     Translation:
       es:
         name: "Brou"        
+
+  cashondelivery:
+    label: cashinstore
+    active: 1
+    checked: 0
+    Translation:
+      es:
+        name: "Retiro en el Local"

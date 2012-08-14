@@ -1,5 +1,0 @@
-NOTAS:
-
-1- Los botones para agregar productos al carrito deberan tener la clase: ajax_add_to_cart_button
-
-2- Los botones deben tener el atributo rel con la siguiente sintaxis: ajax_id_product_<?php echo $product_id; ?>

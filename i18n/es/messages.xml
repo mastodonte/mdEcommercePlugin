@@ -128,13 +128,22 @@
         <source>Mensajes_The item has not been saved due to some errors.</source>
         <target>Los cambios no se han podido realizar porque hay errores.</target>
       </trans-unit>
+      <trans-unit id="32">
+        <source>PagoEnLocal_Su pedido está completo.</source>
+        <target>Su pedido está completo.</target>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>PagoEnLocal_Ha elegido pagar en nuestro local.</source>
+        <target>Ha elegido pagar en nuestro local</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>PagoEnLocal_la suma es de:</source>
+        <target>La suma es de:</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>PagoEnLocal_Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente 0900 1111</source>
+        <target>Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
-
-
-
-
-
-
-
