@@ -1,9 +1,7 @@
 <?php
 $filesJS = array(
   'mdEcommercePlugin/js/jquery-typewatch.pack.js',
-  'mdEcommercePlugin/js/mdCart/mdCartTools.js',
-  'mdEcommercePlugin/js/mdCart/mdSummaryAjax.js',
-  'mdEcommercePlugin/js/mdCart/mdCartAjax.js'
+  'mdEcommercePlugin/js/mdCart/mdSummaryAjax.js'
 );
 ?>
 

@@ -34,7 +34,7 @@
           <td class="ecommerce-total"><span class="ecommerce-cart_product_total"><?php echo $product->getDisplayTotal($cartItem->getQuantity()); ?></span></td>
           <td class="ecommerce-remove">
             <a class="ecommerce-cart_quantity_delete" href="<?php echo url_for('@mdCart-remove?product_id=' . $product->getId()); ?>">
-              <img src="/images/carrito-delete.gif"/>
+              <img src="/mdEcommercePlugin/images/mdCart/delete.gif"/>
             </a>
           </td>
         </tr>
@@ -53,11 +53,11 @@
 
 <div class="ecommerce-cart-total">
   <table>
-    <tr>
+    <!--<tr>
       <td colspan="5"></td>
       <td class="ecommerce-right"><b><?php echo __('mdEcommerce_Subtotal'); ?>:</b></td>
       <td class="ecommerce-right  ecommerce-total"><?php echo $cart->getDisplaySubTotal(); ?></td>
-    </tr>
+    </tr>-->
     <!--<tr>
       <td colspan="5"></td>
       <td class="right"><b>IVA:</b></td>
@@ -66,7 +66,7 @@
     <tr>
       <td colspan="5"></td>
       <td class="ecommerce-right"><b><?php echo __('mdEcommerce_Total'); ?>:</b></td>
-      <td class="ecommerce-right  ecommerce-total"><?php echo $cart->getDisplayTotal(); ?></td>
+      <td id="ecommerce-cart_order_total" class="ecommerce-right  ecommerce-total"><?php echo $cart->getDisplayTotal(); ?></td>
     </tr>
   </table>
 </div>
