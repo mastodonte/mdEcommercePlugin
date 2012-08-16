@@ -368,7 +368,7 @@ class mdCartController {
         // Eliminamos carrito
         sfContext::getInstance()->getResponse()->setCookie(mdCart::COOKIE_CART_NAME, NULL, time() - (15 * 24 * 3600));
         
-        // Send an e-mail to customer CADA MODULO SE ENCARGARA DE ENVIAR EL MAIL
+        // Send an e-mail to customer and admin CADA MODULO SE ENCARGARA DE ENVIAR EL MAIL ??? o lo dejamos aca ???
         $to = sfContext::getInstance()->getUser()->getEmail();
         $this->sendCustomerMail($to, $mdOrder);
       }
@@ -411,7 +411,17 @@ class mdCartController {
     $options['body']      = $partial;
     $options['subject']   = __("Mail_subject resume");
     $options['recipients'] = $to;
-    
+
+    // MAIL AL CLIENTE
     mdMailHandler::sendMail($options);
-  }  
+    
+    $options = array();
+    $options['sender']    = array('name' => __('Mail_Name of Company'), 'email' => $from);
+    $options['body']      = $partial;
+    $options['subject']   = __("Mail_subject resume");
+    $options['recipients'] = $from;    
+    
+    // MAIL AL ADMIN
+    mdMailHandler::sendMail($options);    
+  }
 }

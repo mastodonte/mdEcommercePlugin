@@ -12,7 +12,7 @@ abstract class PluginecProductTranslationForm extends BaseecProductTranslationFo
 
   public function setup() {
     parent::setup();
-    
+   
     $this->widgetSchema['name'] = new sfWidgetFormInputText(array('label' => 'Nombre'));
     $this->widgetSchema['description'] = new sfWidgetFormTextareaTinyMCE(
         array(
@@ -20,13 +20,14 @@ abstract class PluginecProductTranslationForm extends BaseecProductTranslationFo
           'width' => 500,
           'height' => 300,
           'config' => '
-                  theme_advanced_buttons1 : "bold,italic,separator,bullist,separator,link, sub,sup,separator,charmap",
+                  plugins : "preview,media,fullscreen",
+                  theme_advanced_buttons1 : "bold,italic,separator,bullist,separator,link, sub,sup,separator,charmap, code, media, preview, fullscreen",
                   theme_advanced_buttons2 : "",
                   theme_advanced_buttons3 : "",
                   theme_advanced_path : false
                   ',
           'label' => 'Descripcion'));
-    $this->widgetSchema['copete'] = new sfWidgetFormTextarea();
+    $this->widgetSchema['copete'] = new sfWidgetFormTextarea();    
   }
 
 }
