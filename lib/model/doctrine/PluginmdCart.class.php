@@ -83,4 +83,8 @@ abstract class PluginmdCart extends BasemdCart
   public function getShippingData(){
     return Doctrine::getTable('mdAddress')->find($this->getAddressDeliveryId());
   }
+  
+  public function isEmpty(){
+    return $this->getMdCartProducts()->count() == 0;
+  }
 }
