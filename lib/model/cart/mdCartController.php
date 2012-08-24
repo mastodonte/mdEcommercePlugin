@@ -298,8 +298,8 @@ class mdCartController {
       $mdOrder->setModulePayment($module_label);
       $mdOrder->setTotalProducts($cart->getSubTotal());
       $mdOrder->setTotalShipping($cart->getTotalShipping());
-      if($mdAddress)
-        $mdOrder->setDeliveryDate($mdAddress->getDate());
+      //if($mdAddress)
+        //$mdOrder->setDeliveryDate($mdAddress->getDate());
       $mdOrder->save();
 
       sfContext::getInstance()->getEventDispatcher()->notify(new sfEvent($this, 'mdCart.validate', array('mdOrder' => $mdOrder)));
@@ -369,8 +369,10 @@ class mdCartController {
         sfContext::getInstance()->getResponse()->setCookie(mdCart::COOKIE_CART_NAME, NULL, time() - (15 * 24 * 3600));
         
         // Send an e-mail to customer and admin CADA MODULO SE ENCARGARA DE ENVIAR EL MAIL ??? o lo dejamos aca ???
-        $to = sfContext::getInstance()->getUser()->getEmail();
-        $this->sendCustomerMail($to, $mdOrder);
+        if($module_label != 'paypal'){
+          $to = sfContext::getInstance()->getUser()->getEmail();
+          $this->sendCustomerMail($to, $mdOrder);          
+        }
       }
       else 
       {

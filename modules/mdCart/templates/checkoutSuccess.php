@@ -4,6 +4,8 @@
  */
 ?>
 
+<?php use_javascript('/mdEcommercePlugin/js/mdCartAddress/mdCartAddress.js'); ?>
+
 <div class="ecommerce-section">
   <div class="ecommerce-container">
 

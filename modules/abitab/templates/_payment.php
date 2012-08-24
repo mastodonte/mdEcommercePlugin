@@ -1,17 +1,9 @@
-<pre>
-Ha elegido pagar por abitab
+<div class="ecommerce-subcontainer">
+  <h2>Datos de entrega:</h2>
 
-Aquí tiene un resumen de su pedido:
+  <?php include_partial('mdCartAddress/resume', array('md_order' => $md_order)); ?>
 
-...
+  <h2>Datos de facturacion:</h2>
 
-TODO
-
-- El importe total de su pedido es <?php echo $md_order->getDisplayTotal(); ?> IVA incluído
-
-...
-
-La información para realizar el pago aparecerá en la página siguiente.
-
-Por favor, acepte su pedido haciendo clic en 'confirmo mi pedido'.
-</pre>
+  <?php include_partial('mdCart/resume', array('md_order' => $md_order)); ?>
+</div>

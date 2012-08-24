@@ -8,8 +8,8 @@
 
         <tr id="ecommerce-cart_block_product_<?php echo $product->getId(); ?>">
           <td class="ecommerce-image">
-            <a href="product.html">
-              <?php include_partial('productos/avatar', array('producto' => $product, 'width' => 40, 'height' => 40, 'code' => mdWebCodes::CROPRESIZE)); ?>
+            <a href="<?php echo url_for('@homepage'); ?>">
+              <img src="<?php echo $product->retrieveAvatar(array(mdWebOptions::WIDTH => 40, mdWebOptions::HEIGHT => 40, mdWebOptions::CODE => mdWebCodes::CROPRESIZE)); ?>"/>
             </a>
           </td>
 

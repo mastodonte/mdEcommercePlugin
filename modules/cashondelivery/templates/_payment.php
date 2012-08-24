@@ -1,13 +1,9 @@
-Pago contra reembolso
+<div class="ecommerce-subcontainer">
+  <h2>Datos de entrega:</h2>
 
-<img src="" />
+  <?php include_partial('mdCartAddress/resume', array('md_order' => $md_order)); ?>
 
-Pago contra reembolso Ha elegido el pago contra reembolso
+  <h2>Datos de facturacion:</h2>
 
-El importe total de su pedido es 86,20 € (tasas incluídas)
-
-Por favor acepte su pedido pulsando en 'confirmo mi pedido'. 
-
-<form action="/cashondelivery/validate" method="POST">
-  <input type="submit" value="Confirmar" />
-</form>
+  <?php include_partial('mdCart/resume', array('md_order' => $md_order)); ?>
+</div>

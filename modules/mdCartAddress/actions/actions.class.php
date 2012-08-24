@@ -10,11 +10,34 @@
  */
 class mdCartAddressActions extends sfActions
 {
+  public function executeNew(sfWebRequest $request) 
+  {
+    $this->form = new mdAddressForm();
+  }
+  
+  public function executeEdit(sfWebRequest $request) 
+  {
+    $this->md_address = $this->getRoute()->getObject();
+    $this->form = new mdAddressForm($this->md_address);
+
+    $this->setTemplate('new');
+
+    if($this->getUser()->isAuthenticated())
+    {
+      return $this->processForm($request, $this->form);
+    }
+    else
+    {
+      return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => 'You must be logged in')));
+    }
+  }
 
   public function executeCreate(sfWebRequest $request) 
   {
     $this->form = new mdAddressForm();
     $this->md_address = $this->form->getObject();
+    
+    $this->setTemplate('new');
     
     if($this->getUser()->isAuthenticated())
     {
@@ -22,11 +45,11 @@ class mdCartAddressActions extends sfActions
     }
     else
     {
-      return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => __('Mensajes_You must be logged in'))));
+      return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => 'You must be logged in')));
     }
   }
   
-  public function executeEdit(sfWebRequest $request) 
+  public function executeUpdate(sfWebRequest $request) 
   {
     $parameters = $request->getParameter('md_address');
     $this->md_address = Doctrine::getTable('mdAddress')->find($parameters['id']);
@@ -65,25 +88,53 @@ class mdCartAddressActions extends sfActions
 
         $this->getUser()->setFlash('error', $message);
 
-        $partial = $this->getPartial('mdCartAddress/form', array('form' => $form));
-      
-        return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => $message, 'form' => $partial)));
+        $partial = $this->getPartial('mdCartAddress/address_form', array('form' => $form));
+
+        if($request->isXmlHttpRequest()){
+          return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => $message, 'form' => $partial)));
+        }
       }
 
       $form = new mdAddressForm($md_address); //Actualizamos formulario
       
-      $partial = $this->getPartial('mdCartAddress/form', array('form' => $form));
+      $partial = $this->getPartial('mdCartAddress/address_form', array('form' => $form));
       
-      return $this->renderText(mdBasicFunction::basic_json_response(true, array('message' => $notice, 'form' => $partial, 'md_address' => $md_address->toArray())));
+      if($request->isXmlHttpRequest()){
+        return $this->renderText(mdBasicFunction::basic_json_response(true, array('message' => $notice, 'form' => $partial, 'md_address' => $md_address->toArray())));        
+      }else{
+        $this->redirect('@mdCart-checkout');
+      }
+
     }
     else
     {
       $this->getUser()->setFlash('error', __('Mensajes_The item has not been saved due to some errors.'), false);
       
-      $partial = $this->getPartial('mdCartAddress/form', array('form' => $form));
+      if($request->isXmlHttpRequest()){
+        $partial = $this->getPartial('mdCartAddress/address_form', array('form' => $form));
       
-      return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => __('Mensajes_The item has not been saved due to some errors.'), 'form' => $partial)));
+        return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => __('Mensajes_The item has not been saved due to some errors.'), 'form' => $partial)));
+      }
     }
+  }
+  
+  public function executeValidate(sfWebRequest $request) {
+
+    // Validar que el address sea de una direccion mia
+    $mdAddress = Doctrine::getTable('mdAddress')->find($request->getParameter('address'));
+    
+    mdCartController::getInstance()->updateAddress($mdAddress); // Actualizamos el carrito
+    
+    if($request->isXmlHttpRequest()){
+      
+      return $this->renderText(mdBasicFunction::basic_json_response(true, array()));
+      
+    }else{
+    
+      $this->redirect('@mdCart-checkout?step=3');
+      
+    }
+
   }
 
 }
