@@ -7,8 +7,8 @@
                     <?php $record_categoria = $record_categoria->getRawValue(); ?>
                     <?php $hasChildren = (count($record_categoria['children']) > 0); ?>
 
-                    <li>
-                        <a class="<?php echo ($hasChildren ? 'head' : ''); ?> <?php echo ($record_categoria['id'] == $categoria->getId() ? 'active' : ''); ?>" 
+                    <li class="<?php echo ($record_categoria['id'] == $categoria->getId() ? 'selected' : ''); ?>">
+                        <a class="<?php echo ($hasChildren ? 'head' : ''); ?> <?php echo ($record_categoria['id'] == $categoria->getId() ? 'selected' : ''); ?>" 
                            href="<?php echo ($hasChildren ? 'javascript:void(0)' : url_for('@productos-categoria?id=' . $record_categoria['id'] . '&name=' . mdBasicFunction::slugify($record_categoria['name'])) . '?s=' . base64_encode($parent->getId() . '-' . $parent->getName())); ?>">
                                <?php echo $record_categoria['name']; ?>
                         </a>
@@ -42,9 +42,9 @@
     jQuery().ready(function(){
         jQuery('#navigation').accordion({
             header: '.head',
-            active: false,
+            active: '#navigation li.selected a',
             alwaysOpen: false,
-            animated: false,
+            animated: 'slide',
             autoheight: false
         });
     });
