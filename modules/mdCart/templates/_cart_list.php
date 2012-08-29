@@ -55,7 +55,7 @@
   <table>
     <!--<tr>
       <td colspan="5"></td>
-      <td class="ecommerce-right"><b><?php echo __('mdEcommerce_Subtotal'); ?>:</b></td>
+      <td class="ecommerce-right"><b><?php //echo __('mdEcommerce_Subtotal'); ?>:</b></td>
       <td class="ecommerce-right  ecommerce-total"><?php echo $cart->getDisplaySubTotal(); ?></td>
     </tr>-->
     <!--<tr>

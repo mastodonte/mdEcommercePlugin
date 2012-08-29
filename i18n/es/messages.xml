@@ -144,6 +144,40 @@
         <source>PagoEnLocal_Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente 0900 1111</source>
         <target>Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente.</target>
       </trans-unit>
+      <trans-unit id="36">
+        <source>mdEcommerce_Fotos producto</source>
+        <target>Foto</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>mdEcommerce_Nombre producto</source>
+        <target>Nombre</target>
+      </trans-unit>
+      <trans-unit id="38">
+        <source>mdEcommerce_Precio</source>
+        <target>Precio</target>
+      </trans-unit>
+      <trans-unit id="39">
+        <source>mdEcommerce_Cantidad</source>
+        <target>Cantidad</target>
+      </trans-unit>      
+      <trans-unit id="40">
+        <source>mdEcommerce_Totales</source>
+        <target>Totales</target>
+      </trans-unit>            
+      <trans-unit id="41">
+        <source>mdEcommerce_No hay productos agregados</source>
+        <target>No hay productos agregados</target>
+      </trans-unit>            
+      <trans-unit id="42">
+        <source>mdEcommerce_Total</source>
+        <target>Total</target>
+      </trans-unit>            
+      <trans-unit id="43">
+        <source>mdEcommerce_Continuar Comprando</source>
+        <target>Continuar Comprando</target>
+      </trans-unit>                                                                              
     </body>
   </file>
 </xliff>
+
+
