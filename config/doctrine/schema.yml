@@ -163,6 +163,7 @@ mdAddress:
       notnull: true
     alias:
       type: string(32)
+      notnull: true
     lastname:
       type: string(32)
       notnull: true
@@ -176,13 +177,14 @@ mdAddress:
       type: string(16)
     city:
       type: string(64)
+      notnull: true
     country_code:
       type: string(2)
       default: UY
+      notnull: true
     phone:
       type: string(16)
-    phone_mobile:
-      type: string(16)
+      notnull: true
     other:
       type: text
     dni:

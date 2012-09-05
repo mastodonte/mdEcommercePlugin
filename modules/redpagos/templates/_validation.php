@@ -19,7 +19,7 @@
     <p>Una vez confirmado el pago se le enviara un correo electronico 
     donde le llegara un link donde debe ingresar el codigo de giro para finalizar la transaccion</p>
 
-    <input type="submit" value="FINALIZAR" />
+    <input class="button" type="submit" value="FINALIZAR" />
     
   </form>
   

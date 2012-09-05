@@ -151,3 +151,11 @@ mdPaypalCancelUrl:
   url:   /paypal/cancel
   param: { module: paypal, action: cancel }
 ######################################################
+
+ec-producto-show:
+  url: /:id/:slug.html
+  param: { module: productos, action: show }
+  class:   sfDoctrineRoute
+  options: { model: ecProduct, type: object }
+  requirements:
+    sf_method: [get]

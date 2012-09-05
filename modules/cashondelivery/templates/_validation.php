@@ -12,7 +12,7 @@
       <b><?php echo $mdShipping->getAddress(); ?>.</b>
     </p>
 
-    <input type="submit" value="FINALIZAR" />
+    <input class="button" type="submit" value="FINALIZAR" />
     
   </form>
   

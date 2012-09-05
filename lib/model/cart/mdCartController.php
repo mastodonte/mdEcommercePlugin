@@ -415,7 +415,7 @@ class mdCartController {
     $options['recipients'] = $to;
 
     // MAIL AL CLIENTE
-    mdMailHandler::sendMail($options);
+    //mdMailHandler::sendMail($options);
     
     $options = array();
     $options['sender']    = array('name' => __('Mail_Name of Company'), 'email' => $from);
@@ -424,6 +424,6 @@ class mdCartController {
     $options['recipients'] = $from;    
     
     // MAIL AL ADMIN
-    mdMailHandler::sendMail($options);    
+    //mdMailHandler::sendMail($options);    
   }
 }

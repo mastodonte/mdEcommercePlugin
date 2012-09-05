@@ -175,7 +175,47 @@
       <trans-unit id="43">
         <source>mdEcommerce_Continuar Comprando</source>
         <target>Continuar Comprando</target>
-      </trans-unit>                                                                              
+      </trans-unit>
+      <trans-unit id="44">
+        <source>mdCart_cantidad</source>
+        <target>cantidad</target>
+      </trans-unit>
+      <trans-unit id="45">
+        <source>mdCart_Costo de Envio</source>
+        <target>Costo de Envio</target>
+      </trans-unit>
+      <trans-unit id="46">
+        <source>Ecommerce_Alias</source>
+        <target>Alias</target>
+      </trans-unit> 
+      <trans-unit id="47">
+        <source>Ecommerce_Lastname</source>
+        <target>Apellido</target>
+      </trans-unit> 
+      <trans-unit id="48">
+        <source>Ecommerce_Firstname</source>
+        <target>Nombre</target>
+      </trans-unit>       
+      <trans-unit id="49">
+        <source>Ecommerce_Address</source>
+        <target>Direccion</target>
+      </trans-unit>
+      <trans-unit id="50">
+        <source>Ecommerce_Postcode</source>
+        <target>Codigo Postal</target>
+      </trans-unit>
+      <trans-unit id="51">
+        <source>Ecommerce_City</source>
+        <target>Ciudad</target>
+      </trans-unit>
+      <trans-unit id="52">
+        <source>Ecommerce_Country_code</source>
+        <target>Pais</target>
+      </trans-unit>
+      <trans-unit id="53">
+        <source>Ecommerce_Phone</source>
+        <target>Telefono</target>
+      </trans-unit>      
     </body>
   </file>
 </xliff>

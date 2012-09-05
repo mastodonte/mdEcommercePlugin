@@ -45,7 +45,11 @@ class mdCartAddressActions extends sfActions
     }
     else
     {
-      return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => 'You must be logged in')));
+      if($request->isXmlHttpRequest()){
+        return $this->renderText(mdBasicFunction::basic_json_response(false, array('error' => 'You must be logged in')));
+      }else{
+        $this->redirect('@homepage');
+      }
     }
   }
   

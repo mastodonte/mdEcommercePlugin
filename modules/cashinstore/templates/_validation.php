@@ -10,7 +10,7 @@
       <b><?php echo sfConfig::get('app_cashinstore_address'); ?></b>
       en el horario de Lunes a Viernes de 10 a 19 hs</p>
 
-    <input type="submit" value="FINALIZAR" />
+    <input class="button" type="submit" value="FINALIZAR" />
     
   </form>
   
