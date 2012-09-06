@@ -4,242 +4,267 @@
   <file source-language="EN" target-language="es" datatype="plaintext" original="messages" date="2012-04-25T16:42:27Z" product-name="messages">
     <header/>
     <body>
-      <trans-unit id="1">
+      <trans-unit>
         <source>mdCart_Carrito</source>
         <target>carrito</target>
       </trans-unit>
-      <trans-unit id="2">
+      <trans-unit>
         <source>mdCart_sin productos</source>
         <target>sin productos</target>
       </trans-unit>
-      <trans-unit id="3">
+      <trans-unit>
         <source>mdCart_Total</source>
         <target>Total</target>
       </trans-unit>
-      <trans-unit id="4">
+      <trans-unit>
         <source>mdCart_vacio</source>
         <target>vacio</target>
       </trans-unit>
-      <trans-unit id="5">
+      <trans-unit>
         <source>mdCart_producto</source>
         <target>producto</target>
       </trans-unit>
-      <trans-unit id="6">
+      <trans-unit>
         <source>mdCart_productos</source>
         <target>productos</target>
       </trans-unit>
-      <trans-unit id="7">
+      <trans-unit>
         <source>mdCart_Check out</source>
         <target>Check out</target>
       </trans-unit>
-      <trans-unit id="8">
+      <trans-unit>
         <source>Brou_Su pedido está completo.</source>
         <target>Su pedido está completo.</target>
       </trans-unit>
-      <trans-unit id="9">
+      <trans-unit>
         <source>Brou_Por favor, hága su deposito por brou con la siguiente informacion:</source>
         <target>Por favor, hága su deposito por brou con la siguiente informacion:</target>
       </trans-unit>
-      <trans-unit id="10">
+      <trans-unit>
         <source>Brou_la suma de:</source>
         <target>la suma de:</target>
       </trans-unit>
-      <trans-unit id="11">
+      <trans-unit>
         <source>Brou_a la cuenta: XXXX-YYYY</source>
         <target>a la cuenta: XXXX-YYYY</target>
       </trans-unit>
-      <trans-unit id="12">
+      <trans-unit>
         <source>Brou_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
         <target>Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</target>
       </trans-unit>       
-      <trans-unit id="13">
+      <trans-unit>
         <source>Abitab_Su pedido está completo.</source>
         <target>Su pedido está completo.</target>
       </trans-unit>
-      <trans-unit id="14">
+      <trans-unit>
         <source>Abitab_Por favor, hága su deposito por abitab con la siguiente informacion:</source>
         <target>Por favor, hága su deposito por brou con la siguiente informacion:</target>
       </trans-unit>
-      <trans-unit id="15">
+      <trans-unit>
         <source>Abitab_la suma de:</source>
         <target>la suma de:</target>
       </trans-unit>
-      <trans-unit id="16">
+      <trans-unit>
         <source>Abitab_a la cuenta: XXXX-YYYY</source>
         <target>a la cuenta: XXXX-YYYY</target>
       </trans-unit>
-      <trans-unit id="17">
+      <trans-unit>
         <source>Abitab_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
         <target>Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</target>
       </trans-unit>
-      <trans-unit id="18">
+      <trans-unit>
         <source>Redpagos_Su pedido está completo.</source>
         <target>Su pedido está completo.</target>
       </trans-unit>
-      <trans-unit id="19">
+      <trans-unit>
         <source>Redpagos_Por favor, hága su deposito por Redpagos con la siguiente informacion:</source>
         <target>Por favor, hága su deposito por brou con la siguiente informacion:</target>
       </trans-unit>
-      <trans-unit id="20">
+      <trans-unit>
         <source>Redpagos_la suma de:</source>
         <target>la suma de:</target>
       </trans-unit>
-      <trans-unit id="21">
+      <trans-unit>
         <source>Redpagos_a la cuenta: XXXX-YYYY</source>
         <target>a la cuenta: XXXX-YYYY</target>
       </trans-unit>
-      <trans-unit id="22">
+      <trans-unit>
         <source>Redpagos_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
         <target>Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</target>
       </trans-unit>
-      <trans-unit id="23">
+      <trans-unit>
         <source>ContraEntrega_Su pedido está completo.</source>
         <target>Su pedido está completo.</target>
       </trans-unit>
-      <trans-unit id="24">
+      <trans-unit>
         <source>ContraEntrega_Ha elegido pagar en el momento de la entrega.</source>
         <target>Ha elegido pagar en el momento de la entrega.</target>
       </trans-unit>
-      <trans-unit id="25">
+      <trans-unit>
         <source>ContraEntrega_Le enviaremos su pedido en breve plazo.</source>
         <target>Le enviaremos su pedido en breve plazo.</target>
       </trans-unit>
-      <trans-unit id="26">
+      <trans-unit>
         <source>ContraEntrega_la suma es de:</source>
         <target>la suma es de:</target>
       </trans-unit>
-      <trans-unit id="27">
+      <trans-unit>
         <source>ContraEntrega_Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente 0900 1111</source>
         <target>Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente 0900 1111</target>
       </trans-unit>
-      <trans-unit id="28">
+      <trans-unit>
         <source>Mensajes_The item was updated successfully.</source>
         <target>Se han realizado los cambios exitosamente.</target>
       </trans-unit>
-      <trans-unit id="29">
+      <trans-unit>
         <source>Mensajes_The item was created successfully.</source>
         <target>Se han creado los datos exitosamente.</target>
       </trans-unit>
-      <trans-unit id="30">
+      <trans-unit>
         <source>Mensajes_You must be logged in</source>
         <target>Debes estar logueado</target>
       </trans-unit>
-      <trans-unit id="31">
+      <trans-unit>
         <source>Mensajes_The item has not been saved due to some errors.</source>
         <target>Los cambios no se han podido realizar porque hay errores.</target>
       </trans-unit>
-      <trans-unit id="32">
+      <trans-unit>
         <source>PagoEnLocal_Su pedido está completo.</source>
         <target>Su pedido está completo.</target>
       </trans-unit>
-      <trans-unit id="33">
+      <trans-unit>
         <source>PagoEnLocal_Ha elegido pagar en nuestro local.</source>
         <target>Ha elegido pagar en nuestro local</target>
       </trans-unit>
-      <trans-unit id="34">
+      <trans-unit>
         <source>PagoEnLocal_la suma es de:</source>
         <target>La suma es de:</target>
       </trans-unit>
-      <trans-unit id="35">
+      <trans-unit>
         <source>PagoEnLocal_Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente 0900 1111</source>
         <target>Para cualquier pregunta, póngase en contacto con nuestro servicio de atencion al cliente.</target>
       </trans-unit>
-      <trans-unit id="36">
+      <trans-unit>
         <source>mdEcommerce_Fotos producto</source>
         <target>Foto</target>
       </trans-unit>
-      <trans-unit id="37">
+      <trans-unit>
         <source>mdEcommerce_Nombre producto</source>
         <target>Nombre</target>
       </trans-unit>
-      <trans-unit id="38">
+      <trans-unit>
         <source>mdEcommerce_Precio</source>
         <target>Precio</target>
       </trans-unit>
-      <trans-unit id="39">
+      <trans-unit>
         <source>mdEcommerce_Cantidad</source>
         <target>Cantidad</target>
       </trans-unit>      
-      <trans-unit id="40">
+      <trans-unit>
         <source>mdEcommerce_Totales</source>
         <target>Totales</target>
       </trans-unit>            
-      <trans-unit id="41">
+      <trans-unit>
         <source>mdEcommerce_No hay productos agregados</source>
         <target>No hay productos agregados</target>
       </trans-unit>            
-      <trans-unit id="42">
+      <trans-unit>
         <source>mdEcommerce_Total</source>
         <target>Total</target>
       </trans-unit>            
-      <trans-unit id="43">
+      <trans-unit>
         <source>mdEcommerce_Continuar Comprando</source>
         <target>Continuar Comprando</target>
       </trans-unit>
-      <trans-unit id="44">
+      <trans-unit>
         <source>mdCart_cantidad</source>
         <target>cantidad</target>
       </trans-unit>
-      <trans-unit id="45">
+      <trans-unit>
         <source>mdCart_Costo de Envio</source>
         <target>Costo de Envio</target>
       </trans-unit>
-      <trans-unit id="46">
+      <trans-unit>
         <source>Ecommerce_Alias</source>
         <target>Alias</target>
       </trans-unit> 
-      <trans-unit id="47">
+      <trans-unit>
         <source>Ecommerce_Lastname</source>
         <target>Apellido</target>
       </trans-unit> 
-      <trans-unit id="48">
+      <trans-unit>
         <source>Ecommerce_Firstname</source>
         <target>Nombre</target>
       </trans-unit>       
-      <trans-unit id="49">
+      <trans-unit>
         <source>Ecommerce_Address</source>
         <target>Direccion</target>
       </trans-unit>
-      <trans-unit id="50">
+      <trans-unit>
         <source>Ecommerce_Postcode</source>
         <target>Codigo Postal</target>
       </trans-unit>
-      <trans-unit id="51">
+      <trans-unit>
         <source>Ecommerce_City</source>
         <target>Ciudad</target>
       </trans-unit>
-      <trans-unit id="52">
+      <trans-unit>
         <source>Ecommerce_Country_code</source>
         <target>Pais</target>
       </trans-unit>
-      <trans-unit id="53">
+      <trans-unit>
         <source>Ecommerce_Phone</source>
         <target>Telefono</target>
       </trans-unit>
-      <trans-unit id="54">
+      <trans-unit>
         <source>mdEcommerce_List</source>
         <target>Listado</target>
       </trans-unit>
-      <trans-unit id="55">
+      <trans-unit>
         <source>mdEcommerce_New</source>
         <target>Nuevo</target>
       </trans-unit>
-      <trans-unit id="56">
+      <trans-unit>
         <source>mdEcommerce_Edit</source>
         <target>Editar</target>
       </trans-unit>
-      <trans-unit id="57">
+      <trans-unit>
         <source>mdEcommerce_Pedidos</source>
         <target>Pedidos</target>
       </trans-unit> 
-      <trans-unit id="58">
+      <trans-unit>
         <source>mdEcommerce_Productos</source>
         <target>Productos</target>
       </trans-unit>
-      <trans-unit id="58">
+      <trans-unit>
         <source>mdEcommerce_Detalle del Pedido</source>
         <target>Detalle del Pedido</target>
-      </trans-unit>                                        
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Compra exitosa!</source>
+        <target>Compra exitosa!</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Gracias por la compra</source>
+        <target>Gracias por la compra</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_En este momento estamos procesando su pedido, una vez confirmados todos los datos le será enviada la confirmación del mismo vía Email.</source>
+        <target>En este momento estamos procesando su pedido, una vez confirmados todos los datos le será enviada la confirmación del mismo vía Email.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Su número de orden es:</source>
+        <target>Su número de orden es:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Texto Informativo</source>
+        <target>Tenga en cuenta este numero cuando nos contacte para buscar su orden facilmente.&lt;br /&gt;Ante cualquier eventualidad un representante de nuestra empresa se pondra en contacto telefonicamente o via email.&lt;br /&gt;Si pago con tarjeta de credito usted vera un cargo en su resumen mensual de Miempresa S.A. o de miempresa.com.uy
+        </target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente TEL: +598 2409 99 99 o info@miempresa.com.uy</source>
+        <target>Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente TEL: +598 2409 99 99 o info@miempresa.com.uy</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

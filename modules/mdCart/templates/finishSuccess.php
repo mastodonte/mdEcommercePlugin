@@ -8,12 +8,9 @@
 
     <p><?php echo __('mdEcommerce_Su número de orden es:'); ?> #<?php echo $sf_request->getParameter('id'); ?></p>
 
-    <p><?php echo __('mdEcommerce_Ténga en cuenta este numero cuando nos contacte para buscar su orden fácilmente.<br />
-      Ante cualquier eventualidad un representante de nuestra empresa se pondrá en contacto telefónicamente o via email.</br>
-      Si pagó con tarjeta de crédito usted verá un cargo en su resumen mensual de Miempresa S.A. o de miempresa.com.uy'); ?></p>
+    <p><?php echo __('mdEcommerce_Texto Informativo'); ?></p>
     
-    <p><?php echo __('mdEcommerce_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente 
-      TEL: +598 2409 99 99 o info@miempresa.com.uy'); ?></p>
+    <p><?php echo __('mdEcommerce_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente TEL: +598 2409 99 99 o info@miempresa.com.uy'); ?></p>
 
   </div>
 </div>
