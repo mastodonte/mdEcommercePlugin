@@ -2,10 +2,10 @@
 <?php include_partial('productosBackend/assets') ?>
 
 <?php slot('productos'); ?>
-<?php slot('nav') ?><?php echo __('Home_Productos'); ?><?php end_slot(); ?>
+<?php slot('nav') ?><?php echo __('mdEcommerce_Productos'); ?><?php end_slot(); ?>
 
 <div id="sf_admin_container">
-  <h1><?php echo __('Productos_List', array(), 'messages') ?></h1>
+  <h1><?php echo __('mdEcommerce_List', array(), 'messages') ?></h1>
 
   <?php include_partial('productosBackend/flashes') ?>
 
