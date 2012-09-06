@@ -285,16 +285,16 @@ a.ecommerce-button span:hover{
   clear:both;
 }
 .ecommerce-left{
-  float:left;
-  clear:both;
+  float:right;
   margin:10px 30px 10px 30px;
 }
 .ecommerce-right{
-  float:left;
-  margin:10px 30px 10px 15px;
+  float:right;
+  clear:both;  
+  margin:10px 0px 10px 15px;
 }
 .ecommerce-right label{
-  float:left;
+  float:right;
   width:100px;
   margin-right:8px;
   line-height:29px;
@@ -304,7 +304,7 @@ a.ecommerce-button span:hover{
   width:200px;
   margin:0 !Important;
 }
-label.modal-lebel{
+label.ecommerce-label{
   float:left;
   width:150px;
   margin-right:8px;

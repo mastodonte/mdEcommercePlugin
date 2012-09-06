@@ -73,7 +73,7 @@
 
 <div class="ecommerce-buttons">
   <!--<div class="left"><a onclick="$('#basket').submit();" class="button larger"><span>Actualizar</span></a></div>-->
-  <!--<div class="right"><a href="#" class="button larger"><span>Checkout</span></a></div>-->
+  <div class="ecommerce-right"><a href="<?php echo url_for('@mdCart-checkout'); ?>" class="button larger"><span>Checkout</span></a></div>
   <div class="ecommerce-left"><a href="<?php echo url_for('@homepage'); ?>" class="ecommerce-button ecommerce-larger"><span><?php echo __('mdEcommerce_Continuar Comprando'); ?></span></a></div>
 </div>
 

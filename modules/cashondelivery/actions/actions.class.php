@@ -13,13 +13,13 @@ class cashondeliveryActions extends sfActions
   public function executeIndex(sfWebRequest $request) 
   {
     // Procesar y crear la orden
-    /*$this->md_order = Doctrine::getTable('mdOrder')->find($request->getParameter('id'));
+    $this->md_order = Doctrine::getTable('mdOrder')->find($request->getParameter('id'));
 
     if(!$this->md_order || !$this->md_order->isOrderValid() || $this->md_order->getModulePayment() != 'cashondelivery')
     {
       $this->getUser()->setFlash('error', 'Invalid Order');
       $this->redirect('@homepage');
-    }*/
+    }
   }
   
   /**

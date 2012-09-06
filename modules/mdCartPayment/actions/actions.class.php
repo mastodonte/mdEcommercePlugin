@@ -15,20 +15,20 @@ class mdCartPaymentActions extends sfActions
     if($this->getUser()->isAuthenticated())
     {
       try{
-
+        
         // Creamos la orden
         $md_order = mdCartController::getInstance()->validate($request->getParameter('payment'), sfConfig::get('app_configuration_MD_NOTPAY'));
 
-        //REDIRIJO AL MODULO PARTICULAR
-        //$this->redirect($request->getParameter('payment') . '/index?id=' . $md_order->getId());
-        
       }catch(Exception $e){
 
-        //echo $e->getTraceAsString();
-        $this->getUser()->setFlash('error', 'CHUPALA ' . $e->getMessage() . ' ' . $e->getCode());
-        //$this->redirect('@homepage');
+        $this->getUser()->setFlash('error', $e->getMessage());
+        $this->redirect('@homepage');
 
       }
+
+      //REDIRIJO AL MODULO PARTICULAR
+      $this->redirect($request->getParameter('payment') . '/index?id=' . $md_order->getId());        
+
     }
     else
     {
