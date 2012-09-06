@@ -14,7 +14,7 @@
 
 #ecommerce-cart_block .heading h4 
 {
-  background: url("/images/frontend/basket.png") no-repeat scroll 0 0 transparent;
+  background: url("/mdEcommercePlugin/images/basket.png") no-repeat scroll 0 0 transparent;
   display: inline-block;
   height: 20px;
   text-indent: -9999px;
@@ -202,7 +202,7 @@ a.ecommerce-cart_block_product_name{
   text-align:right;
 }
 .ecommerce-remove a{	
-  background: url('/images/frontend/remove.png') no-repeat scroll 0 0 transparent;
+  background: url('/mdEcommercePlugin/images/remove.png') no-repeat scroll 0 0 transparent;
   display: inline-block;
   height: 18px;
   margin: 0 0 0 5px;
@@ -544,4 +544,70 @@ ul.error_list li{
   color: red;
   float: right;
   margin: 5px 30px;
+}
+
+/*ACCORDION*/
+.box-category 
+{
+  margin-top: -5px;
+}
+
+.box-category ul 
+{
+  list-style: disc outside url("/mdEcommercePlugin/images/arrow-column.png");
+  margin: 0 0 0 22px;
+  padding: 0;
+}
+
+.box-category > ul > li 
+{
+  padding: 8px 8px 8px 0;
+}
+
+.box-category > ul > li > a 
+{
+  position: relative;
+}
+
+.box-category > ul > li + li 
+{
+  border-top: 1px solid #EEEEEE;
+}
+
+.box-category > ul > li > a 
+{
+  text-decoration: none;
+}
+
+.box-category > ul > li ul 
+{
+  display: none;
+  list-style: disc outside url("/mdEcommercePlugin/images/arrow-column-active.png");
+  margin-left: 28px;
+}
+
+.box-category > ul > li a.active 
+{
+  font-weight: bold;
+}
+
+.box-category > ul > li a.active + ul 
+{
+  display: block;
+}
+
+.box-category > ul > li ul > li 
+{
+  padding: 5px 5px 0 0;
+}
+
+.box-category > ul > li ul > li > a 
+{
+  display: block;
+  text-decoration: none;
+}
+
+.box-category > ul > li ul > li > a.active 
+{
+  font-weight: bold;
 }
