@@ -96,7 +96,7 @@ class PluginecProductTable extends Doctrine_Table {
     $q = $this->createQuery('p')
       ->leftJoin('p.Translation t')
       ->where('p.active = 1')
-      ->orderBy('p.updated_at desc');
+      ->orderBy('p.created_at desc');
     
     if($query) return $query;
     
