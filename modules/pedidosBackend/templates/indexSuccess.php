@@ -2,7 +2,7 @@
 <?php include_partial('pedidosBackend/assets') ?>
 
 <?php slot('pedidos'); ?>
-<?php slot('nav') ?><?php echo __('mdEcommerce_Pedidos'); ?> > <?php echo __('mdEcommerce_Detalle del Pedido'); ?><?php end_slot(); ?>
+<?php slot('nav') ?><?php echo __('mdEcommerce_Pedidos'); ?><?php end_slot(); ?>
 
 <div id="sf_admin_container">
   <h1><?php echo __('mdEcommerce_List', array(), 'messages') ?></h1>
