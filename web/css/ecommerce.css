@@ -547,67 +547,80 @@ ul.error_list li{
 }
 
 /*ACCORDION*/
-.box-category 
-{
-  margin-top: -5px;
+.ecommerce-box {
+  background-color: #F8F8F8;
+  background-image: url("/images/frontend/left_gr.gif");
+  background-repeat: repeat-x;
+  border: 2px solid #EEEEEE;
+  float: left;
+  margin-bottom: 10px;
+  width: 181px;
 }
-
-.box-category ul 
-{
-  list-style: disc outside url("/mdEcommercePlugin/images/arrow-column.png");
-  margin: 0 0 0 22px;
+.ecommerce-box-heading {
+  background-image: url("/images/frontend/crumb.gif");
+  background-repeat: repeat-x;
+  border: 1px solid #EEEEEE;
+  float: left;
+  height: 22px;
+  padding: 7px 10px 0;
+  width: 159px;
+}
+#ecommerce-navigation {
+  background-color: #E2E2E2;
+  margin: 0;
   padding: 0;
+  text-indent: 0;
+  width: 181px;
 }
 
-.box-category > ul > li 
-{
-  padding: 8px 8px 8px 0;
-}
-
-.box-category > ul > li > a 
-{
-  position: relative;
-}
-
-.box-category > ul > li + li 
-{
-  border-top: 1px solid #EEEEEE;
-}
-
-.box-category > ul > li > a 
-{
-  text-decoration: none;
-}
-
-.box-category > ul > li ul 
-{
-  display: none;
-  list-style: disc outside url("/mdEcommercePlugin/images/arrow-column-active.png");
-  margin-left: 28px;
-}
-
-.box-category > ul > li a.active 
-{
-  font-weight: bold;
-}
-
-.box-category > ul > li a.active + ul 
-{
+#ecommerce-navigation a.head, #ecommerce-navigation a.no-head  {
+  background: url("/images/frontend/left_ar.gif") no-repeat scroll 10px center transparent;
+  border-bottom: 1px solid #D0D0D0;
+  border-top: 1px solid #FFFFFF;
+  color: #000000;
+  cursor: pointer;
   display: block;
-}
-
-.box-category > ul > li ul > li 
-{
-  padding: 5px 5px 0 0;
-}
-
-.box-category > ul > li ul > li > a 
-{
-  display: block;
+  margin: 0;
+  padding: 8px;
   text-decoration: none;
+  text-indent: 14px;
 }
-
-.box-category > ul > li ul > li > a.active 
-{
-  font-weight: bold;
+#ecommerce-navigation a.head:hover {
+  color:#FF0000;
+}
+#ecommerce-navigation a.selected {
+  background: url("/images/frontend/left_ar_hover.gif") no-repeat scroll 10px center #000000;
+  color: #FFFFFF;
+  float: left;
+  width: 163px;
+}
+#ecommerce-navigation a.current {
+  background-color: #FFFF99;
+}
+#ecommerce-navigation li {
+  display: inline;
+  float: left;
+  list-style: none outside none;
+  width: 181px;
+}
+#ecommerce-navigation ul {
+  border-width: 0;
+  float: left;
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+}
+#ecommerce-navigation li li a {
+  border: 0 none;
+  color: #999999;
+  display: block;
+  float: left;
+  padding: 8px;
+  text-decoration: none;
+  text-indent: 10px;
+  width: 163px;
+}
+#ecommerce-navigation li li a:hover {
+  background-color: #000;
+  color: #FF0000;
 }
