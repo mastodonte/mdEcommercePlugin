@@ -409,18 +409,17 @@ class mdCartController {
     $partial = get_partial('mdCart/resume_mail', array('mdOrder' => $order));
 
     $options = array();
-    $options['sender']    = array('name' => __('Mail_Name of Company'), 'email' => $from);
+    $options['sender']    = array('name' => __('mdEcommerce_From'), 'email' => $from);
     $options['body']      = $partial;
-    $options['subject']   = __("Mail_subject resume");
+    $options['subject']   = __("mdEcommerce_subject resume");
     $options['recipients'] = $to;
 
     // MAIL AL CLIENTE
     mdMailHandler::sendMail($options);
-    
-    $options = array();
-    $options['sender']    = array('name' => __('Mail_Name of Company'), 'email' => $from);
+
+    $options['sender']    = array('name' => __('mdEcommerce_From'), 'email' => $from);
     $options['body']      = $partial;
-    $options['subject']   = __("Mail_subject resume");
+    $options['subject']   = __("mdEcommerce_subject resume");
     $options['recipients'] = $from;    
     
     // MAIL AL ADMIN

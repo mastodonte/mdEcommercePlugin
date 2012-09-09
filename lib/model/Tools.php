@@ -158,9 +158,9 @@ class Tools {
     $partial = get_partial($module_label . '/resume_mail', array('order' => $order, 'link' => $link));
 
     $options = array();
-    $options['sender']    = array('name' => __('Mail_Name of Company'), 'email' => $from);
+    $options['sender']    = array('name' => __('mdEcommerce_From'), 'email' => $from);
     $options['body']      = $partial;
-    $options['subject']   = __("Mail_subject " . $module_label);
+    $options['subject']   = __("mdEcommerce_subject resume");
     $options['recipients'] = $to;
     
     mdMailHandler::sendMail($options);

@@ -39,8 +39,13 @@ class abitabActions extends sfActions
         $this->getUser()->setFlash('error', 'Invalid Order');
         $this->redirect('@homepage');
       }
+      
+    }catch (sfStopException $e) {
+
+      throw $e; //rethrowing it, nothing else to do
 
     }catch(Exception $e){
+
       $this->getUser()->setFlash('error', $e->getMessage());
       $this->redirect('@homepage');
     }
@@ -85,6 +90,9 @@ class abitabActions extends sfActions
           $this->getUser()->setFlash('error', 'Invalid Payment Identifier');
           $this->redirect('@homepage');          
         }
+      }catch (sfStopException $e) {
+
+        throw $e; //rethrowing it, nothing else to do
 
       }catch(Exception $e){
 
@@ -116,7 +124,6 @@ class abitabActions extends sfActions
       {
         $this->getUser()->setFlash('notice', 'The order #' . $this->md_order->getId() . ' is already payed');
         $this->redirect('@homepage');
-        exit();
       }
       else
       {
@@ -128,7 +135,11 @@ class abitabActions extends sfActions
       }
 
       $this->setTemplate('index');
-
+      
+    }catch (sfStopException $e) {
+      
+      throw $e; //rethrowing it, nothing else to do
+      
     }catch(Exception $e){
 
       $this->getUser()->setFlash('error', $e->getMessage());

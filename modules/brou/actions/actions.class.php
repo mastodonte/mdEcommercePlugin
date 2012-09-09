@@ -40,6 +40,10 @@ class brouActions extends sfActions
         $this->redirect('@homepage');
       }
 
+    }catch (sfStopException $e) {
+      
+      throw $e; //rethrowing it, nothing else to do
+      
     }catch(Exception $e){
       $this->getUser()->setFlash('error', $e->getMessage());
       $this->redirect('@homepage');
@@ -86,6 +90,10 @@ class brouActions extends sfActions
           $this->redirect('@homepage');          
         }
 
+      }catch (sfStopException $e) {
+
+        throw $e; //rethrowing it, nothing else to do
+
       }catch(Exception $e){
 
         $this->getUser()->setFlash('error', $e->getMessage());
@@ -116,7 +124,6 @@ class brouActions extends sfActions
       {
         $this->getUser()->setFlash('notice', 'The order #' . $this->md_order->getId() . ' is already payed');
         $this->redirect('@homepage');
-        exit();
       }
       else
       {
@@ -129,6 +136,10 @@ class brouActions extends sfActions
 
       $this->setTemplate('index');
 
+    }catch (sfStopException $e) {
+      
+      throw $e; //rethrowing it, nothing else to do
+      
     }catch(Exception $e){
 
       $this->getUser()->setFlash('error', $e->getMessage());
