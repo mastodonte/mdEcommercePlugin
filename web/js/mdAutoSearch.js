@@ -25,6 +25,9 @@ var mdAutoSearch = {
     $('a.ecommerce-search_view').live('click', function(event){
         event.preventDefault();
         $('#ecommerce-input_filter').val($(this).attr('href'));
+        $(this).parent().find('.filter_grid').removeClass('grid_current');
+        $(this).parent().find('.filter_list').removeClass('list_current');
+        $(this).addClass($(this).attr('href') + '_current');
         mdAutoSearch.execute();
     });
 

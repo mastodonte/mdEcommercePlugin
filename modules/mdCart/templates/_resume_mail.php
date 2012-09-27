@@ -64,9 +64,6 @@
       <p><?php echo $mdShipping->getAddress(); ?></p>
       <p><?php echo $mdShipping->getCity(); ?><?php echo ($mdShipping->getPostcode() != '' ? ', ' . $mdShipping->getPostcode() : ''); ?></p>
       <p><?php echo format_country($mdShipping->getCountryCode()); ?></p>
-      <p><?php echo __('Mail_Horario de entrega:'); ?>&nbsp;<?php echo ($mdShipping->getEntregaMatutina() ? 'Matutino' : '') . ' ' . ($mdShipping->getEntregaVespertina() ? 'Vespertino' : ''); ?></p>
-      <p><?php echo __('Mail_Forma de envio:'); ?>&nbsp;<?php echo $mdShipping->getFormaEntrega(); ?></p>
-      <p><?php echo __('Mail_Fecha de entrega:'); ?>&nbsp;<?php echo format_date($mdShipping->getDate(), 'D'); ?></p>
       <hr/>
       <span class="span-exitosa">
         <?php echo __('Mail_Ténga en cuenta este numero cuando nos contacte para buscar su orden fácilmente.<br />Ante cualquier eventualidad un representante Super Ventas se pondrá en contacto telefónicamente o email.<br />Si pagó con tarjeta de crédito usted verá un cargo de en su resumen mensual de Nalfer S.A. o de Superventas.com.uy'); ?>

@@ -81,7 +81,7 @@ mdCart-cart:
 
 mdCart-payment:
   url:   /mdcart/payment
-  param: { module: mdCart, action: paymentCart }
+  param: { module: mdCartPayment, action: paymentCart }
   
 mdCart-finish:
   url:   /mdcart/finish
@@ -89,13 +89,25 @@ mdCart-finish:
 ###########################
 
 ########mdCartAddress######
-mdCartAddress-create:
-  url:   /mdcartaddress/create
-  param: { module: mdCartAddress, action: create }
+mdCartAddress-new:
+  url:   /mdcartaddress/new
+  param: { module: mdCartAddress, action: new }
 
 mdCartAddress-edit:
   url:   /mdcartaddress/edit
   param: { module: mdCartAddress, action: edit }
+
+mdCartAddress-create:
+  url:   /mdcartaddress/create
+  param: { module: mdCartAddress, action: create }
+
+mdCartAddress-update:
+  url:   /mdcartaddress/update
+  param: { module: mdCartAddress, action: update }
+  
+mdCartAddress-validate:
+  url:   /mdcartaddress/validate
+  param: { module: mdCartAddress, action: validate }
 ###########################
 
 #########Routing para los metodos de pago#############
@@ -139,3 +151,11 @@ mdPaypalCancelUrl:
   url:   /paypal/cancel
   param: { module: paypal, action: cancel }
 ######################################################
+
+ec-producto-show:
+  url: /:id/:slug.html
+  param: { module: productos, action: show }
+  class:   sfDoctrineRoute
+  options: { model: ecProduct, type: object }
+  requirements:
+    sf_method: [get]

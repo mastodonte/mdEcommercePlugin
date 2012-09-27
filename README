@@ -17,7 +17,7 @@ CONSIDERACIONES:
 
 2- Agregar los disparadores para Agregar Producto
 
-Para los productos se debe respetar al menos el siguiente esqueleto para el template con las siguientes consideraciones:
+Para los productos se debe respetar al menos el siguiente esqueleto para el template, con las siguientes consideraciones:
   Los <a> para agregar productos al carrito deberan tener la clase: ecommerce-ajax_add_to_cart_button
   A su vez los <a> que contienen las imagenes deberan tener la clase: ecommerce-product_image
 
@@ -83,3 +83,17 @@ Dependencias:
   mastodontePlugin
 
 ################################################################################
+
+MODULOS DE PAGO
+
+ABITAB
+
+  CONFIGURACION
+
+REDPAGOS
+
+  CONFIGURACION
+
+BROU
+  CONFIGURACION
+

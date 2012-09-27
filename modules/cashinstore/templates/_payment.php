@@ -1,13 +1,7 @@
-Pago en el local
+<div class="ecommerce-subcontainer">
+  <?php include_partial('mdCartAddress/address_resume', array('md_order' => $md_order)); ?>
 
-<img src="" />
-
-Ha elegido el pago en el local
-
-El importe total de su pedido es 86,20 € (tasas incluídas)
-
-Por favor acepte su pedido pulsando en 'confirmo mi pedido'. 
-
-<form action="/cashinstore/validate" method="POST">
-  <input type="submit" value="Confirmar" />
-</form>
+  <br />
+  
+  <?php include_partial('mdCart/resume', array('md_order' => $md_order)); ?>
+</div>

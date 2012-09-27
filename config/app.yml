@@ -23,9 +23,16 @@ all:
     autodetectaddress: false
 
   abitab:
-    username: Federico Larrosa
-    documento: 3.441.425-8
+    username: Peteco Garcia
+    documento: 1.141.425-3
     
   redpagos:
-    username: Federico Larrosa
-    documento: 3.441.425-8    
+    username: Peteco Garcia
+    documento: 1.141.425-3    
+
+  cashinstore:
+    address: Franciso Simon 2673
+
+  brou:
+    dollar_account: 188-1830-0
+    pesos_account: 188-1832-9

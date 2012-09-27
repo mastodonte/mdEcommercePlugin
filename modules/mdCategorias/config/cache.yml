@@ -8,3 +8,7 @@ _menu:
 _menuFooter:
   enabled:     true
   lifetime:    86400
+  
+_accordion:  
+  enabled:     true
+  lifetime:    86400

@@ -1,11 +1,9 @@
-<pre>
-Ha elegido pagar por brou
+<div class="ecommerce-subcontainer">
 
-Aquí tiene un resumen de su pedido:
+  <?php include_partial('mdCartAddress/address_resume', array('md_order' => $md_order)); ?>
 
-- El importe total de su pedido es 86,20 € IVA incluído
-
-La información para realizar el pago aparecerá en la página siguiente.
-
-Por favor, acepte su pedido haciendo clic en 'confirmo mi pedido'.
-</pre>
+  <br />
+  
+  <?php include_partial('mdCart/resume', array('md_order' => $md_order)); ?>
+  
+</div>

@@ -11,6 +11,6 @@ class autoProductosComponents extends sfComponents {
   }  
 
   public function executeRecientes($request) {
-    $this->productos = Doctrine::getTable('ecProduct')->findDestacados(false, $this->limit);
+    $this->productos = Doctrine::getTable('ecProduct')->findRecientes(false, $this->limit);
   }
 }

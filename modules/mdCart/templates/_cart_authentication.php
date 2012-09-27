@@ -2,7 +2,7 @@
   
   <div class="ecommerce-checkout-heading"><?php echo __('mdEcommerce_Paso 1: Authentificacion'); ?></div>
 
-  <div class="ecommerce-checkout-content" style="display:<?php echo ((!$sf_user->isAuthenticated()) ? 'block' : 'none'); ?>">
+  <div class="ecommerce-checkout-content <?php echo (($sf_user->isAuthenticated()) ? 'ok' : ''); ?>" style="display:<?php echo ((!$sf_user->isAuthenticated()) ? 'block' : 'none'); ?>">
 
     <?php if (!$sf_user->isAuthenticated()): ?>
       <div class="ecommerce-left">

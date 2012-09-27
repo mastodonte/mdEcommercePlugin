@@ -14,6 +14,7 @@ generator:
     config:
       actions: ~
       fields:
+        code: { label: Codigo }
         name: { label: Nombre }
         number: { label: Numero de producto }
         copete: { label: Copete }
@@ -23,10 +24,17 @@ generator:
         price: { label: Precio }
         display_price: { label: Precio }
         price_offer: { label: Precio de Oferta }
+        show_price: { label: Mostrar Precio }        
         active: { label: Activo }
-        status: { label: 'Cuando no hay stock' }
-        out_of_stock: { label: 'Stock' }
-        in_offer: { label: 'En Oferta' }
+        status: { label: Cuando no hay stock }
+        out_of_stock: { label: Stock }
+        in_offer: { label: En Oferta }
+        highlight: { label: Destacado }
+        conditions: { label: Estado }
+        width: { label: Ancho }
+        height: { label: Alto }
+        depth: { label: Profundidad }
+        weight: { label: Peso }
         ec_manufacturer_id: { label: Marcas }
         ec_providers_list: { label: Proveedores }
         ec_categories_list: { label: Categorias }        

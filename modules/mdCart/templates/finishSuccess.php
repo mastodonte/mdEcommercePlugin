@@ -1,29 +1,16 @@
-<div class="carito">
-  <h5>Compra exitosa!</h5>
-  <div class="pago-facturacion">
+<div class="ecommerce-container">
+  <h2><?php echo __('mdEcommerce_Compra exitosa!'); ?></h2>
 
-    <div class="clear"></div>
+  <div class="ecommerce-sub-container">
+    <h3><?php echo __('mdEcommerce_Gracias por la compra'); ?></h3>
+       
+    <p><?php echo __('mdEcommerce_En este momento estamos procesando su pedido, una vez confirmados todos los datos le será enviada la confirmación del mismo vía Email.'); ?></p>
 
-    <h5>Gracias por comprar en SuperVentas.com.uy</h5>
+    <p><?php echo __('mdEcommerce_Su número de orden es:'); ?> #<?php echo $sf_request->getParameter('id'); ?></p>
 
-    <div class="login-carrito">
-      <div class="giro-brou">
-        <span class="span-exitosa">En este momento estamos procesando su pedido, una vez confirmados todos los datos le será enviada la confirmación del mismo vía Email.</span><div class="clear"></div>
-        <span class="negrita-e">Su número de orden es: </span><span class="verde-e"><?php echo $sf_request->getParameter('id'); ?></span><div class="clear"></div>
+    <p><?php echo __('mdEcommerce_Texto Informativo'); ?></p>
+    
+    <p><?php echo __('mdEcommerce_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente TEL: +598 2409 99 99 o info@miempresa.com.uy'); ?></p>
 
-        <span class="span-exitosa">Ténga en cuenta este numero cuando nos contacte para buscar su orden fácilmente.</br>
-
-          Ante cualquier eventualidad un representante Super Ventas se pondrá en contacto telefónicamente o email.</br>
-          Si pagó con tarjeta de crédito usted verá un cargo de en su resumen mensual de Nalfer  S.A. o de Superventas.com.uy</span><div class="clear"></div>
-        <span class="negrita-e">Ante cualquier consulta no dude en contactarnos en el</br>
-          Servicio de atención al cliente </span><div class="clear"></div>
-        <span class="span-exitosa">TEL: +598 2409 55 38 o info@superventas.com.uy</span>
-      </div>
-
-      <div class="pagos float_left">
-        <div class="float_left">
-        </div>
-      </div>
-    </div>
   </div>
 </div>

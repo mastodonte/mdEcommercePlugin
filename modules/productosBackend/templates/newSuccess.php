@@ -4,10 +4,10 @@
 <?php use_javascript('tiny_mce/tiny_mce.js', 'last'); ?>
 
 <?php slot('productos'); ?>
-<?php slot('nav') ?><?php echo __('Home_Productos'); ?><?php end_slot(); ?>
+<?php slot('nav') ?><?php echo __('mdEcommerce_Productos'); ?><?php end_slot(); ?>
 
 <div id="sf_admin_container">
-  <h1><?php echo __('Productos_New', array(), 'messages') ?></h1>
+  <h1><?php echo __('mdEcommerce_New', array(), 'messages') ?></h1>
 
   <?php include_partial('productosBackend/flashes') ?>
 

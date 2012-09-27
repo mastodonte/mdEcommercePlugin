@@ -61,6 +61,7 @@ class PluginecProductTable extends Doctrine_Table {
   public function findBestSales($limit = 10) {
     return $this->createQuery('p')
       ->leftJoin('p.Translation t')
+      ->where('p.active = 1')
       ->orderBy('p.sales desc')
       ->limit($limit)
       ->execute();
@@ -70,6 +71,7 @@ class PluginecProductTable extends Doctrine_Table {
     $q = $this->createQuery('p')
       ->leftJoin('p.Translation t')
       ->where('p.highlight = 1')
+      ->andWhere('p.active = 1')
       ->orderBy('p.viewed desc');
     
     if($query) return $query;
@@ -82,11 +84,23 @@ class PluginecProductTable extends Doctrine_Table {
       ->leftJoin('p.Translation t')
       ->leftJoin('p.ecProductToCategory c')
       ->whereIn('c.ec_category_id', $category_ids)
-      ->andWhere('p.id <> ?', $ecProduct->getId());
+      ->andWhere('p.id <> ?', $ecProduct->getId())
+      ->andWhere('p.active = 1');
       
     if($query) return $q;
     
     return  $q->limit($limit)->execute();
   }  
+
+  public function findRecientes($query = false, $limit = 10) {
+    $q = $this->createQuery('p')
+      ->leftJoin('p.Translation t')
+      ->where('p.active = 1')
+      ->orderBy('p.created_at desc');
+    
+    if($query) return $query;
+    
+    return $q->limit($limit)->execute();
+  }
 
 }

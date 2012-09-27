@@ -10,8 +10,16 @@
  */
 abstract class PluginmdAddressForm extends BasemdAddressForm
 {
-  public function configure()
+  public function setup()
   {
+    parent::setup();
+    
+    unset($this['created_at'], $this['updated_at'], $this['active'], $this['dni']);
+    
     $this->widgetSchema['customer_id'] = new sfWidgetFormInputHidden();
+    
+    $this->widgetSchema['country_code'] = new sfWidgetFormI18nChoiceCountry();
+    
+    $this->validatorSchema['country_code'] = new sfValidatorI18nChoiceCountry(array('required' => true));
   }
 }
