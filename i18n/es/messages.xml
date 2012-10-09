@@ -42,12 +42,16 @@
       </trans-unit>
       <trans-unit>
         <source>Brou_la suma de:</source>
-        <target>la suma de:</target>
+        <target>Total:</target>
       </trans-unit>
       <trans-unit>
-        <source>Brou_a la cuenta: XXXX-YYYY</source>
-        <target>a la cuenta: XXXX-YYYY</target>
+        <source>Brou_cuenta en dolares:</source>
+        <target>Cuenta en dolares:</target>
       </trans-unit>
+      <trans-unit>
+        <source>Brou_cuenta en pesos:</source>
+        <target>Cuenta en pesos:</target>
+      </trans-unit>      
       <trans-unit>
         <source>Brou_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
         <target>Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</target>
@@ -62,11 +66,11 @@
       </trans-unit>
       <trans-unit>
         <source>Abitab_la suma de:</source>
-        <target>la suma de:</target>
+        <target>Total:</target>
       </trans-unit>
       <trans-unit>
-        <source>Abitab_a la cuenta: XXXX-YYYY</source>
-        <target>a la cuenta: XXXX-YYYY</target>
+        <source>Abitab_a la cuenta:</source>
+        <target>Cuenta:</target>
       </trans-unit>
       <trans-unit>
         <source>Abitab_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
@@ -77,16 +81,16 @@
         <target>Su pedido está completo.</target>
       </trans-unit>
       <trans-unit>
-        <source>Redpagos_Por favor, hága su deposito por Redpagos con la siguiente informacion:</source>
-        <target>Por favor, hága su deposito por brou con la siguiente informacion:</target>
+        <source>Redpagos_Por favor, hága su deposito por redpagos con la siguiente informacion:</source>
+        <target>Por favor, hága su deposito por redpagos con la siguiente informacion:</target>
       </trans-unit>
       <trans-unit>
         <source>Redpagos_la suma de:</source>
-        <target>la suma de:</target>
+        <target>Total:</target>
       </trans-unit>
       <trans-unit>
-        <source>Redpagos_a la cuenta: XXXX-YYYY</source>
-        <target>a la cuenta: XXXX-YYYY</target>
+        <source>Redpagos_a la cuenta:</source>
+        <target>Cuenta:</target>
       </trans-unit>
       <trans-unit>
         <source>Redpagos_Una vez realizado el deposito ingresa al siguiente %link% para ingresar el codigo de confirmacion y terminar la compra.</source>
@@ -258,13 +262,69 @@
       </trans-unit>
       <trans-unit>
         <source>mdEcommerce_Texto Informativo</source>
-        <target>Tenga en cuenta este numero cuando nos contacte para buscar su orden facilmente.&lt;br /&gt;Ante cualquier eventualidad un representante de nuestra empresa se pondra en contacto telefonicamente o via email.&lt;br /&gt;Si pago con tarjeta de credito usted vera un cargo en su resumen mensual de Miempresa S.A. o de miempresa.com.uy
+        <target>Tenga en cuenta este numero cuando nos contacte para buscar su orden facilmente.&lt;br /&gt;Ante cualquier eventualidad un representante de nuestra empresa se pondra en contacto telefonicamente o via email.&lt;br /&gt;Si pago con tarjeta de credito usted vera un cargo en su resumen mensual de Miempresa S.A. o de dominio.com.uy
         </target>
       </trans-unit>
       <trans-unit>
-        <source>mdEcommerce_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente TEL: +598 2409 99 99 o info@miempresa.com.uy</source>
-        <target>Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente TEL: +598 2409 99 99 o info@miempresa.com.uy</target>
+        <source>mdEcommerce_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente</source>
+        <target>Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente TEL: +598 2409 99 99 o info@dominio.com.uy</target>
       </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Gracias por comprar en</source>
+        <target>Gracias por comprar en</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Costo de envio</source>
+        <target>Costo de envio</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Donde se entrega</source>
+        <target>Donde se entrega</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Telefono o Email</source>
+        <target>TEL: +598 2409 55 38 o info@dominio.com.uy</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_info@dominio.com.uy</source>
+        <target>info@dominio.com.uy</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Datos de la empresa</source>
+        <target>Datos de la empresa</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Pablo de Maria 1468 - C.P 11200</source>
+        <target>Pablo de Maria 1468 - C.P 11200</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Tel. 2409 5538 Cel. 095 530 680</source>
+        <target>Tel. 2409 5538 Cel. 095 530 680</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Montevideo - Uruguay</source>
+        <target>Montevideo - Uruguay</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Texto Informativo Footer</source>
+        <target>El texto de este correo electrónico está dirigido exclusivamente al destinatario que figura en el mismo. Se advierte que puede contener información de carácter reservada, secreta o confidencial, así como datos de carácter personal. Por tanto, su utilización o divulgación sólo está permitida a las personas autorizadas. El contenido está alcanzado y regulado por la normativa de la República Oriental del Uruguay respecto a la Protección de los Datos Personales, en particular por la Ley No. 18.331 de 11-08-08, sus decretos reglamentarios No. 664/008 de 22-12-08 y No. 414/09 de 31-08-09, y por la restante que se sancione con posterioridad sobre el tema. Si el mensaje no está destinado a usted y lo ha recibido por error o por otras circunstancias, deberá abstenerse de leer, reproducir o difundir el contenido del mismo en forma alguna ni bajo ningún concepto. Le solicitamos además que lo comunique en forma inmediata por este medio al remitente y que lo elimine de manera segura e irrecuperable</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_Title Mail</source>
+        <target>Resumen de la compra</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_www.dominio.com.uy</source>
+        <target>www.dominio.com.uy</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_From</source>
+        <target>My Company</target>
+      </trans-unit>
+      <trans-unit>
+        <source>mdEcommerce_subject resume</source>
+        <target>Venta Online</target>
+      </trans-unit>      
     </body>
   </file>
 </xliff>
