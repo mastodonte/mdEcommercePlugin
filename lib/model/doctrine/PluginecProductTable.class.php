@@ -103,4 +103,11 @@ class PluginecProductTable extends Doctrine_Table {
     return $q->limit($limit)->execute();
   }
 
+  public function autosuggest($string, $limit) {
+    $q = $this->createQuery('n')
+            ->leftJoin('n.Translation nt')
+            ->addWhere('nt.name LIKE "%' . $string . '%"')
+            ->limit($limit);
+    return $q->execute();
+  }  
 }

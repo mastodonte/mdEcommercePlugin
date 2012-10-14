@@ -13,4 +13,18 @@ require_once dirname(__FILE__).'/../lib/productosBackendGeneratorHelper.class.ph
  */
 class productosBackendActions extends autoProductosBackendActions
 {
+  public function executeAutosuggest(sfWebRequest $request) {
+    $items = array();
+
+    $datas = Doctrine::getTable('ecProduct')->autosuggest($request->getParameter('q'), 10);
+
+    foreach ($datas as $data) {
+      $items[] = array(
+          "value" => $data->getId(),
+          "name" => $data->getName()
+      );
+    }
+
+    return $this->renderText(json_encode($items));
+  }
 }

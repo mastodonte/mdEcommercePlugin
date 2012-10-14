@@ -6,83 +6,163 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?php echo __('Mail_Title SuperVentas'); ?></title>
+    <title><?php echo __('mdEcommerce_Title Mail'); ?></title>
   </head>
   <body>
-    <div class="email">
-      <?php echo image_tag('/images/site/logo.jpg', array('absolute' => true, 'size' => '294x59', 'alt' => 'top')); ?>
-
-      <h5><?php echo __('Mail_Gracias por comprar en SuperVentas.com.uy'); ?></h5>
-
-      <span class="negrita"><?php echo __('Mail_Su número de orden es:'); ?></span><span class="verde"><?php echo $mdOrder->getId(); ?></span>
-
-      <div class="carrito-tabla">
-        <table cellspacing="0" collspan="0" class="tablacarrito">
-          <tbody>
+    <table cellpadding="0" cellspacing="0" style="width:800px; border:none; margin:10px;">
+      <tr>
+        <td style="padding:0 0 15px 0">
+          <?php echo image_tag('/images/logo.png', array('absolute' => true, 'alt' => __('mdEcommerce_www.dominio.com.uy'))); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:5px 0;">
+          <?php echo __('mdEcommerce_Gracias por comprar en'); ?>:&nbsp;
+          <a href="http://<?php echo __('mdEcommerce_www.dominio.com.uy'); ?>" style="color:#D96A12; text-decoration:underline;"><?php echo __('mdEcommerce_www.dominio.com.uy'); ?></a>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:5px 0;">
+          <?php echo __('mdEcommerce_Su número de orden es:'); ?> <strong><?php echo $mdOrder->getId(); ?></strong>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table cellpadding="0" cellspacing="0" style="border:5px solid #F7F7F7; margin:15px 0; width:790px;">
             <tr>
-              <td class="menu-tabla"><?php echo __('Mail_Fotos producto'); ?></td>
-              <td class="menu-tabla"><?php echo __('Mail_Nombre producto'); ?></td>
-              <td class="menu-tabla"><?php echo __('Mail_Precio'); ?></td>
-              <td class="menu-tabla"><?php echo __('Mail_Cantidad'); ?></td>
-              <td colspan="2" class="menu-tabla"><?php echo __('Mail_Totales'); ?></td>
+              <th style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:14px; text-align:center; color:#4B4B4B; background:#F7F7F7;"><?php echo __('mdEcommerce_Fotos producto'); ?></th>
+              <th style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:14px; text-align:center; color:#4B4B4; background:#F7F7F7;"><?php echo __('mdEcommerce_Nombre producto'); ?></th>
+              <th style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:14px; text-align:center; color:#508484; background:#F7F7F7;"><?php echo __('mdEcommerce_Precio'); ?></th>
+              <th style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:14px; text-align:center; color:#4B4B4; background:#F7F7F7;"><?php echo __('mdEcommerce_Cantidad'); ?></th>
+              <th style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:14px; text-align:center; color:#4B4B4; background:#F7F7F7;"><?php echo __('mdEcommerce_Totales'); ?></th>
             </tr>
-            <?php foreach($orderItems as $orderItem): ?>
-            <?php $product = $orderItem->getEcProduct(); ?>
-            <?php $instance = mdMediaManager::getInstance(mdMediaManager::MIXED, $product)->load(); ?>
-            <tr>
-              <td>
-                <?php echo image_tag($instance->getAvatarUrl(NULL, array(mdWebOptions::WIDTH => '58', mdWebOptions::HEIGHT => '58', mdWebOptions::CODE => mdWebCodes::CROPRESIZE)), array('absolute' => true, 'size' => '58x58')); ?>
-              </td>
-              <td class="blue-texto"><a href="<?php echo url_for('@producto-show?id=' . $product->getId() . '&slug=' . $product->getSlug(), true); ?>"><?php echo truncate_text($orderItem->getItemName(), 36); ?></a></td>
-              <td class="blue-texto"><span><?php echo $orderItem->getDisplayPrice(); ?></span></td>
-              <td><span><?php echo $orderItem->getItemQuantity(); ?></span></td>
-              <td class="blue-texto"><span><?php echo $orderItem->getDisplayTotal($orderItem->getItemQuantity()); ?></span></td>
-            </tr>
+            <?php foreach ($orderItems as $orderItem): ?>
+              <?php $product = $orderItem->getEcProduct(); ?>
+              <?php $instance = mdMediaManager::getInstance(mdMediaManager::MIXED, $product)->load(); ?>
+              <tr>
+                <td style="padding:5px 0; text-align:center; border-bottom:3px solid #F7F7F7;">
+                  <a href="<?php echo url_for('@producto-show?id=' . $product->getId() . '&slug=' . $product->getSlug(), true); ?>">
+                    <?php echo image_tag($instance->getAvatarUrl(NULL, array(mdWebOptions::WIDTH => '58', mdWebOptions::HEIGHT => '58', mdWebOptions::CODE => mdWebCodes::CROPRESIZE)), array('absolute' => true, 'size' => '58x58')); ?>
+                  </a>
+                </td>
+                <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:center; color:#4B4B4; padding:5px 0; border-bottom:3px solid #F7F7F7;">
+                  <a href="<?php echo url_for('@producto-show?id=' . $product->getId() . '&slug=' . $product->getSlug(), true); ?>">
+                    <?php echo truncate_text($orderItem->getItemName(), 36); ?>
+                  </a>
+                </td>
+                <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:center; color:#4B4B4; padding:5px 0; border-bottom:3px solid #F7F7F7;">
+                  <?php echo $orderItem->getDisplayPrice(); ?>
+                </td>
+                <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:center; color:#4B4B4; padding:5px 0; border-bottom:3px solid #F7F7F7;">
+                  <?php echo $orderItem->getItemQuantity(); ?>
+                </td>
+                <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:center; color:#4B4B4; padding:5px 0; border-bottom:3px solid #F7F7F7;">
+                  <?php echo $orderItem->getDisplayTotal($orderItem->getItemQuantity()); ?>
+                </td>
+              </tr>            
             <?php endforeach; ?>
             <tr>
-              <td class="sin-bg">&nbsp;</td>
-              <td colspan="2" class="sin-bg">&nbsp;</td>
-              <td><?php echo __('Mail_Costo de envio'); ?></td>
-              <td class="red-texto"><?php echo $mdOrder->getDisplayTotalShipping(); ?></td>
+              <td colspan="3" style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:right; color:#4B4B4; padding:10px 10px 10px 0;">&nbsp;</td>              
+              <td colspan="1" style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:right; color:#4B4B4; padding:10px 10px 10px 0;">
+                <?php echo __('mdEcommerce_Costo de envio'); ?>:
+              </td>
+              <td colspan="1" style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:right; color:#4B4B4; padding:10px 10px 10px 0;">
+                <strong><?php echo $mdOrder->getDisplayTotalShipping(); ?></strong>
+              </td>
             </tr>
             <tr>
-              <td class="sin-bg">&nbsp;</td>
-              <td colspan="2" class="sin-bg">&nbsp;</td>
-              <td><?php echo __('Mail_Total:'); ?></td>
-              <td class="red-texto"><?php echo $mdOrder->getDisplayTotal(); ?></td>
+              <td colspan="3" style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:right; color:#4B4B4; padding:10px 10px 10px 0;">&nbsp;</td>              
+              <td colspan="1" style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:14px; text-align:right; color:#4B4B4; padding:5px 10px 10px 0; font-weight:bold;">
+                <?php echo __('mdEcommerce_Total'); ?>:
+              </td>
+              <td colspan="1" style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:14px; text-align:right; color:#4B4B4; padding:5px 10px 10px 0; font-weight:bold;">
+                <?php echo $mdOrder->getDisplayTotal(); ?>
+              </td>
             </tr>
-            <tr>
-              <td class="sin-bg">&nbsp;</td>
-              <td colspan="2" class="sin-bg">&nbsp;</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <hr/>
-      <h5><?php echo __('Mail_Donde se entrega:'); ?></h5>
-      <p><strong><?php echo $mdShipping->getFirstname() . ' ' . $mdShipping->getLastname(); ?></strong></p>
-      <p><?php echo $mdShipping->getAddress(); ?></p>
-      <p><?php echo $mdShipping->getCity(); ?><?php echo ($mdShipping->getPostcode() != '' ? ', ' . $mdShipping->getPostcode() : ''); ?></p>
-      <p><?php echo format_country($mdShipping->getCountryCode()); ?></p>
-      <hr/>
-      <span class="span-exitosa">
-        <?php echo __('Mail_Ténga en cuenta este numero cuando nos contacte para buscar su orden fácilmente.<br />Ante cualquier eventualidad un representante Super Ventas se pondrá en contacto telefónicamente o email.<br />Si pagó con tarjeta de crédito usted verá un cargo de en su resumen mensual de Nalfer S.A. o de Superventas.com.uy'); ?>
-      </span>
-      <br />
-      <span class="negrita"><?php echo __('Mail_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente'); ?></span><br />
-      <p><?php echo __('Mail_TEL: +598 2409 55 38 o info@superventas.com.uy'); ?></p>
-      <hr/>
-      <p class="address">
-        <?php echo __('Contacto_Mail_Pablo de Maria 1468 - C.P 11200'); ?><br/>
-        <?php echo __('Contacto_Mail_Tel. 2409 5538 Cel.  095 530 680'); ?><br/>
-        <?php echo __('Contacto_Mail_Montevideo - Uruguay'); ?><br />
-        <span class="style1"><a href="mailto:<?php echo __('Contacto_Mail_info@superventas.com.uy'); ?>"><?php echo __('Contacto_Mail_info@superventas.com.uy'); ?></a><br />
-          <a href="http://<?php echo __('Contacto_Mail_www.SuperVentas.com.uy'); ?>"><?php echo __('Contacto_Mail_www.SuperVentas.com.uy'); ?></a>
-        </span><br/>
-      </p>
-      <p class="mail">
-        <?php echo __('Contacto_Mail_El texto de este correo electrónico está dirigido exclusivamente al destinatario que figura en el mismo. Se advierte que puede contener información de carácter reservada, secreta o confidencial, así como datos de carácter personal. Por tanto, su utilización o divulgación sólo está permitida a las personas autorizadas. El contenido está alcanzado y regulado por la normativa de la República Oriental del Uruguay respecto a la Protección de los Datos Personales, en particular por la Ley No. 18.331 de 11-08-08, sus decretos reglamentarios No. 664/008 de 22-12-08 y No. 414/09 de 31-08-09, y por la restante que se sancione con posterioridad sobre el tema. Si el mensaje no está destinado a usted y lo ha recibido por error o por otras circunstancias, deberá abstenerse de leer, reproducir o difundir el contenido del mismo en forma alguna ni bajo ningún concepto. Le solicitamos además que lo comunique en forma inmediata por este medio al remitente y que lo elimine de manera segura e irrecuperable'); ?>
-      </p>
-    </div>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:15px 0 5px 0;">
+          <strong><?php echo __('mdEcommerce_Donde se entrega'); ?></strong>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:0 0 2px 0;">
+          <span style="color:#508484;"><?php echo $mdShipping->getFirstname() . ' ' . $mdShipping->getLastname(); ?></span>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:2px 0 2px 0;">
+          <?php echo $mdShipping->getAddress(); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:2px 0 2px 0;">
+          <?php echo $mdShipping->getCity(); ?><?php echo ($mdShipping->getPostcode() != '' ? ', ' . $mdShipping->getPostcode() : ''); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:2px 0 0 0;">
+          <?php echo format_country($mdShipping->getCountryCode()); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:15px 0 0 0;">
+          <p  style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; margin:0 0 3px 0;">
+            <?php echo __('mdEcommerce_Texto Informativo'); ?>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:15px 0 5px 0; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px;">
+          <?php echo __('mdEcommerce_Ante cualquier consulta no dude en contactarnos en el Servicio de atención al cliente'); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:0; font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:0 0 5px 0">
+          <?php echo __('mdEcommerce_Telefono o Email'); ?> | <a href="mailto:<?php echo __('mdEcommerce_info@dominio.com.uy'); ?>" style="color:#D96A12; text-decoration:underline;"><?php echo __('mdEcommerce_info@dominio.com.uy'); ?></a>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:15px 0 5px 0;">
+          <strong><?php echo __('mdEcommerce_Datos de la empresa'); ?></strong>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:0x 0 2px 0;">
+          <?php echo __('mdEcommerce_Pablo de Maria 1468 - C.P 11200'); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:2px 0 2px 0;">
+          <?php echo __('mdEcommerce_Tel. 2409 5538 Cel. 095 530 680'); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:2px 0 2px 0;">
+          <?php echo __('mdEcommerce_Montevideo - Uruguay'); ?>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:2px 0 2px 0;">
+          <a href="mailto:<?php echo __('mdEcommerce_info@dominio.com.uy'); ?>" style="color:#D96A12; text-decoration:underline;">
+            <?php echo __('mdEcommerce_info@dominio.com.uy'); ?>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:12px; padding:2px 0 2px 0;">
+          <a href="http://<?php echo __('mdEcommerce_www.dominio.com.uy'); ?>" style="color:#D96A12; text-decoration:underline;">
+            <?php echo __('mdEcommerce_www.dominio.com.uy'); ?>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; text-align:left; color:#4B4B4B; font-size:10px; padding:15px 0 5px 0;">
+          <?php echo __('mdEcommerce_Texto Informativo Footer'); ?>
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

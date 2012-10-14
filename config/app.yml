@@ -25,11 +25,13 @@ all:
   abitab:
     username: Peteco Garcia
     documento: 1.141.425-3
+    account: xxxx-yyyy
     
   redpagos:
     username: Peteco Garcia
     documento: 1.141.425-3    
-
+    account: xxxx-yyyy
+    
   cashinstore:
     address: Franciso Simon 2673
 

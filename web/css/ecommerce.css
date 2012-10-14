@@ -285,16 +285,15 @@ a.ecommerce-button span:hover{
   clear:both;
 }
 .ecommerce-left{
-  float:right;
+  float:left;
   margin:10px 30px 10px 30px;
 }
 .ecommerce-right{
-  float:right;
-  clear:both;  
+  float:left;
   margin:10px 0px 10px 15px;
 }
 .ecommerce-right label{
-  float:right;
+  float:left;
   width:100px;
   margin-right:8px;
   line-height:29px;
