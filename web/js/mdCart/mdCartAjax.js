@@ -201,8 +201,8 @@ var mdCartAjax = {
               'left': $picture.css('left')+25
             })
             .animate({
-              'width': $element.attr('width')*0.66, 
-              'height': $element.attr('height')*0.66, 
+              'width': '50%', 
+              'height': '50%', 
               'opacity': 0.2, 
               'top': cartBlockOffset.top + 0, 
               'left': cartBlockOffset.left + 0
