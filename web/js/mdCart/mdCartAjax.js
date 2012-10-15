@@ -201,8 +201,8 @@ var mdCartAjax = {
               'left': $picture.css('left')+25
             })
             .animate({
-              'width': '50%', 
-              'height': '50%', 
+              'width': '10%', 
+              'height': '10%', 
               'opacity': 0.2, 
               'top': cartBlockOffset.top + 0, 
               'left': cartBlockOffset.left + 0
@@ -210,6 +210,9 @@ var mdCartAjax = {
             .fadeOut(100, function() {
               mdCartAjax.updateCartInformation(jsonData, addedFromProductPage);
             });
+            $('html, body').animate({
+              scrollTop: 95
+          }, 1000);
           }
           else{
             mdCartAjax.updateCartInformation(jsonData, addedFromProductPage);
