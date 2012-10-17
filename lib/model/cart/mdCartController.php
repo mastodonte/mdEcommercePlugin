@@ -76,7 +76,17 @@ class mdCartController {
     return NULL;
   }
 
-  public function add($product_id, $quantity) {
+  public function add(sfWebRequest $request) {
+    $product_id = $request->getParameter('product_id');
+    $quantity = $request->getParameter('quantity');    
+    
+    if(sfConfig::get('app_attributes_enable', false)){
+      $attributes_values = array();
+      foreach(sfConfig::get('app_attributes_primarykeys') as $primary_key){
+        $attributes_values[$primary_key] = $request->getParameter($primary_key);
+      }
+    }
+    
     $cart = $this->init();
 
     // Update the cart ONLY if $this->cookies are available, in order to avoid ghost carts created by bots TODO
@@ -97,13 +107,24 @@ class mdCartController {
         $cart = $this->create();
       }
 
-      $cartItem = Doctrine::getTable('mdCartProducts')->find(array($cart->getId(), $product_id));
+      if(sfConfig::get('app_attributes_enable', false)){
+        $cartItem = Doctrine::getTable('mdCartProducts')->findByPrimaryKey($cart->getId(), $product_id, $attributes_values);
+      }else{
+        $cartItem = Doctrine::getTable('mdCartProducts')->find(array($cart->getId(), $product_id));
+      }
 
       if (!$cartItem) {
 
         $cartItem = new mdCartProducts();
         $cartItem->setMdCartId($cart->getId());
         $cartItem->setEcProductId($product_id);
+        
+        if(sfConfig::get('app_attributes_enable', false)){
+          foreach($attributes_values as $key => $value){
+            $function = 'set' . Tools::wordCamelCase($key, '_');
+            $cartItem->$function($value);
+          }
+        }
 
       } else {
 
@@ -126,7 +147,17 @@ class mdCartController {
     return $cart;
   }
   
-  public function update($product_id, $quantity) {
+  public function update(sfWebRequest $request) {
+    $product_id = $request->getParameter('product_id');
+    $quantity = $request->getParameter('quantity');
+    
+    if(sfConfig::get('app_attributes_enable', false)){
+      $attributes_values = array();
+      foreach(sfConfig::get('app_attributes_primarykeys') as $primary_key){
+        $attributes_values[$primary_key] = $request->getParameter($primary_key);
+      }
+    }
+    
     $cart = $this->init();
 
     // Update the cart ONLY if $this->cookies are available, in order to avoid ghost carts created by bots TODO
@@ -146,13 +177,24 @@ class mdCartController {
         $cart = $this->create();
       }
 
-      $cartItem = Doctrine::getTable('mdCartProducts')->find(array($cart->getId(), $product_id));
+      if(sfConfig::get('app_attributes_enable', false)){
+        $cartItem = Doctrine::getTable('mdCartProducts')->findByPrimaryKey($cart->getId(), $product_id, $attributes_values);
+      }else{
+        $cartItem = Doctrine::getTable('mdCartProducts')->find(array($cart->getId(), $product_id));
+      }
 
       if (!$cartItem) {
         
         $cartItem = new mdCartProducts();
         $cartItem->setMdCartId($cart->getId());
         $cartItem->setEcProductId($product_id);
+        
+        if(sfConfig::get('app_attributes_enable', false)){
+          foreach($attributes_values as $key => $value){
+            $function = 'set' . Tools::wordCamelCase($key, '_');
+            $cartItem->$function($value);
+          }
+        }        
         
       }
 
@@ -171,7 +213,16 @@ class mdCartController {
     return $cart;
   }  
 
-  public function remove($product_id) {
+  public function remove(sfWebRequest $request) {
+    $product_id = $request->getParameter('product_id');
+    
+    if(sfConfig::get('app_attributes_enable', false)){
+      $attributes_values = array();
+      foreach(sfConfig::get('app_attributes_primarykeys') as $primary_key){
+        $attributes_values[$primary_key] = $request->getParameter($primary_key);
+      }
+    }
+    
     $cart = $this->init();
 
     // Update the cart ONLY if $this->cookies are available, in order to avoid ghost carts created by bots
@@ -188,7 +239,11 @@ class mdCartController {
       return NULL;
 
     // Eliminar producto del carrito
-    $cartItem = Doctrine::getTable('mdCartProducts')->find(array($cart->getId(), $product_id));
+    if(sfConfig::get('app_attributes_enable', false)){
+      $cartItem = Doctrine::getTable('mdCartProducts')->findByPrimaryKey($cart->getId(), $product_id, $attributes_values);
+    }else{
+      $cartItem = Doctrine::getTable('mdCartProducts')->find(array($cart->getId(), $product_id));
+    }
 
     if ($cartItem) {
       $cartItem->delete();
@@ -229,13 +284,11 @@ class mdCartController {
     return $cart;
   }
 
-  public function run($method, $parameters) {
-    $request = sfContext::getInstance()->getRequest();
-
+  public function run($method, sfWebRequest $request) {
     if ($request->getParameter('ajax') == 'true') {
       try {
 
-        $cart = call_user_func_array(array(&$this, $method), $parameters);
+        $cart = call_user_func_array(array(&$this, $method), array($request));
 
         sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
         
@@ -254,7 +307,7 @@ class mdCartController {
         
       } catch (Exception $e) {
 
-        return mdBasicFunction::basic_json_response(false, array('message' => $e->getMessage()));
+        return mdBasicFunction::basic_json_response(false, array('message' => $e->getMessage() . ' ' . $e->getTraceAsString()));
       }
     } else {
       // Recargarmos la pagina
