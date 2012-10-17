@@ -211,7 +211,7 @@ var mdCartAjax = {
               mdCartAjax.updateCartInformation(jsonData, addedFromProductPage);
             });
             $('html, body').animate({
-              scrollTop: 95
+              scrollTop: 90
           }, 1000);
           }
           else{
