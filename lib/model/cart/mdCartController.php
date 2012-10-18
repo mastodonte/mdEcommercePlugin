@@ -386,6 +386,16 @@ class mdCartController {
           $mdOrderDetail->setItemQuantity($cartItem->getQuantity());
           $mdOrderDetail->setItemPrice($product->retrievePrice());
           $mdOrderDetail->setItemWeight($product->getWeight());
+          
+          if(sfConfig::get('app_attributes_enable', false)){
+            $pks = sfConfig::get('app_attributes_primarykeys');
+            foreach($pks as $key){
+              $set = 'set' . Tools::wordCamelCase($key, '_');
+              $get = 'get' . Tools::wordCamelCase($key, '_');
+              $mdOrderDetail->$set($cartItem->$get());
+            }
+          }
+          
           $mdOrderDetail->save();
           
           // Save Stats about best sales

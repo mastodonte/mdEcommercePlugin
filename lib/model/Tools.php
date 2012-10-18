@@ -169,7 +169,7 @@ class Tools {
   public static function wordCamelCase($str, $separator){
     $str = str_replace($separator, " ", $str);
     $str = ucwords(strtolower($str));
-    $str = str_replace(" ", '', $str);
+    $str = str_replace(' ', '', $str);
     return $str;
   }
 }
