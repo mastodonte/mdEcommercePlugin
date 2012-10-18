@@ -307,7 +307,7 @@ class mdCartController {
         
       } catch (Exception $e) {
 
-        return mdBasicFunction::basic_json_response(false, array('message' => $e->getMessage()));
+        return mdBasicFunction::basic_json_response(false, array( 'message' => $e->getMessage() ));
       }
     } else {
       // Recargarmos la pagina
