@@ -28,6 +28,10 @@ class PluginecProductTable extends Doctrine_Table {
       ->leftJoin('p.Translation t')
       ->where('t.lang = ?', mdLanguage::getLanguage());
 
+    if (array_key_exists('active', $params)) {
+      $dql->addWhere('p.active = ?', $params['active']);
+    }
+    
     if (array_key_exists('name', $params)) {
       $dql->addWhere('t.name LIKE ?', "%" . $params['name'] . "%");
     }
