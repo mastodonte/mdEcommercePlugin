@@ -22,6 +22,10 @@ all:
   mdCart:
     autodetectaddress: false
 
+  attributes:
+    enable: true
+    primarykeys: [ec_color_id, ec_size_id]
+
   abitab:
     username: Peteco Garcia
     documento: 1.141.425-3

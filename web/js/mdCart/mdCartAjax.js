@@ -17,6 +17,19 @@ var mdCartAjax = {
     m.setAttribute('name', 'ajax'); 
     m.setAttribute('value', 'true'); 
     f.appendChild(m);
+    /*************HARCODED***************/
+    m = document.createElement('input'); 
+    m.setAttribute('type', 'hidden'); 
+    m.setAttribute('name', 'ec_color_id');
+    m.setAttribute('value', $("input[name='ec_color_id']:checked").val());
+    f.appendChild(m);
+
+    m = document.createElement('input'); 
+    m.setAttribute('type', 'hidden'); 
+    m.setAttribute('name', 'ec_size_id'); 
+    m.setAttribute('value', $('#ecommerce-ec_size_id').val()); 
+    f.appendChild(m);
+    /************************************/
     return f;
   },
   

@@ -26,14 +26,54 @@
               <img src="<?php echo $product->retrieveAvatar(array(mdWebOptions::WIDTH => 58, mdWebOptions::HEIGHT => 58, mdWebOptions::CODE => mdWebCodes::RESIZECROP)); ?>" />
             </a>
           </td>
-          <td class="ecommerce-name"><a href="<?php echo url_for('producto-show', $product); ?>"><?php echo $product->getName(); ?></a></td>
+          <td class="ecommerce-name">
+            <a href="<?php echo url_for('producto-show', $product); ?>">
+              <?php echo $product->getName(); ?>
+              <?php if(sfConfig::get('app_attributes_enable', false)): ?>
+                <br />
+                <span class="ecommerce-cart_block_attributes">
+                  <?php $pks = sfConfig::get('app_attributes_primarykeys'); ?>
+                  <?php foreach($pks as $primary_key): ?>
+                    <?php $function = str_replace('Id', '', 'get' . Tools::wordCamelCase($primary_key, '_')); ?>
+                    <?php echo ($primary_key == $pks[count($pks)-1] ? $cartItem->$function() : $cartItem->$function() . ' - '); ?>
+                  <?php endforeach; ?>
+                </span>
+              <?php endif; ?>              
+            </a>
+          </td>
           <td class="ecommerce-price"><span><?php echo $product->retrieveDisplayPrice(); ?></span></td>
           <td class="ecommerce-quantity">
-            <input class="ecommerce-cart_quantity_input" size="3" name="<?php echo url_for('@mdCart-update') . '?product_id=' . $product->getId(); ?>" type="text" value="<?php echo $cartItem->getQuantity(); ?>"/>
+            <?php 
+            if(sfConfig::get('app_attributes_enable', false)){
+              $pks = sfConfig::get('app_attributes_primarykeys');
+              $url = url_for('@mdCart-update') . '?product_id=' . $product->getId() . '&'; 
+              foreach($pks as $primary_key){
+                $function = 'get' . Tools::wordCamelCase($primary_key, '_');
+                $url.= $primary_key . ($primary_key == $pks[count($pks)-1] ? '=' . $cartItem->$function() : '=' . $cartItem->$function() . '&');
+              }
+            }else{
+              $url = url_for('@mdCart-update') . '?product_id=' . $product->getId(); 
+            }
+            ?>
+            <input class="ecommerce-cart_quantity_input" size="3" name="<?php echo $url; ?>" type="text" value="<?php echo $cartItem->getQuantity(); ?>"/>
           </td>
           <td class="ecommerce-total"><span class="ecommerce-cart_product_total"><?php echo $product->getDisplayTotal($cartItem->getQuantity()); ?></span></td>
           <td class="ecommerce-remove">
-            <a class="ecommerce-cart_quantity_delete" href="<?php echo url_for('@mdCart-remove?product_id=' . $product->getId()); ?>">
+          
+            <?php 
+            if(sfConfig::get('app_attributes_enable', false)){
+              $pks = sfConfig::get('app_attributes_primarykeys');
+              $url = url_for('@mdCart-remove?product_id=' . $product->getId()) . '&'; 
+              foreach($pks as $primary_key){
+                $function = 'get' . Tools::wordCamelCase($primary_key, '_');
+                $url.= $primary_key . ($primary_key == $pks[count($pks)-1] ? '=' . $cartItem->$function() : '=' . $cartItem->$function() . '&');
+              }
+            }else{
+              $url = url_for('@mdCart-remove?product_id=' . $product->getId());            
+            }
+            ?>
+            
+            <a class="ecommerce-cart_quantity_delete" href="<?php echo $url; ?>">
               <img src="/mdEcommercePlugin/images/mdCart/delete.gif"/>
             </a>
           </td>

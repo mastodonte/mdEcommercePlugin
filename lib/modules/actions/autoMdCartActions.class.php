@@ -13,28 +13,17 @@ class autoMdCartActions extends sfActions
 
   public function executeAddCart(sfWebRequest $request) 
   {
-    // Obtenemos parametros
-    $product_id = $request->getParameter('product_id');
-    $quantity = $request->getParameter('quantity');
-
-    return $this->renderText(mdCartController::getInstance()->run('add', array($product_id, $quantity)));
+    return $this->renderText(mdCartController::getInstance()->run('add', $request));
   }
   
   public function executeUpdateCart(sfWebRequest $request) 
   {
-    // Obtenemos parametros
-    $product_id = $request->getParameter('product_id');
-    $quantity = $request->getParameter('quantity');
-
-    return $this->renderText(mdCartController::getInstance()->run('update', array($product_id, $quantity)));
+    return $this->renderText(mdCartController::getInstance()->run('update', $request));
   }
   
   public function executeRemoveCart(sfWebRequest $request) 
   {
-    // Obtenemos parametros
-    $product_id = $request->getParameter('product_id');
-    
-    return $this->renderText(mdCartController::getInstance()->run('remove', array($product_id)));
+    return $this->renderText(mdCartController::getInstance()->run('remove', $request));
   }
   
   public function executeClearCart(sfWebRequest $request) 

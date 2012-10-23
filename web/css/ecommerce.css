@@ -623,3 +623,7 @@ ul.error_list li{
   background-color: #000;
   color: #FF0000;
 }
+.ecommerce-cart_block_attributes{
+  font-size: 10px;
+  color: #999;
+}

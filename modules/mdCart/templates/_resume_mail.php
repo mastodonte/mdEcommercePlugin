@@ -48,6 +48,14 @@
                 <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:center; color:#4B4B4; padding:5px 0; border-bottom:3px solid #F7F7F7;">
                   <a href="<?php echo url_for('@producto-show?id=' . $product->getId() . '&slug=' . $product->getSlug(), true); ?>">
                     <?php echo truncate_text($orderItem->getItemName(), 36); ?>
+                      <?php if(sfConfig::get('app_attributes_enable', false)): ?>
+                      <br />
+                      <?php $pks = sfConfig::get('app_attributes_primarykeys'); ?>
+                      <?php foreach($pks as $primary_key): ?>
+                        <?php $function = str_replace('Id', '', 'get' . Tools::wordCamelCase($primary_key, '_')); ?>
+                        <?php echo ($primary_key == $pks[count($pks)-1] ? $orderItem->$function() : $orderItem->$function() . ' - '); ?>
+                      <?php endforeach; ?>
+                    <?php endif; ?>
                   </a>
                 </td>
                 <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:center; color:#4B4B4; padding:5px 0; border-bottom:3px solid #F7F7F7;">
