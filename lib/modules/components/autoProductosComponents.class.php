@@ -13,4 +13,10 @@ class autoProductosComponents extends sfComponents {
   public function executeRecientes($request) {
     $this->productos = Doctrine::getTable('ecProduct')->findRecientes(false, $this->limit);
   }
+
+  public function executeRandom($request) {
+    $this->productos = Doctrine::getTable('ecProduct')->findRandom(false, $this->limit);
+  }
+
+
 }
