@@ -114,4 +114,16 @@ class PluginecProductTable extends Doctrine_Table {
             ->limit($limit);
     return $q->execute();
   }  
+
+  public function findRandom($query = false, $limit = 10) {
+    $q = $this->createQuery('p')
+      ->leftJoin('p.Translation t')
+      ->where('p.active = 1')
+      ->orderBy('RAND()');
+    
+    if($query) return $query;
+    
+    return $q->limit($limit)->execute();
+  }
+
 }
