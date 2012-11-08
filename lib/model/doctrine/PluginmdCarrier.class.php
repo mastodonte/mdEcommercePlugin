@@ -22,7 +22,7 @@ abstract class PluginmdCarrier extends BasemdCarrier
   {
     if(!$this->getIsFree())
     {
-      $mdDelivery = Doctrine::getTable('mdDelivery')->findOneBy('md_carrier_id ', $this->getId());
+      $mdDelivery = Doctrine::getTable('mdDelivery')->findOneByMdCarrierId($this->getId());
       return $mdDelivery->getPrice();
     }
     
