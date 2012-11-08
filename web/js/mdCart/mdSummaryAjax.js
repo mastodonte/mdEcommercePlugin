@@ -113,6 +113,9 @@ var mdSummaryAjax = {
       // Actualizo total del producto
       $(htmlObj).parents('tr').find('.ecommerce-cart_product_total').html(formatCurrency(price, _currencyFormat, _currencySign, _currencyBlank));      
     }
+    if($('#ecommerce-cart_order_shipping_total').length > 0){
+      $('#ecommerce-cart_order_shipping_total').html(object.shippingCost)
+    }
     
     if(typeof callAfterUpdateCart == 'function') {
       callAfterUpdateCart();
