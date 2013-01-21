@@ -15,24 +15,23 @@ abstract class PluginecProductFormFilter extends BaseecProductFormFilter
     unset($this['quantity'], $this['price'], $this['price_offer'], $this['warranty'], $this['viewed'], $this['created_at'], $this['updated_at'],
         $this['width'], $this['height'], $this['depth'], $this['weight']);
 
-    /*$this->widgetSchema['nombre'] = new sfWidgetFormFilterInput(array('with_empty' => false));
-    $this->validatorSchema['nombre'] = new sfValidatorString(array('required' => false));  */  
-    
+    $this->widgetSchema['name'] = new sfWidgetFormFilterInput(array('with_empty' => false));
+    $this->validatorSchema['name'] = new sfValidatorPass(array('required' => false));  
   }
   
-  /*public function addNombreColumnQuery($query, $field, $values) {
-    $value = $values['nombre'];
+  public function addNameColumnQuery($query, $field, $values) {
+    $value = $values['text'];
     $alias = $query->getRootAlias();
     if ($value != '')
-      $query = $query->leftJoin($alias . ".Translation z")->addWhere('z.name like ?', '%' . $value . '%');
+      $query = $query->addWhere('t.name like ?', '%' . $value . '%');
     
     return $query;
   }
   
   public function getFields() {
     $fields = parent::getFields();
-    $fields['nombre'] = 'custom';
+    $fields['name'] = 'Text';
     return $fields;
-  }*/
+  }
 }
 
