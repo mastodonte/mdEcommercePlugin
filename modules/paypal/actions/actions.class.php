@@ -19,20 +19,6 @@ class paypalActions extends sfActions {
 
       if($this->md_order && $this->md_order->isOrderValid())
       {
-        /*$this->md_paypal = Doctrine::getTable('ecAbitab')->getLastRegister($this->md_order->getId());
-        if($this->ec_abitab)
-        {
-          if($this->ec_abitab->getStatus() == 'payed')
-          {
-            $this->getUser()->setFlash('notice', 'The order #' . $this->md_order->getId() . ' is already payed');
-            $this->redirect('@homepage');
-          }
-        }
-        else
-        {
-          // Crear registro en abitab con security_key y status pending
-          $this->ec_abitab = ecAbitab::create($this->md_order->getId());
-        }*/
         $this->md_paypal = mdPaypal::create($this->md_order->getId());
         mdPaypalController::getInstance()->sale($this->md_order, $this->md_paypal);
       }
@@ -42,6 +28,10 @@ class paypalActions extends sfActions {
         $this->redirect('@homepage');
       }
 
+    }catch (sfStopException $e) {
+      
+      throw $e; //rethrowing it, nothing else to do
+      
     }catch(Exception $e){
       $this->getUser()->setFlash('error', $e->getMessage());
       $this->redirect('@homepage');
@@ -67,9 +57,13 @@ class paypalActions extends sfActions {
       $md_order = $md_paypal->getMdOrder();
       
       $md_order->callToReview(sfConfig::get('app_configuration_MD_PAYED'));
+      
+      $md_user = $md_order->getMdUser();
+      
+      mdCartController::sendCustomerMail($md_user->getEmail(), $md_order);
 
       $this->redirect('@mdCart-finish?id=' . $md_paypal->getMdOrderId());
-    } 
+    }
     else 
     {
       $this->getUser()->setFlash('error', 'Paypal Error');

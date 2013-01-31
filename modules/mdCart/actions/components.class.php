@@ -13,6 +13,7 @@ class mdCartComponents extends sfComponents {
     $this->methods = Doctrine::getTable('mdPaymentModule')
       ->createQuery('p')
       ->leftJoin('p.Translation t')
+      ->where('p.active = ?', true)
       ->execute();
   }
 

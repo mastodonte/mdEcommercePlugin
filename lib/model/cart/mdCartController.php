@@ -231,13 +231,13 @@ class mdCartController {
 
   public function run($method, $parameters) {
     $request = sfContext::getInstance()->getRequest();
+    
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('Partial', 'I18N'));
 
     if ($request->getParameter('ajax') == 'true') {
       try {
 
         $cart = call_user_func_array(array(&$this, $method), $parameters);
-
-        sfContext::getInstance()->getConfiguration()->loadHelpers('Partial');
         
         $stats = array('total' => $cart->getDisplayTotal(),
                        'productTotal' => $cart->getDisplaySubTotal(),
@@ -254,7 +254,7 @@ class mdCartController {
         
       } catch (Exception $e) {
 
-        return mdBasicFunction::basic_json_response(false, array('message' => $e->getMessage()));
+        return mdBasicFunction::basic_json_response(false, array('message' => __('mdCart_' . $e->getMessage())));
       }
     } else {
       // Recargarmos la pagina
@@ -369,8 +369,10 @@ class mdCartController {
         sfContext::getInstance()->getResponse()->setCookie(mdCart::COOKIE_CART_NAME, NULL, time() - (15 * 24 * 3600));
         
         // Send an e-mail to customer and admin CADA MODULO SE ENCARGARA DE ENVIAR EL MAIL ??? o lo dejamos aca ???
-        $to = sfContext::getInstance()->getUser()->getEmail();
-        $this->sendCustomerMail($to, $mdOrder);
+        if($module_label != 'paypal' && $module_label != 'visanet'){
+          $to = sfContext::getInstance()->getUser()->getEmail();
+          $this->sendCustomerMail($to, $mdOrder);          
+        }
       }
       else 
       {
