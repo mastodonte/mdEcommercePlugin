@@ -114,5 +114,27 @@ abstract class PluginmdOrder extends BasemdOrder
     $mdOrderHistory->setMdOrderId($this->getId());
     $mdOrderHistory->setMdOrderStateId(sfConfig::get('app_configuration_MD_CANCELED'));
     $mdOrderHistory->save();
+    
+    $orderItems = $this->getMdOrderProducts();
+    
+    foreach ($orderItems as $orderItem) {
+      $product = $orderItem->getEcProduct();
+
+      // Actualizar Stock
+      $productQuantity = (int) $product->getQuantity();
+      $quantityInStock = $productQuantity + (int) (($orderItem->getItemQuantity() < 0) ? $productQuantity : $orderItem->getItemQuantity());
+      $product->setQuantity($quantityInStock);
+      $product->save();
+
+      // Save Stats about best sales
+      $mdProductSale = $product->getMdProductSale();
+      if($mdProductSale)
+      {
+        $mdProductSale->setQuantity( ((int) $mdProductSale->getQuantity() - (int) (($orderItem->getItemQuantity() < 0) ? 0 : $orderItem->getItemQuantity())) );
+        $mdProductSale->setSaleNbr( ((int) $mdProductSale->getSaleNbr() - 1) );
+        $mdProductSale->save();
+      }
+    }
+    
   }  
 }
