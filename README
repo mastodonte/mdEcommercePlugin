@@ -2,6 +2,13 @@ README:
 
 ################################################################################
 
+Dependencias:
+  mastodontePlugin
+  mdMediaDoctrine2Plugin
+  sfDoctrineGuardPlugin
+
+################################################################################
+
 1- Para Agregar Resumen de Carrito en el Frontend se deberan incluir los siguiente js:
   'mdEcommercePlugin/js/mdCart/mdCartTools.js',
   'mdEcommercePlugin/js/mdCart/mdCartAjax.js',
@@ -76,11 +83,6 @@ Para los productos se debe respetar al menos el siguiente esqueleto para el temp
   
    <div id="ecommerce-cart_order_total" class="red-texto"><?php echo $cart->getDisplaySubTotal(); ?></div>
 
-################################################################################
-
-Dependencias:
-  Algun tipo de usuario para hacer sfContext::getInstance()->getUser()->getMdUserId()
-  mastodontePlugin
 
 ################################################################################
 
