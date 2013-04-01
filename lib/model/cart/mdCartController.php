@@ -40,7 +40,7 @@ class mdCartController {
 
         return NULL;
   
-      } elseif(sfContext::getInstance()->getUser()->isAuthenticated() && !is_null($cart->getCustomerId()) && $cart->getCustomerId() != sfContext::getInstance()->getUser()->getMdUserId()) {
+      } elseif(sfContext::getInstance()->getUser()->isAuthenticated() && !is_null($cart->getCustomerId()) && $cart->getCustomerId() != sfContext::getInstance()->getUser()->getGuardUser()->getId()) {
 
         sfContext::getInstance()->getResponse()->setCookie(mdCart::COOKIE_CART_NAME, NULL, time() - (15 * 24 * 3600));
 
@@ -57,13 +57,13 @@ class mdCartController {
       }
       
       if(sfContext::getInstance()->getUser()->isAuthenticated() && is_null($cart->getCustomerId())) {
-        $cart->setCustomerId(sfContext::getInstance()->getUser()->getMdUserId());
+        $cart->setCustomerId(sfContext::getInstance()->getUser()->getGuardUser()->getId());
         $cart->save();
       }
 
       /* Select an address if not set */
       if (sfContext::getInstance()->getUser()->isAuthenticated() && is_null($cart->getAddressDeliveryId()) && sfConfig::get('app_mdCart_autodetectaddress')) {
-        $mdAddress = Doctrine::getTable('mdAddress')->findAddressesDelivery(sfContext::getInstance()->getUser()->getMdUserId(), true);
+        $mdAddress = Doctrine::getTable('mdAddress')->findAddressesDelivery(sfContext::getInstance()->getUser()->getGuardUser()->getId(), true);
         if ($mdAddress) {
           $cart->setAddressDeliveryId($mdAddress->getId());
           $cart->save();

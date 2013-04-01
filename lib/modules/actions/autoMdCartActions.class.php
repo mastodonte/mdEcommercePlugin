@@ -82,7 +82,7 @@ class autoMdCartActions extends sfActions
         
       }else{
         
-        $this->addresses = Doctrine::getTable('mdAddress')->findAddressesDelivery($this->getUser()->getMdUserId());
+        $this->addresses = Doctrine::getTable('mdAddress')->findAddressesDelivery($this->getUser()->getId());
 
         if($this->addresses->count() == 0)
         {

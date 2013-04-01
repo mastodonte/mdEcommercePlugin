@@ -24,6 +24,10 @@
   <div id="sf_admin_footer">
     <?php include_partial('productosBackend/form_footer', array('ec_product' => $ec_product, 'form' => $form, 'configuration' => $configuration)) ?>
   </div>
-</div>
 
-<?php include_partial('productosBackend/extras', array('ec_product' => $ec_product)); ?>
+
+  <div class="sf_extras">
+    <?php include_partial('productosBackend/extras', array('ec_product' => $ec_product)); ?>
+  </div>
+
+</div>

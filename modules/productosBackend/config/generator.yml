@@ -43,7 +43,7 @@ generator:
         display: [=id, =name, display_price]
         table_method: addTranslation
       filter:
-        display: [name , code, active, highlight, in_offer, ec_categories_list]
+        display: [code, active, highlight, in_offer, ec_categories_list]
       form:    ~
       edit:    ~
       new:     ~

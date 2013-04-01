@@ -21,7 +21,7 @@ ecProduct:
   actAs:
     Timestampable: ~
     mdI18nBehavior: ~
-    mdMediaBehavior: ~
+    Mediable: ~
     I18n:
         fields: [name, copete, description]
   columns:
