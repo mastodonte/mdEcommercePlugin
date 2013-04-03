@@ -1,0 +1,31 @@
+mdCurrency:
+  Peso:
+    name: 'Pesos Uruguayos'
+    iso_code: UYU
+    iso_code_num: '858'
+    sign: $
+    blank: '1'
+    format: '1'
+    decimals: '0'
+    conversion_rate: '1.000000'
+    active: true
+  Dolar:
+    name: USD
+    iso_code: USD
+    iso_code_num: '840'
+    sign: U$D
+    blank: '1'
+    format: '2'
+    decimals: '0'
+    conversion_rate: '21.000000'
+    active: true
+  Pound:
+    name: Pound
+    iso_code: GBP
+    iso_code_num: '826'
+    sign: £
+    blank: '0'
+    format: '1'
+    decimals: '1'
+    conversion_rate: '0.825950'
+    active: false
