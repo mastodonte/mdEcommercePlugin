@@ -23,7 +23,7 @@
         <tr>
           <td class="ecommerce-image">
             <a href="<?php echo url_for('producto-show', $product); ?>">
-              <img src="<?php echo $product->retrieveAvatar(array(mdWebOptions::WIDTH => 58, mdWebOptions::HEIGHT => 58, mdWebOptions::CODE => mdWebCodes::RESIZECROP)); ?>" />
+              <img src="<?php echo $product->getAvatar()->getUrl(58, 58, 'resize', true); ?>" />
             </a>
           </td>
           <td class="ecommerce-name"><a href="<?php echo url_for('producto-show', $product); ?>"><?php echo $product->getName(); ?></a></td>

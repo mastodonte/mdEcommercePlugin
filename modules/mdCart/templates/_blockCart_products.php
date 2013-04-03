@@ -9,7 +9,7 @@
         <tr id="ecommerce-cart_block_product_<?php echo $product->getId(); ?>">
           <td class="ecommerce-image">
             <a href="<?php echo url_for('@homepage'); ?>">
-              <img src="<?php echo $product->retrieveAvatar(array(mdWebOptions::WIDTH => 40, mdWebOptions::HEIGHT => 40, mdWebOptions::CODE => mdWebCodes::CROPRESIZE)); ?>"/>
+              <img src="<?php echo $product->getAvatar()->getUrl(40, 40, 'resize', true); ?>"/>
             </a>
           </td>
 
