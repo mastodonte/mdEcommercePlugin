@@ -3,7 +3,7 @@
 
 <?php use_plugin_javascript('mastodontePlugin', 'easySlider1.5.js', 'last'); ?>
 <?php use_javascript('tiny_mce/tiny_mce.js', 'last'); ?>
-<?php include_partial('mdMediaContentAdmin/javascriptInclude'); ?>
+
 
 <?php slot('productos'); ?>
 <?php slot('nav') ?><?php echo __('mdEcommerce_Productos'); ?><?php end_slot(); ?>
