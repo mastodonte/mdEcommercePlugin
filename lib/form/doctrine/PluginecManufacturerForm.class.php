@@ -18,6 +18,7 @@ abstract class PluginecManufacturerForm extends BaseecManufacturerForm {
         'delete_label' => 'eliminar la imagen actual',
         'template' => '<div class="md_auto_image">%file%<br />%input%<br />%delete_label% %delete%</div>',
       ));
+    
     $this->widgetSchema->setHelp('image', 'Importante: Se aconseja que la imagen tenga un alto de 70 pixeles y un ancho no mayor a 200 pixeles.');
 
     $this->validatorSchema['image'] = new sfValidatorFile(array(
