@@ -115,4 +115,8 @@ abstract class PluginmdOrder extends BasemdOrder
     $mdOrderHistory->setMdOrderStateId(sfConfig::get('app_configuration_MD_CANCELED'));
     $mdOrderHistory->save();
   }  
+
+  public function getmdCurrency(){
+    return mdCurrencyTable::getInstance()->find($this->getCurrencyId());
+  }
 }
