@@ -339,6 +339,7 @@ class mdCartController {
     $cart = $this->init();
     if ($cart && !$cart->orderExists()) {
       //$mdAddress = Doctrine::getTable('mdAddress')->find($cart->getAddressDeliveryId());
+      $mdPaymentModule = mdPaymentModuleTable::getInstance()->findOneByLabelAndActive($module_label, true);
 
       // Copying data from cart
       $mdOrder = new mdOrder();
@@ -431,8 +432,8 @@ class mdCartController {
         // Eliminamos carrito
         sfContext::getInstance()->getResponse()->setCookie(mdCart::COOKIE_CART_NAME, NULL, time() - (15 * 24 * 3600));
         
-        // Send an e-mail to customer and admin CADA MODULO SE ENCARGARA DE ENVIAR EL MAIL ??? o lo dejamos aca ???
-        if($module_label != 'paypal'){
+        // Send an e-mail to customer and admin if payment allow it
+        if($mdPaymentModule->getControllerSendMail() == true){
           $to = sfContext::getInstance()->getUser()->getEmail();
           $this->sendCustomerMail($to, $mdOrder);          
         }

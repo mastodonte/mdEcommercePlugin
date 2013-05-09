@@ -491,7 +491,10 @@ mdPaymentModule:
       default: false
     checked:
       type: boolean
-      default: false      
+      default: false
+    controller_send_mail: 
+      type: boolean
+      default: true
 
 mdProductSale:
   actAs:

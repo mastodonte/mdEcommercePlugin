@@ -2,15 +2,15 @@ mdPaymentModule:
   
   abitab:
     label: abitab
-    active: 1
-    checked: 1
+    active: 0
+    checked: 0
     Translation:
       es:
         name: "Abitab"
 
   redpagos:
     label: redpagos
-    active: 1
+    active: 0
     checked: 0
     Translation:
       es:
@@ -18,7 +18,7 @@ mdPaymentModule:
         
   cashondelivery:
     label: cashondelivery
-    active: 1
+    active: 0
     checked: 0
     Translation:
       es:
@@ -26,16 +26,25 @@ mdPaymentModule:
         
   brou:
     label: brou
-    active: 1
+    active: 0
     checked: 0
     Translation:
       es:
         name: "Brou"        
 
-  cashondelivery:
+  cashinstore:
     label: cashinstore
-    active: 1
+    active: 0
     checked: 0
     Translation:
       es:
         name: "Retiro en el Local"
+
+  paypal:
+    label: paypal
+    active: 0
+    checked: 0
+    controller_send_mail: 0
+    Translation:
+      es:
+        name: "PayPal"
