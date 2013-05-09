@@ -88,14 +88,14 @@ Para los productos se debe respetar al menos el siguiente esqueleto para el temp
 
 MODULOS DE PAGO
 
-ABITAB
+Observaciones:
+controller_send_mail: Si true (defecto) antes de deribar al modulo del metodo de pago manda el mail del resumen. Sino queda a responsabilidad del modulo dicho envio.
 
-  CONFIGURACION
+En Fixture desactivados:
 
-REDPAGOS
-
-  CONFIGURACION
-
-BROU
-  CONFIGURACION
-
+abitab
+redpagos
+brou (Banco Republica Oriental del Uruguay )
+cashondelivery (Pago contra entrega)
+cashinstore (Retiro y pago en local)
+paypal
