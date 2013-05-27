@@ -7,7 +7,7 @@ class mdCartAddressComponents extends sfComponents {
     $this->cart = mdCartController::getInstance()->init();
     
     // Obtenemos todas las direcciones del usuario que esta logueado
-    $this->addresses = Doctrine::getTable('mdAddress')->findAddressesDelivery($this->getUser()->getMdUserId());
+    $this->addresses = Doctrine::getTable('mdAddress')->findAddressesDelivery($this->getUser()->getGuardUser()->getId());
   }
   
   public function executeAddress_form($request) 
