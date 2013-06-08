@@ -57,7 +57,7 @@ class paypalActions extends sfActions {
       
       $md_order->callToReview(sfConfig::get('app_configuration_MD_PAYED'));
 
-      mdCartController::sendCustomerMail($this->getUser()->getEmail(), $md_order);
+      mdCartController::sendCustomerMail($md_order);
       
       $this->redirect('@mdCart-finish?id=' . $md_paypal->getMdOrderId());
     } 
