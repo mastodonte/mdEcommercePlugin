@@ -38,11 +38,10 @@
             </tr>
             <?php foreach ($orderItems as $orderItem): ?>
               <?php $product = $orderItem->getEcProduct(); ?>
-              <?php $instance = mdMediaManager::getInstance(mdMediaManager::MIXED, $product)->load(); ?>
               <tr>
                 <td style="padding:5px 0; text-align:center; border-bottom:3px solid #F7F7F7;">
                   <a href="<?php echo url_for('@producto-show?id=' . $product->getId() . '&slug=' . $product->getSlug(), true); ?>">
-                    <?php echo image_tag($instance->getAvatarUrl(NULL, array(mdWebOptions::WIDTH => '58', mdWebOptions::HEIGHT => '58', mdWebOptions::CODE => mdWebCodes::CROPRESIZE)), array('absolute' => true, 'size' => '58x58')); ?>
+                    <?php echo image_tag($product->getAvatar()->getUrl(80, 60, 'resize', true), array('absolute' => true, 'size' => '58x58')); ?>
                   </a>
                 </td>
                 <td style="font-family:'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-size:12px; text-align:center; color:#4B4B4; padding:5px 0; border-bottom:3px solid #F7F7F7;">
