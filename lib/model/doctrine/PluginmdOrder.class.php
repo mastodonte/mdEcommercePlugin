@@ -12,6 +12,7 @@
  */
 abstract class PluginmdOrder extends BasemdOrder
 {
+  protected $customer = null;
   // Se agrega este metodo porque no se declaro como clave foranea
   public function getMdOrderProducts()
   {
@@ -78,7 +79,7 @@ abstract class PluginmdOrder extends BasemdOrder
 
     if(sfContext::getInstance()->getUser()->isAuthenticated())
     {
-      return ($this->getCustomerId() == sfContext::getInstance()->getUser()->getMdUserId());
+      return ($this->getCustomerId() == sfContext::getInstance()->getUser()->getGuardUser()->getId());
     }
     else
     {
@@ -119,4 +120,66 @@ abstract class PluginmdOrder extends BasemdOrder
   public function getmdCurrency(){
     return mdCurrencyTable::getInstance()->find($this->getCurrencyId());
   }
+
+  public function getCustomer(){
+    if($this->customer == null)
+      $this->customer = sfGuarduserTable::getInstance()->find($this->getCustomerId());
+
+    return $this->customer;
+  }
+
+
+  /**
+   * Envia un mail al usuario con los datos del metodo de pago
+   * 
+   */
+  public function sendCustomerMail()
+  {
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N', 'Partial'));
+    
+    $from_email = sfConfig::get('app_configuration_MD_SALE_FROM');
+    $from_name = sfConfig::get('app_configuration_MD_SALE_NAME');
+
+    $to_email = $this->getCustomer()->getEmail();
+
+    $partial = get_partial('mdCart/resume_mail', array('mdOrder' => $this));
+
+    $options = array();
+    $options['sender']    = array('name' => $from_name, 'email' => $from_email);
+    $options['body']      = $partial;
+    $options['subject']   = __("mdEcommerce_subject resume");
+    $options['recipients'] = $to_email;
+
+    // MAIL AL CLIENTE
+    return mdMailHandler::sendMail($options);
+
+  }
+
+
+  /**
+   * Envia un mail al admin de la compra
+   * 
+   */
+  public function sendAdminMail()
+  {
+    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N', 'Partial'));
+
+    $from_email = $this->getCustomer()->getEmail();
+    $from_name = $this->getCustomer()->getName();
+    
+    $to_email = sfConfig::get('app_configuration_MD_SALE_FROM');
+
+
+    $partial = get_partial('mdCart/resume_mail_admin', array('mdOrder' => $this));
+
+    $options = array();
+    $options['sender']    = array('name' => $from_name, 'email' => $from_email);
+    $options['body']      = $partial;
+    $options['subject']   = __("mdEcommerce_subject resume");
+    $options['recipients'] = $to_email;    
+
+    // MAIL AL ADMIN
+    return mdMailHandler::sendMail($options);
+  }
+
 }
