@@ -10,6 +10,7 @@ class mdCartPaymentComponents extends sfComponents {
       ->createQuery('p')
       ->leftJoin('p.Translation t')
       ->where('p.active = 1')
+      ->orderBy('p.position')
       ->execute();
   }
 

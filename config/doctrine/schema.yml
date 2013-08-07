@@ -495,6 +495,9 @@ mdPaymentModule:
     controller_send_mail: 
       type: boolean
       default: true
+    position:
+      type: integer(2)
+      notnull: false
 
 mdProductSale:
   actAs:
