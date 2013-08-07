@@ -355,7 +355,7 @@ mdOrder:
     mdOrderState:
       local: md_order_state_id
       foreign: id
-    mdUser:
+    mdCliente:
       local: customer_id
       foreign: id
 
