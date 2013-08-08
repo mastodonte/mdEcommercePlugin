@@ -7,7 +7,7 @@
     <tbody>
       <?php foreach($md_order_histories as $md_order_history): ?>
       <tr>
-        <td><?php echo format_date($md_order_history->getCreatedAt(), 'dd/mm/yyyy HH:mm:ss'); ?></td>
+        <td><?php echo format_date($md_order_history->getCreatedAt(), 'dd/MM/yyyy HH:mm:ss'); ?></td>
         <!-- <td><img src="../img/os/3.gif"></td>-->
         <td><?php echo $md_order_history->getMdOrderState()->getName(); ?></td>
       </tr>
