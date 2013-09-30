@@ -1,0 +1,1 @@
+ALTER TABLE  `md_payment_module` ADD  `controller_send_mail` TINYINT( 1 ) DEFAULT  '1' AFTER  `checked`;
