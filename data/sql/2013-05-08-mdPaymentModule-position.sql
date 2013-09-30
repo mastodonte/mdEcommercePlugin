@@ -1,0 +1,1 @@
+ALTER TABLE  md_payment_module ADD  position SMALLINT NULL;
