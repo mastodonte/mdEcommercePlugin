@@ -8,6 +8,7 @@ class Tools {
   
   public static function md_round($value, $precision = 0) {
     $method = self::MD_ROUND_UP; // TODO: hacerlo configurable
+    $method = false;
     if ($method == self::MD_ROUND_UP)
       return self::ceilf($value, $precision);
     elseif ($method == self::MD_ROUND_DOWN)

@@ -42,7 +42,8 @@ generator:
         #display: [=id, =name, display_price, quantity, _active, _out_of_stock, _in_offer]
         display: [=id, =name, display_price]
         table_method: addTranslation
-      filter:  ~
+      filter:
+        display: [code, active, highlight, in_offer, ec_categories_list]
       form:    ~
       edit:    ~
       new:     ~

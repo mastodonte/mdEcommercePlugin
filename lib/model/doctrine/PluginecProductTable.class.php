@@ -35,6 +35,10 @@ class PluginecProductTable extends Doctrine_Table {
     if (array_key_exists('name', $params)) {
       $dql->addWhere('t.name LIKE ?', "%" . $params['name'] . "%");
     }
+
+    if (array_key_exists('code', $params)) {
+      $dql->orWhere('p.code LIKE ?', "%" . $params['code'] . "%");
+    }
     
     if (array_key_exists('categorias_ids', $params)) {
       $dql = $dql->leftJoin('p.ecProductToCategory c')

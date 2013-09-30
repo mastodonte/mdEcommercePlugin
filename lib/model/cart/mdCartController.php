@@ -40,7 +40,7 @@ class mdCartController {
 
         return NULL;
   
-      } elseif(sfContext::getInstance()->getUser()->isAuthenticated() && !is_null($cart->getCustomerId()) && $cart->getCustomerId() != sfContext::getInstance()->getUser()->getMdUserId()) {
+      } elseif(sfContext::getInstance()->getUser()->isAuthenticated() && !is_null($cart->getCustomerId()) && $cart->getCustomerId() != sfContext::getInstance()->getUser()->getGuardUser()->getId()) {
 
         sfContext::getInstance()->getResponse()->setCookie(mdCart::COOKIE_CART_NAME, NULL, time() - (15 * 24 * 3600));
 
@@ -55,15 +55,14 @@ class mdCartController {
         $cart->save();
 
       }
-      
       if(sfContext::getInstance()->getUser()->isAuthenticated() && is_null($cart->getCustomerId())) {
-        $cart->setCustomerId(sfContext::getInstance()->getUser()->getMdUserId());
+        $cart->setCustomerId(sfContext::getInstance()->getUser()->getGuardUser()->getId());
         $cart->save();
       }
 
       /* Select an address if not set */
       if (sfContext::getInstance()->getUser()->isAuthenticated() && is_null($cart->getAddressDeliveryId()) && sfConfig::get('app_mdCart_autodetectaddress')) {
-        $mdAddress = Doctrine::getTable('mdAddress')->findAddressesDelivery(sfContext::getInstance()->getUser()->getMdUserId(), true);
+        $mdAddress = Doctrine::getTable('mdAddress')->findAddressesDelivery(sfContext::getInstance()->getUser()->getGuardUser()->getId(), true);
         if ($mdAddress) {
           $cart->setAddressDeliveryId($mdAddress->getId());
           $cart->save();
@@ -337,6 +336,7 @@ class mdCartController {
    */
   public function validate($module_label, $order_status_id) {
     $cart = $this->init();
+
     if ($cart && !$cart->orderExists()) {
       //$mdAddress = Doctrine::getTable('mdAddress')->find($cart->getAddressDeliveryId());
       $mdPaymentModule = mdPaymentModuleTable::getInstance()->findOneByLabelAndActive($module_label, true);
@@ -434,8 +434,7 @@ class mdCartController {
         
         // Send an e-mail to customer and admin if payment allow it
         if($mdPaymentModule->getControllerSendMail() == true){
-          $to = sfContext::getInstance()->getUser()->getEmail();
-          $this->sendCustomerMail($to, $mdOrder);          
+          $this->sendCustomerMail($mdOrder);          
         }
       }
       else 
@@ -464,29 +463,11 @@ class mdCartController {
    * @param type $to
    * @param type $cart 
    */
-  public static function sendCustomerMail($to, $order)
+  public static function sendCustomerMail($order)
   {
-    sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N', 'Partial'));
-    
-    $from = sfConfig::get('app_configuration_MD_SALE_FROM');
-
-    $partial = get_partial('mdCart/resume_mail', array('mdOrder' => $order));
-
-    $options = array();
-    $options['sender']    = array('name' => __('mdEcommerce_From'), 'email' => $from);
-    $options['body']      = $partial;
-    $options['subject']   = __("mdEcommerce_subject resume");
-    $options['recipients'] = $to;
-
-    // MAIL AL CLIENTE
-    mdMailHandler::sendMail($options);
-
-    $options['sender']    = array('name' => __('mdEcommerce_From'), 'email' => $from);
-    $options['body']      = $partial;
-    $options['subject']   = __("mdEcommerce_subject resume");
-    $options['recipients'] = $from;    
-    
-    // MAIL AL ADMIN
-    mdMailHandler::sendMail($options);    
+    return (
+      $order->sendCustomerMail() &&
+      $order->sendAdminMail()
+      );
   }
 }

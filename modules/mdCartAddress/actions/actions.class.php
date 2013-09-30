@@ -65,7 +65,7 @@ class mdCartAddressActions extends sfActions
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $parameters = $request->getParameter($form->getName());
-    $parameters['customer_id'] = $this->getUser()->getMdUserId();
+    $parameters['customer_id'] = $this->getUser()->getGuardUser()->getId();
     //var_dump($parameters);die();
     //TODO no ajax
     sfContext::getInstance()->getConfiguration()->loadHelpers(array('I18N'));

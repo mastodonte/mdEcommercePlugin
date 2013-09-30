@@ -21,7 +21,7 @@ ecProduct:
   actAs:
     Timestampable: ~
     mdI18nBehavior: ~
-    mdMediaBehavior: ~
+    Mediable: ~
     I18n:
         fields: [name, copete, description]
   columns:
@@ -159,7 +159,7 @@ mdAddress:
       primary: true
       autoincrement: true
     customer_id:
-      type: integer(4)
+      type: integer(20)
       notnull: true
     alias:
       type: string(32)
@@ -192,6 +192,13 @@ mdAddress:
     active: 
       type: boolean
       notnull: true
+  relations:
+    sfGuardUser:
+      local: customer_id
+      foreign: id
+      type: one
+      foreignType: many
+      foreignAlias: mdAddresses
 ###############
 
 ### CARRITO ###
