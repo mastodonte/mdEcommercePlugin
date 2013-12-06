@@ -2,7 +2,7 @@
 <?php include_partial('productosBackend/assets') ?>
 
 <?php use_plugin_javascript('mastodontePlugin', 'easySlider1.5.js', 'last'); ?>
-<?php use_javascript('tiny_mce/tiny_mce.js', 'last'); ?>
+<?php use_javascript('/mastodontePlugin/js/tiny_mce/tiny_mce.js', 'last'); ?>
 
 
 <?php slot('productos'); ?>

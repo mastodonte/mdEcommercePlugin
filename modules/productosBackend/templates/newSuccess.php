@@ -1,7 +1,7 @@
 <?php use_helper('I18N', 'Date') ?>
 <?php include_partial('productosBackend/assets') ?>
 
-<?php use_javascript('tiny_mce/tiny_mce.js', 'last'); ?>
+<?php use_javascript('mastodontePlugin/js/tiny_mce/tiny_mce.js', 'last'); ?>
 
 <?php slot('productos'); ?>
 <?php slot('nav') ?><?php echo __('mdEcommerce_Productos'); ?><?php end_slot(); ?>
