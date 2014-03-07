@@ -149,6 +149,13 @@
     return this;
   };
 
+  $.fn.setNext = function(destination) {
+    if ($(this) != destination) {
+      // indent($(this), getPaddingLeft(destination));
+      move(destination, $(this));
+    };
+  }
+
   // Add reverse() function from JS Arrays
   $.fn.reverse = function() {
     return this.pushStack(this.get().reverse(), arguments);

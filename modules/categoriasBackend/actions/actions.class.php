@@ -66,12 +66,12 @@ class categoriasBackendActions extends autoCategoriasBackendActions
           
           if (!$parent->getNode()->isDescendantOfOrEqualTo($node))
           {
-            $node->getNode()->moveAsFirstChildOf($parent);
+            $node->getNode()->setLeftValue($parentId);
             $node->save();
 
             $count++;
 
-            $flash .= "<br/>Moved '".$node['name']."' under '".$parent['name']."'.";
+            $flash .= "<br/>Moved '".$node['name']."' next to '".$parent['name']."'.";
           }
         }
       }
