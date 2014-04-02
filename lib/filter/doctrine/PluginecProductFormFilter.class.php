@@ -16,7 +16,10 @@ abstract class PluginecProductFormFilter extends BaseecProductFormFilter
         $this['width'], $this['height'], $this['depth'], $this['weight']);
 
     $this->widgetSchema['name'] = new sfWidgetFormFilterInput(array('with_empty' => false));
+    $this->widgetSchema['created_at'] = new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormInputDateTime(), 'to_date' => new sfWidgetFormInputDateTime(), 'with_empty' => false));
+    $this->widgetSchema['updated_at'] = new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormInputDateTime(), 'to_date' => new sfWidgetFormInputDateTime(), 'with_empty' => false));
     $this->validatorSchema['name'] = new sfValidatorPass(array('required' => false));  
+    
   }
   
   public function addNameColumnQuery($query, $field, $values) {

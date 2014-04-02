@@ -2,7 +2,7 @@
 <?php include_partial('productosBackend/assets') ?>
 
 <?php use_plugin_javascript('mastodontePlugin', 'easySlider1.5.js', 'last'); ?>
-<?php use_javascript('tiny_mce/tiny_mce.js', 'last'); ?>
+<?php //use_javascript('tiny_mce/tiny_mce.js', 'last'); ?>
 
 
 <?php slot('productos'); ?>
@@ -24,7 +24,6 @@
   <div id="sf_admin_footer">
     <?php include_partial('productosBackend/form_footer', array('ec_product' => $ec_product, 'form' => $form, 'configuration' => $configuration)) ?>
   </div>
-
 
   <div class="sf_extras">
     <?php include_partial('productosBackend/extras', array('ec_product' => $ec_product)); ?>
