@@ -222,7 +222,7 @@
       </trans-unit>
       <trans-unit>
         <source>mdEcommerce_List</source>
-        <target>Listado</target>
+        <target>Productos</target>
       </trans-unit>
       <trans-unit>
         <source>mdEcommerce_New</source>
@@ -324,7 +324,15 @@
       <trans-unit>
         <source>mdEcommerce_subject resume</source>
         <target>Venta Online</target>
-      </trans-unit>      
+      </trans-unit>
+      <trans-unit>
+        <source>Categorias_List</source>
+        <target>Categorias</target>
+      </trans-unit> 
+      <trans-unit>
+        <source>Categorias_New</source>
+        <target>Nueva Categoria</target>
+      </trans-unit>     
     </body>
   </file>
 </xliff>
