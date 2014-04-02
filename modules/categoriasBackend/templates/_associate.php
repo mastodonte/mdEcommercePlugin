@@ -3,7 +3,8 @@
 <?php use_javascript('../mdEcommercePlugin/js/categoriasBackend/associate/jquery.treeview.async.js', 'last'); ?>
 <?php use_stylesheet('../mdEcommercePlugin/css/categoriasBackend/associate/jquery.treeview.css', 'last'); ?>
 
-<h1>Categorias</h1>
+<fieldset>
+<legend>Categorías</legend>
 
 <!--<div id="treecontrol">
   <a title="Collapse the entire tree below" href="#"><img src="/images/categorias/associate/minus.gif" /> Collapse All</a>
@@ -19,9 +20,11 @@
   
   <ul id="black"></ul>
   
-  <input type="submit" value="Agregar" />
+  <input class="btn btn-success" type="submit" value="Agregar" />
   
 </form>  
+
+</fieldset>
 
 <script type="text/javascript">
   /*$(document).ready(function(){

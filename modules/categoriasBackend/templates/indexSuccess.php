@@ -16,7 +16,6 @@
     <?php include_partial('categoriasBackend/list_header', array('pager' => $pager)) ?>
   </div>
 
-
   <div id="sf_admin_content">
     <form action="<?php echo url_for('ec_category_collection', array('action' => 'batch')) ?>" method="post">
     <?php include_partial('categoriasBackend/list', array('pager' => $pager, 'sort' => $sort, 'helper' => $helper)) ?>

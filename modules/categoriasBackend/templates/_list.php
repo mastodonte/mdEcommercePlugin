@@ -2,7 +2,7 @@
   <?php if (!$pager->getNbResults()): ?>
     <p><?php echo __('No result', array(), 'sf_admin') ?></p>
   <?php else: ?>
-    <table id="main_list" cellspacing="0" style="display: none">
+    <table class="table table-hover" id="main_list" cellspacing="0" style="display: none">
       <thead>
         <tr>
           <th id="sf_admin_list_batch_actions"><input id="sf_admin_list_batch_checkbox" type="checkbox" onclick="checkAll();" /></th>
