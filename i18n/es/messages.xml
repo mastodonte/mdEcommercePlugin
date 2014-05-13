@@ -324,7 +324,19 @@
       <trans-unit>
         <source>mdEcommerce_subject resume</source>
         <target>Venta Online</target>
-      </trans-unit>      
+      </trans-unit> 
+      <trans-unit>
+        <source>Categorias_List</source>
+        <target>Categorias</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Categorias_New</source>
+        <target>Nueva Categoria</target>
+      </trans-unit> 
+      <trans-unit>
+        <source>Categorias_Edit</source>
+        <target>Editar Categoria</target>
+      </trans-unit> 
     </body>
   </file>
 </xliff>
