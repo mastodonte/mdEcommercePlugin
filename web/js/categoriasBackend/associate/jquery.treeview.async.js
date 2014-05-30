@@ -57,6 +57,8 @@ function load(settings, root, child, container) {
 	                parent.prop('checked', true);
 	                parent = parent.closest('ul').parent().find('input').first();
 	              }
+	            }else{
+	              $(this).closest('ul').find('input').prop('checked', false);
 	            } 
 	          })
 	    }
