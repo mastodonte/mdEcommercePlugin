@@ -49,6 +49,16 @@ function load(settings, root, child, container) {
 			child.empty();
 			$.each(response, createNode, [child]);
 	        $(container).treeview({add: child});
+	        $('#ec_categorias_form input').click(function(){
+	            if ($(this).prop('checked')) {
+	              var actual = $(this);
+	              var parent = actual.closest('ul').parent().find('input').first();
+	              while (parent.prop('tagName') == 'INPUT') {
+	                parent.prop('checked', true);
+	                parent = parent.closest('ul').parent().find('input').first();
+	              }
+	            } 
+	          })
 	    }
 	}, settings.ajax));
 	/*
