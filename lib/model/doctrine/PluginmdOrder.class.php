@@ -25,6 +25,20 @@ abstract class PluginmdOrder extends BasemdOrder
     return Doctrine::getTable('mdCart')->find($this->getMdCartId());
   }
   
+
+  public function changeState($new_state){
+    
+      $this->setMdOrderStateId($new_state);
+      $this->save();
+
+      $mdOrderHistory = new mdOrderHistory();
+      $mdOrderHistory->setMdOrderId($this->getId());
+      $mdOrderHistory->setMdOrderStateId($new_state);
+      $mdOrderHistory->save();
+
+      return $this;
+  }
+
   public function getQuantity(){
     $orderItems = $this->getMdOrderProducts();
     
@@ -53,7 +67,7 @@ abstract class PluginmdOrder extends BasemdOrder
   
   public function getTotal(){
     // costo productos + costo envio
-    $total = $this->getSubTotal() + $this->getTotalShipping();  
+    $total = $this->getSubTotal() + $this->getTotalShipping() - $this->getTotalDiscounts();  
     
     return $total;
   }  
