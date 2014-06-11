@@ -10,7 +10,7 @@
     <a href="<?php echo url_for('@md_order'); ?>">
       <img src="/sfDoctrinePlugin/images/previous.png" title="Página anterior" alt="Página anterior">
     </a>
-    <?php echo $md_order->getMdUser()->getMdUserProfile()->getFullName(); ?> - Orden #<?php echo $md_order->getId(); ?>
+    <?php echo $md_order->getCustomer()->getFullName(); ?> - Orden #<?php echo $md_order->getId(); ?>
   </h2>
 
   <?php include_partial('pedidosBackend/flashes') ?>  
