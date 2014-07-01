@@ -17,7 +17,7 @@ class PluginmdOrderTable extends Doctrine_Table {
   }
   
   public function addOrderRelationsColumn(Doctrine_Query $q) {
-    $q->leftJoin($q->getRootAlias() . '.mdUser u')
+    $q->leftJoin($q->getRootAlias() . '.mdCustomer u')
       ->leftJoin($q->getRootAlias() . '.mdOrderState s')
       ->leftJoin('s.Translation t')
       ->orderBy($q->getRootAlias() . '.id DESC');

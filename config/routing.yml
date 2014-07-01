@@ -159,3 +159,4 @@ ec-producto-show:
   options: { model: ecProduct, type: object }
   requirements:
     sf_method: [get]
+    id: \d+

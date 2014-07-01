@@ -1,8 +1,8 @@
 <?php use_helper('Date') ?>
 
 <?php
-$mdUser = $md_order->getMdUser();
-$mdUserProfile = $mdUser->getMdUserProfile();
+$mdUser = $md_order->getCustomer();
+$mdUserProfile = $mdUser->getCustomerProfile();
 ?>
 <fieldset style="width: 400px">
   <legend><img src="../img/admin/tab-customers.gif"> Información del cliente</legend>
