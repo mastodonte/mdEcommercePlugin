@@ -23,8 +23,8 @@ all:
     autodetectaddress: false
 
   attributes:
-    enable: true
-    primarykeys: [ec_color_id, ec_size_id]
+    enable: false
+    # primarykeys: [ec_color_id, ec_size_id]
 
   abitab:
     username: Peteco Garcia
