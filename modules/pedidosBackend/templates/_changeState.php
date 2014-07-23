@@ -17,7 +17,7 @@
   
   <br />
 
-  <form style="text-align:center;" method="post" action="/admin.php/pedidosBackend/changeOrderState">
+  <form style="text-align:center;" method="post" action="<?php echo url_for('pedidosBackend/changeOrderState') ?>">
     <select name="md_order_state_id">
       <?php foreach($md_states as $md_state): ?>
         <option value="<?php echo $md_state->getId(); ?>" <?php echo ($md_state->getId() == $md_order->getMdOrderStateId() ? 'selected=selected' : ''); ?>>

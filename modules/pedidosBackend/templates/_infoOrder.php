@@ -1,5 +1,5 @@
 <fieldset style="width: 400px">
-  <legend><img src="/img/admin/details.gif"> Detalles del pedido</legend>
+  <legend> Detalles del pedido</legend>
   
   <div style="margin: 2px 0 1em 50px;">
     <table width="300px;" cellspacing="0" cellpadding="0" class="table">
