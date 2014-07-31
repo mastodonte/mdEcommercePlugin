@@ -110,11 +110,10 @@ var mdCartAddress = {
   addAddress: function(data){
     var obj = {};
     obj.ecommerce_alias = data.alias;
-    obj.ecommerce_firsname_lastname = data.firstname + " " + data.lastname;
-    obj.ecommerce_firsname_address = data.address;
-    obj.ecommerce_postcode_city = data.postcode + " " + data.city;
-    obj.ecommerce_country_name = data.country_code;
-    obj.ecommerce_phone = data.phone;
+    obj.ecommerce_firsname_address = '<b>Direccion: </b>' + data.address;
+    obj.ecommerce_postcode_city = '<b>Ciudad: </b>' + data.postcode + " " + data.city;
+    obj.ecommerce_country_name = '<b>Pais: </b>' + data.country_code;
+    obj.ecommerce_phone = '<b>Telefono: </b>' + data.phone;
     formatedAddressFieldsValuesList[data.id] = obj;
     mdCartAddress.updateAddressSelector();
     mdCartAddress.updateAddressDisplay();
