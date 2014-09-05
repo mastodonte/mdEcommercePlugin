@@ -313,7 +313,7 @@ mdOrder:
       type: integer(4)      
       notnull: true
     customer_id:
-      type: integer(4)
+      type: integer(10)
       notnull: true
     address_delivery_id:
       type: integer(4)
@@ -355,7 +355,8 @@ mdOrder:
     mdOrderState:
       local: md_order_state_id
       foreign: id
-    mdUser:
+    mdCustomer:
+      class: sfGuardUser
       local: customer_id
       foreign: id
 
@@ -381,11 +382,21 @@ mdOrderDetail:
       type: integer(4)
       notnull: true
     item_price:
-      type: decimal(20,6)
-      default: 0.000000
+      type: decimal(20,2)
+      default: 0.00
       notnull: true
-    item_weight:
-      type: float
+    item_tax_percent:
+      type: enum
+      values: [ 0, 10, 22 ]
+      default: 22
+    item_tax:
+      type: decimal(20,2)
+      default: 0.00
+      notnull: true
+    item_total:
+      type: decimal(20,2)
+      default: 0.00
+      notnull: true
 
 mdCurrency:
   columns:

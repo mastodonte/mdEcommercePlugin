@@ -4,7 +4,7 @@ all:
     
     MD_CURRENCY_DEFAULT: 1
 
-    MD_SALE_FROM: chugas488@gmail.com
+    MD_SALE_FROM: info@sunsetlabs.net
       
     #####
     # Status de las ordenes, hay que tener sincronizado esto con los ids de la tabla mdOrderStatus
